@@ -20,6 +20,9 @@
 		4F48FCAD2193D28B00EF4972 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCAC2193D28B00EF4972 /* ExtensionDelegate.swift */; };
 		4F48FCAF2193D28B00EF4972 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCAE2193D28B00EF4972 /* NotificationController.swift */; };
 		4F48FCB12193D28B00EF4972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCB02193D28B00EF4972 /* Assets.xcassets */; };
+		4F48FCC22193D42900EF4972 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCC12193D42900EF4972 /* FaceScene.sks */; };
+		4F48FCC42193D75800EF4972 /* FaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC32193D75800EF4972 /* FaceScene.swift */; };
+		4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -83,6 +86,11 @@
 		4F48FCB02193D28B00EF4972 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4F48FCB22193D28B00EF4972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F48FCB32193D28B00EF4972 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
+		4F48FCC12193D42900EF4972 /* FaceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FaceScene.sks; sourceTree = "<group>"; };
+		4F48FCC32193D75800EF4972 /* FaceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceScene.swift; sourceTree = "<group>"; };
+		4F48FCC52193EB1B00EF4972 /* watchClock WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "watchClock WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
+		4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUiApplication.m; sourceTree = "<group>"; };
+		4F48FCC82193EC6300EF4972 /* MyUIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUIApplication.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,10 +159,15 @@
 			children = (
 				4F48FCAA2193D28B00EF4972 /* InterfaceController.swift */,
 				4F48FCAC2193D28B00EF4972 /* ExtensionDelegate.swift */,
+				4F48FCC12193D42900EF4972 /* FaceScene.sks */,
 				4F48FCAE2193D28B00EF4972 /* NotificationController.swift */,
 				4F48FCB02193D28B00EF4972 /* Assets.xcassets */,
 				4F48FCB22193D28B00EF4972 /* Info.plist */,
 				4F48FCB32193D28B00EF4972 /* PushNotificationPayload.apns */,
+				4F48FCC32193D75800EF4972 /* FaceScene.swift */,
+				4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */,
+				4F48FCC82193EC6300EF4972 /* MyUIApplication.h */,
+				4F48FCC52193EB1B00EF4972 /* watchClock WatchKit Extension-Bridging-Header.h */,
 			);
 			path = "watchClock WatchKit Extension";
 			sourceTree = "<group>";
@@ -233,6 +246,7 @@
 					};
 					4F48FCA42193D28B00EF4972 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -281,6 +295,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4F48FCB12193D28B00EF4972 /* Assets.xcassets in Resources */,
+				4F48FCC22193D42900EF4972 /* FaceScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,9 +315,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */,
 				4F48FCAF2193D28B00EF4972 /* NotificationController.swift in Sources */,
 				4F48FCAD2193D28B00EF4972 /* ExtensionDelegate.swift in Sources */,
 				4F48FCAB2193D28B00EF4972 /* InterfaceController.swift in Sources */,
+				4F48FCC42193D75800EF4972 /* FaceScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -469,6 +486,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				INFOPLIST_FILE = "watchClock WatchKit Extension/Info.plist";
@@ -481,6 +499,8 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "watchClock WatchKit Extension/watchClock WatchKit Extension-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.1;
@@ -491,6 +511,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				INFOPLIST_FILE = "watchClock WatchKit Extension/Info.plist";
@@ -503,6 +524,7 @@
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "watchClock WatchKit Extension/watchClock WatchKit Extension-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 5.1;
