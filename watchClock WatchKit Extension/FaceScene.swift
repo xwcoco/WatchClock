@@ -10,16 +10,45 @@ import Foundation
 import SpriteKit
 
 enum Theme: Int {
-    case ThemeHermesOriginal,ThemeMAX
+    case ThemeHermesOriginal,
+    ThemeHermesOriginalOrange,
+    ThemeHermesClassic,
+    ThemeHermesClassicOrange,
+    ThemeHermesStandard,
+    ThemeHermesStandardOrange,
+    ThemeHermesRoma,
+    ThemeHermesRomaOrange,
+    ThemeNikeRed,
+    ThemeNikeGreen,
+    ThemeNikeBlue,
+    ThemeNikeBlack,
+    ThemeNikeGrey,
+    ThemeNikeGreenBlue,
+    ThemeNikeNight,
+    ThemeNikePink,
+    
+    ThemeRolexSliver,
+    ThemeRolexWrite,
+    ThemeRolexGold,
+    ThemeRolexBlue,
+    ThemeRolexLuminous,
+    ThemeRolexGreen,
+    
+    ThemeHermesOrange,
+    ThemeBretonnia,
+    ThemeNoir,
+    ThemeVictoire,
+    ThemeLiquid,
+    ThemeDelay,
+    ThemeLuxe,
+    ThemeTangerine,
+    ThemeRoyal,
+    ThemeSummer,
+    
+    ThemeMAX
+
 }
 
-enum NumeralStyle: Int {
-    case NumeralStyleAll,NumeralStyleCardinal,NumeralStyleNone
-}
-
-enum TickmarkStyle: Int {
-    case TickmarkStyleAll,TickmarkStyleMajor,TickmarkStyleMinor,TickmarkStyleNone
-}
 
 class FaceScene : SKScene,SKSceneDelegate {
     public var theme : Theme = Theme.ThemeHermesOriginal
@@ -28,7 +57,7 @@ class FaceScene : SKScene,SKSceneDelegate {
     
     var useProgrammaticLayout : Bool = false
     
-    var useRoundFace : Bool = false
+    var useRoundFace : Bool = true
     
     var numeralStyle : NumeralStyle = NumeralStyle.NumeralStyleNone
     
@@ -36,7 +65,7 @@ class FaceScene : SKScene,SKSceneDelegate {
     
     var showDate : Bool = true
     
-    var useMasking : Bool = false
+    var useMasking : Bool = true
     
     var backgroundTexture : SKTexture?
     var hoursHandTexture : SKTexture?
@@ -97,12 +126,29 @@ class FaceScene : SKScene,SKSceneDelegate {
     
     func setupColors() -> Void {
         
+//        colorRegionColor = nil
+//        faceBackgroundColor = nil
+//        majorMarkColor = nil
+//        minorMarkColor = nil
+//        inlayColor = nil;
+//        handColor = nil
+//        textColor = nil
+//        secondHandColor = nil
+//
+//        alternateMajorMarkColor = nil
+//        alternateMinorMarkColor = nil
+//        alternateTextColor = nil
+
+        
         self.useMasking = true
         
         var backgroundImageName : String = ""
         var hourHandImageName : String = ""
         var minuteHandImageName : String = ""
         var secondHandImageName : String = ""
+        
+        print("current theme is")
+        print(self.theme)
         
         switch self.theme {
         case Theme.ThemeHermesOriginal:
@@ -115,6 +161,376 @@ class FaceScene : SKScene,SKSceneDelegate {
             minutesAnchorFromBottom = 16;
             secondsAnchorFromBottom = 27;
             break
+        case .ThemeHermesOriginalOrange:
+            backgroundImageName = "Hermes_watch_face_original_orange"
+            hourHandImageName = "Hermes_hours_white"
+            minuteHandImageName = "Hermes_minutes_white"
+            secondHandImageName = "Hermes_seconds_orange"
+            alternateMajorMarkColor = SKColor.init(red: 0.780, green: 0.792, blue: 0.835, alpha: 1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 16
+            secondsAnchorFromBottom = 27
+            break
+            
+        case .ThemeHermesClassic:
+            backgroundImageName = "Hermes_watch_face_classic"
+            hourHandImageName = "Hermes_hours"
+            minuteHandImageName = "Hermes_minutes"
+            secondHandImageName = "Hermes_seconds"
+            alternateMajorMarkColor = SKColor.init(red: 0.780, green: 0.792, blue: 0.835, alpha: 1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 16
+            secondsAnchorFromBottom = 27
+            break
+            
+        case .ThemeHermesClassicOrange:
+            backgroundImageName = "Hermes_watch_face_classic_orange"
+            hourHandImageName = "Hermes_hours_white"
+            minuteHandImageName = "Hermes_minutes_white"
+            secondHandImageName = "Hermes_seconds_orange"
+            alternateMajorMarkColor = SKColor.init(red: 0.780, green: 0.792, blue: 0.835, alpha: 1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 16
+            secondsAnchorFromBottom = 27
+            break
+            
+        case .ThemeHermesStandard:
+            backgroundImageName = "Hermes_watch_face_standard"
+            hourHandImageName = "Hermes_hours"
+            minuteHandImageName = "Hermes_minutes"
+            secondHandImageName = "Hermes_seconds"
+            alternateMajorMarkColor = SKColor.init(red: 0.780, green: 0.792, blue: 0.835, alpha: 1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 16
+            secondsAnchorFromBottom = 27
+            break
+            
+        case .ThemeHermesStandardOrange:
+            backgroundImageName = "Hermes_watch_face_standard_orange"
+            hourHandImageName = "Hermes_hours_white"
+            minuteHandImageName = "Hermes_minutes_white"
+            secondHandImageName = "Hermes_seconds_orange"
+            alternateMajorMarkColor = SKColor.init(red: 0.780, green: 0.792, blue: 0.835, alpha: 1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 16
+            secondsAnchorFromBottom = 27
+            break
+            
+        case .ThemeHermesRoma:
+            backgroundImageName = "Hermes_watch_face_roma"
+            hourHandImageName = "Hermes_hours"
+            minuteHandImageName = "Hermes_minutes"
+            secondHandImageName = "Hermes_seconds"
+            alternateMajorMarkColor = SKColor.init(red: 0.780, green: 0.792, blue: 0.835, alpha: 1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 16
+            secondsAnchorFromBottom = 27
+            break
+            
+        case .ThemeHermesRomaOrange:
+            backgroundImageName = "Hermes_watch_face_roma_orange"
+            hourHandImageName = "Hermes_hours_white"
+            minuteHandImageName = "Hermes_minutes_white"
+            secondHandImageName = "Hermes_seconds_orange"
+            alternateMajorMarkColor = SKColor.init(red: 0.780, green: 0.792, blue: 0.835, alpha: 1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 16
+            secondsAnchorFromBottom = 27
+            break
+            
+        case .ThemeNikeRed:
+            backgroundImageName = "Nike_watch_face_red"
+            hourHandImageName = "Nike_hours"
+            minuteHandImageName = "Nike_minutes"
+            secondHandImageName = "Nike_seconds"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeNikeGreen:
+            backgroundImageName = "Nike_watch_face_green"
+            hourHandImageName = "Nike_hours"
+            minuteHandImageName = "Nike_minutes"
+            secondHandImageName = "Nike_seconds"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeNikeBlue:
+            backgroundImageName = "Nike_watch_face_blue"
+            hourHandImageName = "Nike_hours"
+            minuteHandImageName = "Nike_minutes"
+            secondHandImageName = "Nike_seconds"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeNikePink:
+            backgroundImageName = "Nike_watch_face_pink"
+            hourHandImageName = "Nike_hours"
+            minuteHandImageName = "Nike_minutes"
+            secondHandImageName = "Nike_seconds"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeNikeGreenBlue:
+            backgroundImageName = "Nike_watch_face_greenblue"
+            hourHandImageName = "Nike_hours"
+            minuteHandImageName = "Nike_minutes"
+            secondHandImageName = "Nike_seconds"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeNikeBlack:
+            backgroundImageName = "Nike_watch_face_black"
+            hourHandImageName = "Nike_hours"
+            minuteHandImageName = "Nike_minutes"
+            secondHandImageName = "Nike_seconds"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeNikeGrey:
+            backgroundImageName = "Nike_watch_face_grey"
+            hourHandImageName = "Nike_hours_red"
+            minuteHandImageName = "Nike_minutes_red"
+            secondHandImageName = "Nike_seconds"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeNikeNight:
+            backgroundImageName = "Nike_watch_face_night"
+            hourHandImageName = "Nike_hours"
+            minuteHandImageName = "Nike_minutes"
+            secondHandImageName = "Nike_seconds_orange"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 26
+            self.useMasking = false
+            break
+            
+        case .ThemeRolexGold:
+            backgroundImageName = "Rolex_watch_face_black_gold"
+            hourHandImageName = "Rolex_hours_gold"
+            minuteHandImageName = "Rolex_minutes_gold"
+            secondHandImageName = "Rolex_seconds_gold"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 67
+            self.useMasking = false
+            break
+            
+        case .ThemeRolexLuminous:
+            backgroundImageName = "Rolex_watch_face_luminous"
+            hourHandImageName = "Rolex_hours_luminous"
+            minuteHandImageName = "Rolex_minutes_luminous"
+            secondHandImageName = "Rolex_seconds_luminous"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 67
+            self.useMasking = false
+            break
+            
+        case .ThemeRolexBlue:
+            backgroundImageName = "Rolex_watch_face_blue"
+            hourHandImageName = "Rolex_hours_gold"
+            minuteHandImageName = "Rolex_minutes_gold"
+            secondHandImageName = "Rolex_seconds_gold"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 67
+            self.useMasking = false
+            break;
+            
+        case .ThemeRolexGreen:
+            backgroundImageName = "Rolex_watch_face_green"
+            hourHandImageName = "Rolex_hours_gold"
+            minuteHandImageName = "Rolex_minutes_gold"
+            secondHandImageName = "Rolex_seconds_gold"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 67
+            self.useMasking = false
+            break
+            
+        case .ThemeRolexSliver:
+            backgroundImageName = "Rolex_watch_face_black_silver"
+            hourHandImageName = "Rolex_hours_gold"
+            minuteHandImageName = "Rolex_minutes_gold"
+            secondHandImageName = "Rolex_seconds_gold"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17
+            secondsAnchorFromBottom = 67
+            self.useMasking = false
+            break
+            
+        case .ThemeRolexWrite:
+            backgroundImageName = "Rolex_watch_face_black_write"
+            hourHandImageName = "Rolex_hours_write"
+            minuteHandImageName = "Rolex_minutes_write"
+            secondHandImageName = "Rolex_seconds_write"
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 17;
+            secondsAnchorFromBottom = 67
+            self.useMasking = false
+            break
+            
+        case .ThemeHermesOrange:
+        
+            colorRegionColor = SKColor.init(red: 0.892, green: 0.825, blue: 0.745, alpha: 1.000)
+            faceBackgroundColor = SKColor.init(red: 0.118, green: 0.188, blue: 0.239, alpha: 1.000)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red: 1.000, green: 0.506, blue: 0.000, alpha: 1.000)
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            hoursAnchorFromBottom = 18
+            self.useMasking = true
+            break
+            
+        case .ThemeBretonnia:
+        
+            colorRegionColor = SKColor.init(red: 0.037, green: 0.420, blue: 0.843, alpha: 1)
+            faceBackgroundColor = SKColor.init(red: 0.956, green: 0.137, blue: 0.294, alpha: 1)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red: 1, green: 0.506, blue: 0, alpha: 1)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeNoir:
+            colorRegionColor = SKColor.init(white: 0.3, alpha: 1.0)
+            faceBackgroundColor = SKColor.black
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:0.506, blue:0.000, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeVictoire:
+        
+            colorRegionColor = SKColor.init(red:0.749, green:0.291, blue:0.319, alpha:1.000)
+            faceBackgroundColor = SKColor.init(red:0.391, green:0.382, blue:0.340, alpha:1.000)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:0.506, blue:0.000, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeLiquid:
+        
+            colorRegionColor = SKColor.init(red:0.848, green:0.187, blue:0.349, alpha:1)
+            faceBackgroundColor = SKColor.init(red:0.387, green:0.226, blue:0.270, alpha:1)
+            backgroundImageName = "HermesDoubleclourPink"
+            hourHandImageName = "HermesDoubleclour_H_Pink"
+            minuteHandImageName = "HermesDoubleclour_M_Pink"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:1.000, blue:0.812, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeDelay:
+        
+            colorRegionColor = SKColor.init(red:0.067, green:0.471, blue:0.651, alpha:1.000)
+            faceBackgroundColor = SKColor.init(red:0.118, green:0.188, blue:0.239, alpha:1.000)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:0.506, blue:0.000, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeLuxe:
+        
+            colorRegionColor = SKColor.init(red:0.357, green:0.678, blue:0.600, alpha:1.000)
+            faceBackgroundColor = SKColor.init(red:0.264, green:0.346, blue:0.321, alpha:1.000)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:0.506, blue:0.000, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeTangerine:
+        
+            colorRegionColor = SKColor.init(red:0.086, green:0.584, blue:0.706, alpha:1.000)
+            faceBackgroundColor = SKColor.init(white: 0.9, alpha: 1)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:0.506, blue:0.000, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeRoyal:
+        
+            colorRegionColor = SKColor.init(red:0.118, green:0.188, blue:0.239, alpha:1.000)
+            faceBackgroundColor = SKColor.init(white: 0.9, alpha: 1)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:0.506, blue:0.000, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
+        case .ThemeSummer:
+        
+            colorRegionColor = SKColor.init(red:0.886, green:0.141, blue:0.196, alpha:1.000)
+            faceBackgroundColor = SKColor.init(red:0.145, green:0.157, blue:0.176, alpha:1.000)
+            backgroundImageName = "HermesDoubleclourOrange"
+            hourHandImageName = "HermesDoubleclour_H_Orange"
+            minuteHandImageName = "HermesDoubleclour_M_Orange"
+            alternateMajorMarkColor = SKColor.init(red:1.000, green:0.506, blue:0.000, alpha:1.000)
+            hoursAnchorFromBottom = 18
+            minutesAnchorFromBottom = 18
+            secondsAnchorFromBottom = 26
+            self.useMasking = true
+            break
+            
 
         default:
             break;
@@ -123,7 +539,13 @@ class FaceScene : SKScene,SKSceneDelegate {
         backgroundTexture = SKTexture.init(imageNamed: backgroundImageName)
         hoursHandTexture = SKTexture.init(imageNamed: hourHandImageName)
         minutesHandTexture = SKTexture.init(imageNamed: minuteHandImageName)
-        secondsHandTexture = SKTexture.init(imageNamed: secondHandImageName)
+        
+        if (secondHandImageName != "") {
+            secondsHandTexture = SKTexture.init(imageNamed: secondHandImageName)
+        } else {
+            secondsHandTexture = nil
+        }
+        
 
     }
     
@@ -146,39 +568,43 @@ class FaceScene : SKScene,SKSceneDelegate {
         
         let numbers : SKSpriteNode? = face?.childNode(withName: "Numbers") as? SKSpriteNode
         
-        hourHand?.color = self.handColor;
-        hourHand?.colorBlendFactor = 1.0;
-        hourHand?.texture = self.hoursHandTexture;
-        hourHand?.size = hourHand!.texture!.size();
-        hourHand?.anchorPoint = CGPoint(x: 0.5, y: hoursAnchorFromBottom / hourHand!.size.height);
+        hourHand?.color = self.handColor
+        hourHand?.colorBlendFactor = 1.0
+        hourHand?.texture = self.hoursHandTexture
+        hourHand?.size = hourHand?.texture?.size() ?? CGSize(width: 0, height: 0)
+        hourHand?.anchorPoint = CGPoint(x: 0.5, y: hoursAnchorFromBottom / hourHand!.size.height)
         
-        minuteHand?.color = self.handColor;
-        minuteHand?.colorBlendFactor = 1.0;
-        minuteHand?.texture = self.minutesHandTexture;
-        minuteHand?.size = minuteHand!.texture!.size();
-        minuteHand!.anchorPoint = CGPoint(x: 0.5,y: minutesAnchorFromBottom / minuteHand!.size.height);
+        minuteHand?.color = self.handColor
+        minuteHand?.colorBlendFactor = 1.0
+        minuteHand?.texture = self.minutesHandTexture
+        minuteHand?.size = minuteHand!.texture!.size()
+        minuteHand!.anchorPoint = CGPoint(x: 0.5,y: minutesAnchorFromBottom / minuteHand!.size.height)
         
-        secondHand?.color = self.secondHandColor;
-        secondHand?.colorBlendFactor = 1.0;
-        secondHand?.texture = self.secondsHandTexture;
-        secondHand?.size = secondHand!.texture!.size();
-        secondHand!.anchorPoint = CGPoint(x: 0.5, y: secondsAnchorFromBottom / secondHand!.size.height);
+        secondHand?.color = self.secondHandColor
+        secondHand?.colorBlendFactor = 1.0
+        secondHand?.texture = self.secondsHandTexture
+        secondHand?.size = secondHand?.texture?.size() ?? CGSize(width: 0, height: 0)
+        secondHand!.anchorPoint = CGPoint(x: 0.5, y: secondsAnchorFromBottom / secondHand!.size.height)
         
-        self.backgroundColor = self.faceBackgroundColor;
+        self.backgroundColor = self.faceBackgroundColor
         
-        colorRegion?.color = self.colorRegionColor;
-        colorRegion?.colorBlendFactor = 1.0;
+        colorRegion?.color = self.colorRegionColor
+        colorRegion?.colorBlendFactor = 1.0
+
+        numbers?.color = self.textColor
         
-        numbers?.color = self.textColor;
-        numbers?.colorBlendFactor = 1.0;
-        numbers?.texture = self.backgroundTexture;
-        numbers?.size = numbers!.texture!.size();
+        numbers?.colorBlendFactor = 1.0
+        numbers?.texture = self.backgroundTexture
+        numbers?.size = numbers!.texture!.size()
         
-        hourHandInlay?.color = self.inlayColor;
-        hourHandInlay?.colorBlendFactor = 1.0;
+        hourHandInlay?.color = self.inlayColor
+        minuteHandInlay?.color = self.inlayColor
         
-        minuteHandInlay?.color = self.inlayColor;
-        minuteHandInlay?.colorBlendFactor = 1.0;
+        
+        hourHandInlay?.colorBlendFactor = 1.0
+        
+        
+        minuteHandInlay?.colorBlendFactor = 1.0
         
         let numbersLayer : SKSpriteNode? =  face?.childNode(withName: "Numbers") as? SKSpriteNode
         
@@ -277,7 +703,7 @@ class FaceScene : SKScene,SKSceneDelegate {
             let h : CGFloat  = 24
             var numeralDelta : CGFloat = 0.0
             
-            let labelText : NSAttributedString = NSAttributedString(string: String(day), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: h, weight: UIFont.Weight.light)])
+            let labelText : NSAttributedString = NSAttributedString(string: String(day), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: h, weight: UIFont.Weight.light).SmallCaps(),NSAttributedString.Key.foregroundColor : alternateMajorMarkColor ])
             
             
             let numberLabel : SKLabelNode = SKLabelNode(attributedText: labelText)
@@ -287,7 +713,7 @@ class FaceScene : SKScene,SKSceneDelegate {
             }
             
             
-            numberLabel.position = CGPoint(x : -10 + numeralDelta, y: -62);
+            numberLabel.position = CGPoint(x : -10 + numeralDelta, y: -64);
             
             faceMarkings.addChild(numberLabel)
         }
@@ -386,7 +812,7 @@ class FaceScene : SKScene,SKSceneDelegate {
             
             let tmpStr : String = String(i)
             
-            let labelText : NSAttributedString = NSAttributedString(string: tmpStr, attributes: [NSAttributedString.Key.font: UIFont.init(name: "Futura-Medium", size: fontSize) ?? UIFont.systemFont(ofSize: fontSize),NSAttributedString.Key.foregroundColor: self.textColor])
+            let labelText : NSAttributedString = NSAttributedString(string: tmpStr, attributes: [NSAttributedString.Key.font: UIFont.init(name: "Futura-Medium", size: fontSize / 2) ?? UIFont.systemFont(ofSize: fontSize / 2),NSAttributedString.Key.foregroundColor: self.textColor])
             
             let numberLabel : SKLabelNode  = SKLabelNode(attributedText: labelText)
             
@@ -406,7 +832,7 @@ class FaceScene : SKScene,SKSceneDelegate {
             
             let h : CGFloat = 30
             
-            let labelText : NSAttributedString = NSAttributedString(string: String(day), attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: h, weight: UIFont.Weight.medium),NSAttributedString.Key.foregroundColor : textColor])
+            let labelText : NSAttributedString = NSAttributedString(string: String(day), attributes: [NSAttributedString.Key.font : UIFont.systemFont(ofSize: h, weight: UIFont.Weight.medium).SmallCaps(),NSAttributedString.Key.foregroundColor : textColor])
             
             let numberLabel : SKLabelNode = SKLabelNode(attributedText: labelText)
             var numeralDelta : CGFloat = 0.0
@@ -474,9 +900,9 @@ class FaceScene : SKScene,SKSceneDelegate {
         
         faceMarkings?.maskNode = colorRegion;
         
-        self.textColor = self.alternateTextColor;
-        self.minorMarkColor = self.alternateMinorMarkColor;
-        self.majorMarkColor = self.alternateMajorMarkColor;
+        self.textColor = self.alternateTextColor
+        self.minorMarkColor = self.alternateMinorMarkColor
+        self.majorMarkColor = self.alternateMajorMarkColor
         
         
         if (self.useRoundFace)
@@ -489,11 +915,54 @@ class FaceScene : SKScene,SKSceneDelegate {
         }
         
         let alternateFaceMarkings : SKCropNode?  =  self.childNode(withName: "Markings Alternate") as? SKCropNode
-        colorRegionReflection?.alpha = 1;
-        alternateFaceMarkings?.maskNode = colorRegionReflection;
+        colorRegionReflection?.alpha = 1
+        alternateFaceMarkings?.maskNode = colorRegionReflection
+
+    }
+    
+    public func update(_ currentTime: TimeInterval, for scene: SKScene) {
+        self.updateHands()
+    }
+    
+    func updateHands() -> Void {
+        let calendar = NSCalendar.current
+        let currentDate = Date()
+        let _ : Int = calendar.component(.day, from: currentDate)
+
+        let face : SKNode?  = self.childNode(withName: "Face")
+        
+        let hourHand : SKNode? = face?.childNode(withName: "Hours")
+        let minuteHand : SKNode? = face?.childNode(withName: "Minutes")
+        let secondHand : SKNode? = face?.childNode(withName: "Seconds")
+        
+        let colorRegion : SKNode? = face?.childNode(withName: "Color Region")
+        let colorRegionReflection : SKNode? = face?.childNode(withName: "Color Region Reflection")
+        
+        let hour : Int = calendar.component(.hour, from: currentDate)
+        let minute : Int = calendar.component(.minute, from: currentDate)
+        let second : Int = calendar.component(.second, from: currentDate)
+        
+        var tmpv : CGFloat = CGFloat(hour % 12) + 1.0 / 60.0 * CGFloat(minute)
+        hourHand?.zRotation = -(2 * CGFloat.pi) / 12.0 * tmpv
+        
+        tmpv = CGFloat(minute) + 1.0 / 60.0 * CGFloat(second)
+        minuteHand?.zRotation =  -(2 * CGFloat.pi) / 60.0 * tmpv
+        
+        let nanosecond = calendar.component(.nanosecond, from: currentDate)
+        tmpv = CGFloat(second) + 1.0 / 1000000000.0 * CGFloat(nanosecond)
+        secondHand?.zRotation = -(2 * CGFloat.pi) / 60 * tmpv
+        
+        
+        tmpv = CGFloat(minute) + 1.0 / 60.0 * CGFloat(second)
+        colorRegion?.zRotation =  CGFloat.pi / 2 - (2 * CGFloat.pi) / 60.0 * tmpv
+        
+        tmpv = CGFloat(minute) + 1.0 / 60.0 * CGFloat(second)
+        colorRegionReflection?.zRotation =  CGFloat.pi / 2 - (2 * CGFloat.pi) / 60.0 * tmpv
 
     }
 
 }
+
+
 
 

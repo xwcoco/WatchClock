@@ -23,6 +23,17 @@
 		4F48FCC22193D42900EF4972 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCC12193D42900EF4972 /* FaceScene.sks */; };
 		4F48FCC42193D75800EF4972 /* FaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC32193D75800EF4972 /* FaceScene.swift */; };
 		4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */; };
+		4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCB02193D28B00EF4972 /* Assets.xcassets */; };
+		4FB7B7182195872C0017F683 /* FaceSelctViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */; };
+		4FB7B71A21958B5D0017F683 /* WatchCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71921958B5D0017F683 /* WatchCustom.swift */; };
+		4FB7B71B21958B5D0017F683 /* WatchCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71921958B5D0017F683 /* WatchCustom.swift */; };
+		4FB7B71D2195934D0017F683 /* WatchDesignViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */; };
+		4FB7B71F219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
+		4FB7B720219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
+		4FB7B722219598A20017F683 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B721219598A20017F683 /* WatchScene.swift */; };
+		4FF1DDF82195C099009D49DE /* LogoViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1DDF72195C099009D49DE /* LogoViewControl.swift */; };
+		4FF1DDFF2195D426009D49DE /* HourViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1DDFE2195D426009D49DE /* HourViewControl.swift */; };
+		4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,6 +102,17 @@
 		4F48FCC52193EB1B00EF4972 /* watchClock WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "watchClock WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUiApplication.m; sourceTree = "<group>"; };
 		4F48FCC82193EC6300EF4972 /* MyUIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUIApplication.h; sourceTree = "<group>"; };
+		4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceSelctViewControl.swift; sourceTree = "<group>"; };
+		4FB7B71921958B5D0017F683 /* WatchCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCustom.swift; sourceTree = "<group>"; };
+		4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDesignViewControl.swift; sourceTree = "<group>"; };
+		4FB7B71E219597C60017F683 /* WatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfo.swift; sourceTree = "<group>"; };
+		4FB7B721219598A20017F683 /* WatchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
+		4FF1DDF72195C099009D49DE /* LogoViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewControl.swift; sourceTree = "<group>"; };
+		4FF1DDFB2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4FF1DDFC2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		4FF1DDFD2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
+		4FF1DDFE2195D426009D49DE /* HourViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourViewControl.swift; sourceTree = "<group>"; };
+		4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStyleViewControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -140,6 +162,12 @@
 				4F48FC8E2193D28A00EF4972 /* Assets.xcassets */,
 				4F48FC902193D28A00EF4972 /* LaunchScreen.storyboard */,
 				4F48FC932193D28A00EF4972 /* Info.plist */,
+				4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */,
+				4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */,
+				4FB7B71E219597C60017F683 /* WatchInfo.swift */,
+				4FF1DDF72195C099009D49DE /* LogoViewControl.swift */,
+				4FF1DDFE2195D426009D49DE /* HourViewControl.swift */,
+				4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */,
 			);
 			path = watchClock;
 			sourceTree = "<group>";
@@ -168,6 +196,8 @@
 				4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */,
 				4F48FCC82193EC6300EF4972 /* MyUIApplication.h */,
 				4F48FCC52193EB1B00EF4972 /* watchClock WatchKit Extension-Bridging-Header.h */,
+				4FB7B71921958B5D0017F683 /* WatchCustom.swift */,
+				4FB7B721219598A20017F683 /* WatchScene.swift */,
 			);
 			path = "watchClock WatchKit Extension";
 			sourceTree = "<group>";
@@ -277,6 +307,7 @@
 			files = (
 				4F48FC922193D28A00EF4972 /* LaunchScreen.storyboard in Resources */,
 				4F48FC8F2193D28A00EF4972 /* Assets.xcassets in Resources */,
+				4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */,
 				4F48FC8D2193D28900EF4972 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -306,8 +337,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FF1DDF82195C099009D49DE /* LogoViewControl.swift in Sources */,
+				4FB7B71D2195934D0017F683 /* WatchDesignViewControl.swift in Sources */,
+				4FF1DDFF2195D426009D49DE /* HourViewControl.swift in Sources */,
+				4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */,
 				4F48FC8A2193D28900EF4972 /* ViewController.swift in Sources */,
+				4FB7B7182195872C0017F683 /* FaceSelctViewControl.swift in Sources */,
+				4FB7B71A21958B5D0017F683 /* WatchCustom.swift in Sources */,
 				4F48FC882193D28900EF4972 /* AppDelegate.swift in Sources */,
+				4FB7B71F219597C60017F683 /* WatchInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,10 +353,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FB7B722219598A20017F683 /* WatchScene.swift in Sources */,
 				4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */,
 				4F48FCAF2193D28B00EF4972 /* NotificationController.swift in Sources */,
 				4F48FCAD2193D28B00EF4972 /* ExtensionDelegate.swift in Sources */,
 				4F48FCAB2193D28B00EF4972 /* InterfaceController.swift in Sources */,
+				4FB7B720219597C60017F683 /* WatchInfo.swift in Sources */,
+				4FB7B71B21958B5D0017F683 /* WatchCustom.swift in Sources */,
 				4F48FCC42193D75800EF4972 /* FaceScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -343,6 +384,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F48FC8C2193D28900EF4972 /* Base */,
+				4FF1DDFB2195CDF8009D49DE /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -351,6 +393,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F48FC912193D28A00EF4972 /* Base */,
+				4FF1DDFC2195CDF8009D49DE /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -359,6 +402,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F48FC9C2193D28A00EF4972 /* Base */,
+				4FF1DDFD2195CDF8009D49DE /* zh-Hans */,
 			);
 			name = Interface.storyboard;
 			sourceTree = "<group>";
@@ -370,6 +414,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -431,6 +476,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";

@@ -1,0 +1,102 @@
+
+/* Class = "UILabel"; text = "Nike Grey"; ObjectID = "3MH-rV-qF5"; */
+"3MH-rV-qF5.text" = "Nike Grey";
+
+/* Class = "UILabel"; text = "Watch Face"; ObjectID = "3OL-JU-W7O"; */
+"3OL-JU-W7O.text" = "表盘样式";
+
+/* Class = "UILabel"; text = "Apple Logo"; ObjectID = "6hs-Aw-8AM"; */
+"6hs-Aw-8AM.text" = "Apple Logo";
+
+/* Class = "UINavigationItem"; title = "Watch Custom"; ObjectID = "8J1-Fm-YVF"; */
+"8J1-Fm-YVF.title" = "表盘定制";
+
+/* Class = "UILabel"; text = "Nike GreenBlue"; ObjectID = "8Wd-c9-Gsr"; */
+"8Wd-c9-Gsr.text" = "Nike GreenBlue";
+
+/* Class = "UILabel"; text = "Hermas original"; ObjectID = "EVh-zj-ANU"; */
+"EVh-zj-ANU.text" = "Hermas original";
+
+/* Class = "UILabel"; text = "Nike Night"; ObjectID = "EpN-8P-Iyw"; */
+"EpN-8P-Iyw.text" = "Nike Night";
+
+/* Class = "UILabel"; text = "Nike Pink"; ObjectID = "Kwk-Dd-mHp"; */
+"Kwk-Dd-mHp.text" = "Nike Pink";
+
+/* Class = "UILabel"; text = "Rolex White"; ObjectID = "Kxx-9d-DlA"; */
+"Kxx-9d-DlA.text" = "Rolex White";
+
+/* Class = "UILabel"; text = "Rolex Green"; ObjectID = "M6E-rm-nPr"; */
+"M6E-rm-nPr.text" = "Rolex Green";
+
+/* Class = "UILabel"; text = "Logo"; ObjectID = "NQ7-6r-i2E"; */
+"NQ7-6r-i2E.text" = "Logo样式";
+
+/* Class = "UILabel"; text = "Hermas roma orange"; ObjectID = "SdJ-3D-GXl"; */
+"SdJ-3D-GXl.text" = "Hermas roma orange";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "TcH-kH-nBo"; */
+"TcH-kH-nBo.text" = "无";
+
+/* Class = "UILabel"; text = "Hermas original  orange"; ObjectID = "TnX-40-xxe"; */
+"TnX-40-xxe.text" = "Hermas original  orange";
+
+/* Class = "UINavigationItem"; title = "Faces"; ObjectID = "Wf5-wn-15z"; */
+"Wf5-wn-15z.title" = "表盘";
+
+/* Class = "UILabel"; text = "Hermas classic"; ObjectID = "XER-HO-yzK"; */
+"XER-HO-yzK.text" = "Hermas classic";
+
+/* Class = "UILabel"; text = "Hermas roma"; ObjectID = "XK0-gp-XDU"; */
+"XK0-gp-XDU.text" = "Hermas roma";
+
+/* Class = "UILabel"; text = "Nike Black"; ObjectID = "XLl-N6-VQY"; */
+"XLl-N6-VQY.text" = "Nike Black";
+
+/* Class = "UILabel"; text = "S4 Numbers"; ObjectID = "XWI-fX-gXG"; */
+"XWI-fX-gXG.text" = "S4 Numbers";
+
+/* Class = "UILabel"; text = "Hour "; ObjectID = "YOR-eD-hgp"; */
+"YOR-eD-hgp.text" = "时钟样式 ";
+
+/* Class = "UILabel"; text = "Nike Green"; ObjectID = "gU4-sF-QoJ"; */
+"gU4-sF-QoJ.text" = "Nike Green";
+
+/* Class = "UILabel"; text = "Rolex Black"; ObjectID = "hZN-Ay-UJA"; */
+"hZN-Ay-UJA.text" = "Rolex Black";
+
+/* Class = "UILabel"; text = "Rolex Gold"; ObjectID = "hix-HK-rvj"; */
+"hix-HK-rvj.text" = "Rolex Gold";
+
+/* Class = "UILabel"; text = "Rolex Luminous"; ObjectID = "j9t-k3-bvi"; */
+"j9t-k3-bvi.text" = "Rolex Luminous";
+
+/* Class = "UILabel"; text = "Hermas standard"; ObjectID = "jJu-cc-nvw"; */
+"jJu-cc-nvw.text" = "Hermas standard";
+
+/* Class = "UILabel"; text = "Rolex White"; ObjectID = "jND-lh-cMB"; */
+"jND-lh-cMB.text" = "Rolex White";
+
+/* Class = "UILabel"; text = "Hermas classic  orange"; ObjectID = "jsp-j9-rZn"; */
+"jsp-j9-rZn.text" = "Hermas classic  orange";
+
+/* Class = "UILabel"; text = "Rolex Gold"; ObjectID = "kwc-Do-woH"; */
+"kwc-Do-woH.text" = "Rolex Gold";
+
+/* Class = "UILabel"; text = "Hermes White"; ObjectID = "qFx-Kg-IWi"; */
+"qFx-Kg-IWi.text" = "Hermes White";
+
+/* Class = "UILabel"; text = "Nike Blue"; ObjectID = "qjZ-Oz-6qo"; */
+"qjZ-Oz-6qo.text" = "Nike Blue";
+
+/* Class = "UILabel"; text = "Hermas standard orange"; ObjectID = "vMW-ym-g1i"; */
+"vMW-ym-g1i.text" = "Hermas standard orange";
+
+/* Class = "UINavigationItem"; title = "Logo"; ObjectID = "vWg-wu-arK"; */
+"vWg-wu-arK.title" = "Logo样式";
+
+/* Class = "UINavigationItem"; title = "My Watch"; ObjectID = "wpz-S0-H0L"; */
+"wpz-S0-H0L.title" = "我定义的表盘";
+
+/* Class = "UILabel"; text = "Nike Red"; ObjectID = "xKT-dF-KYo"; */
+"xKT-dF-KYo.text" = "Nike Red";
