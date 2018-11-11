@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F029E6321969CDB00EE7660 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B721219598A20017F683 /* WatchScene.swift */; };
+		4F029E642196A12700EE7660 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCC12193D42900EF4972 /* FaceScene.sks */; };
+		4F464A832197C34500577A93 /* InformationViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A822197C34500577A93 /* InformationViewControl.swift */; };
 		4F48FC882193D28900EF4972 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FC872193D28900EF4972 /* AppDelegate.swift */; };
 		4F48FC8A2193D28900EF4972 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FC892193D28900EF4972 /* ViewController.swift */; };
 		4F48FC8D2193D28900EF4972 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FC8B2193D28900EF4972 /* Main.storyboard */; };
@@ -31,8 +34,6 @@
 		4FB7B71F219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
 		4FB7B720219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
 		4FB7B722219598A20017F683 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B721219598A20017F683 /* WatchScene.swift */; };
-		4FF1DDF82195C099009D49DE /* LogoViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1DDF72195C099009D49DE /* LogoViewControl.swift */; };
-		4FF1DDFF2195D426009D49DE /* HourViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1DDFE2195D426009D49DE /* HourViewControl.swift */; };
 		4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -79,6 +80,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F464A822197C34500577A93 /* InformationViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewControl.swift; sourceTree = "<group>"; };
 		4F48FC842193D28900EF4972 /* watchClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F48FC872193D28900EF4972 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F48FC892193D28900EF4972 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -107,11 +109,9 @@
 		4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDesignViewControl.swift; sourceTree = "<group>"; };
 		4FB7B71E219597C60017F683 /* WatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfo.swift; sourceTree = "<group>"; };
 		4FB7B721219598A20017F683 /* WatchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
-		4FF1DDF72195C099009D49DE /* LogoViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogoViewControl.swift; sourceTree = "<group>"; };
 		4FF1DDFB2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		4FF1DDFC2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4FF1DDFD2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
-		4FF1DDFE2195D426009D49DE /* HourViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourViewControl.swift; sourceTree = "<group>"; };
 		4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStyleViewControl.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -165,9 +165,8 @@
 				4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */,
 				4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */,
 				4FB7B71E219597C60017F683 /* WatchInfo.swift */,
-				4FF1DDF72195C099009D49DE /* LogoViewControl.swift */,
-				4FF1DDFE2195D426009D49DE /* HourViewControl.swift */,
 				4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */,
+				4F464A822197C34500577A93 /* InformationViewControl.swift */,
 			);
 			path = watchClock;
 			sourceTree = "<group>";
@@ -309,6 +308,7 @@
 				4F48FC8F2193D28A00EF4972 /* Assets.xcassets in Resources */,
 				4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */,
 				4F48FC8D2193D28900EF4972 /* Main.storyboard in Resources */,
+				4F029E642196A12700EE7660 /* FaceScene.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,9 +337,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FF1DDF82195C099009D49DE /* LogoViewControl.swift in Sources */,
+				4F029E6321969CDB00EE7660 /* WatchScene.swift in Sources */,
+				4F464A832197C34500577A93 /* InformationViewControl.swift in Sources */,
 				4FB7B71D2195934D0017F683 /* WatchDesignViewControl.swift in Sources */,
-				4FF1DDFF2195D426009D49DE /* HourViewControl.swift in Sources */,
 				4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */,
 				4F48FC8A2193D28900EF4972 /* ViewController.swift in Sources */,
 				4FB7B7182195872C0017F683 /* FaceSelctViewControl.swift in Sources */,

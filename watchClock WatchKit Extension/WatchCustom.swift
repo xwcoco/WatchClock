@@ -27,7 +27,7 @@ var GFaceNameList : [String] = ["Hermes_watch_face_original",
                                 "Nike_watch_face_red",
                                 "Rolex_watch_face_black_gold",
                                 "Rolex_watch_face_black_silver",
-                                "Rolex_watch_face_black_write",
+                                "Rolex_watch_face_black_white",
                                 "Rolex_watch_face_green",
                                 "Rolex_watch_face_luminous",
                                 "S4Numbers"]
@@ -56,7 +56,8 @@ var GMinuteImageList : [String] = ["Hermes_minutes",
 
 var GMinutesAnchorFromBottoms : [CGFloat] = [16,16,18,18,17,17,17,17,17]
 
-var GSecondImageList : [String] = ["Hermes_seconds",
+var GSecondImageList : [String] = ["empty",
+                                   "Hermes_seconds",
                                    "Hermes_seconds_orange",
                                    "Nike_seconds",
                                    "Nike_seconds_orange",
@@ -64,12 +65,18 @@ var GSecondImageList : [String] = ["Hermes_seconds",
                                    "Rolex_seconds_luminous",
                                    "Rolex_seconds_write"]
 
-var GSecondsAnchorFromBottoms : [CGFloat] = [27,27,26,26,67,67,67]
+var GSecondsAnchorFromBottoms : [CGFloat] = [0,27,27,26,26,67,67,67]
 
 var GLogoImageList : [String] = ["empty","hermes_logo_white",
+                                 "hermes_logo_2",
                                  "rolex_logo_gold",
                                  "hermes_logo_white",
                                  "apple_logo_color"]
+
+var GInfoBackgroud : [String] = ["empty",
+                                 "info_back_1",
+                                 "info_back_2"
+]
 
 
 enum NumeralStyle: Int {
@@ -86,3 +93,4 @@ extension UIFont {
         return UIFont.init(descriptor: UIFontDescriptor.init(fontAttributes: [UIFontDescriptor.AttributeName.featureSettings: settings,UIFontDescriptor.AttributeName.name: self.fontName]), size: self.pointSize)
     }
 }
+

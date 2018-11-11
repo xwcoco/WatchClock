@@ -8,28 +8,56 @@
 
 import Foundation
 import UIKit
+import Photos
+import MobileCoreServices
 
 enum WatchStyleMode : Int {
-    case WatchStyleFace,WatchStyleLogo,WatchStyleHour,WatchStyleMinute
+    case WatchStyleFace,WatchStyleLogo,WatchStyleHour,WatchStyleMinute,WatchStyleSecond,InfoStyleBack
 }
 
 class WatchStyleViewControl: UITableViewController {
     public var mode : WatchStyleMode = .WatchStyleFace
     public var index : Int = 0
     
+    private var customChoose : Bool = false
+    
     private var imageList : [String]?
     private var itemHeight : CGFloat = 0
+    public var customImage : UIImage?
     
     override func viewDidLoad() {
         var title : String = ""
+        self.customChoose = false
         switch self.mode {
+        case .WatchStyleFace:
+            imageList = GFaceNameList
+            title = "Face Style"
+            itemHeight = 100
+//            customChoose = true
+            break
         case .WatchStyleMinute:
             imageList = GMinuteImageList
             title = "Minute Style"
             itemHeight = 80
             break
-        default:
-            imageList = nil
+        case .WatchStyleLogo:
+            imageList = GLogoImageList
+            title = "Logo Style"
+            itemHeight = 50
+            break
+        case .WatchStyleHour:
+            imageList = GHourImageList
+            title = "Hour Style"
+            itemHeight = 80
+            break
+        case .WatchStyleSecond:
+            imageList = GSecondImageList
+            title = "Second Style"
+            itemHeight = 80
+        case .InfoStyleBack:
+            imageList = GInfoBackgroud
+            title = "Gackgroud"
+            itemHeight = 60
         }
         self.navigationItem.title = title
     }
@@ -43,39 +71,111 @@ class WatchStyleViewControl: UITableViewController {
         cell.imageView?.image = UIImage.init(named: imageList![indexPath.row])
         cell.backgroundColor = UIColor.black
         
-        cell.textLabel?.text = imageList![indexPath.row]
+        var tmpStr : String = imageList![indexPath.row]
+        
+        tmpStr = tmpStr.replacingOccurrences(of: "_", with: " ")
+        
+        cell.textLabel?.text = tmpStr
         cell.textLabel?.textColor = UIColor.white
+        
+        if (indexPath.row == self.index) {
+            cell.accessoryType = UITableViewCell.AccessoryType.checkmark
+        }
+        
+//        if (indexPath.row == self.imageList!.count - 1) {
+//            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
+//        }
         return cell
     }
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return self.itemHeight
     }
     
+    private var oldIndex : Int = 0
+    
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        oldIndex = index
+        
         self.index = indexPath.row
         
-        self.performSegue(withIdentifier: "unwindToDesign", sender: self)
+        if (self.mode == .InfoStyleBack) {
+            self.performSegue(withIdentifier: "unwindToInfo", sender: self)
+        }
+        else {
+            
+        
+        
+//        if (self.customChoose && index == imageList!.count - 1) {
+//            self.selectFromPhoto()
+//        }
+//        else
+//        {
+            self.performSegue(withIdentifier: "unwindToDesign", sender: self)
+//        }
+        }
+        
 //        self.navigationController?.popViewController(animated: true)
     }
     
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if let vc = segue.destination as? WatchDesignViewControl {
-//            print("begin to back...")
-//            switch (self.mode) {
+    
+//    private func selectFromPhoto(){
 //
-//            case .WatchStyleFace:
-//                vc.faceIndex = index
-//                break
-//            case .WatchStyleLogo:
-//                vc.logoIndex = index
-//                break
-//            case .WatchStyleHour:
-//                vc.hourIndex = self.index
-//                break
-//            case .WatchStyleMinute:
-//                vc.minuteIndex = self.index
+//        PHPhotoLibrary.requestAuthorization {[unowned self] (status) -> Void in
+//            DispatchQueue.main.async {
+//                switch status {
+//                case .authorized:
+//                    self.showLocalPhotoGallery()
+//                    break
+//                default:
+//                    self.showNoPermissionDailog()
+//                    break
+//                }
 //            }
 //        }
 //    }
+//    
+//    private func showLocalPhotoGallery(){
+//        KiClipperHelper.sharedInstance.nav = self.navigationController
+//        KiClipperHelper.sharedInstance.clippedImgSize = CGSize(width: 320, height: 390)
+//        KiClipperHelper.sharedInstance.clippedImageHandler = {[weak self]img in
+//            self?.customImage = img
+//            self?.performSegue(withIdentifier: "unwindToDesign", sender: self)
+//        }
+//        KiClipperHelper.sharedInstance.photoWithSourceType(type: .photoLibrary) //直接打开相册选取图片
+//    }
+//    
+//    
+//    /**
+//     * 用户相册未授权，Dialog提示
+//     */
+//    private func showNoPermissionDailog(){
+//        let alert = UIAlertController.init(title: nil, message: "没有打开相册的权限", preferredStyle: .alert)
+//        alert.addAction(UIAlertAction.init(title: "确定", style: .default, handler: nil))
+//        self.present(alert, animated: true, completion: nil)
+//    }
+//    
+////    /**
+////     * 打开本地相册列表
+////     */
+////    private func showLocalPhotoGallery(){
+//////        if UIImagePickerController.isSourceTypeAvailable(.photoLibrary){
+//////            //初始化图片控制器
+//////            let picker = UIImagePickerController()
+//////            //设置代理
+//////            picker.delegate = self
+//////            //指定图片控制器类型
+//////            picker.sourceType = UIImagePickerController.SourceType.photoLibrary
+//////            //设置是否允许编辑
+//////            picker.allowsEditing = true
+//////            //弹出控制器，显示界面
+//////            self.present(picker, animated: true, completion: {
+//////                () -> Void in
+//////            })
+//////        }else{
+//////            print("读取相册错误")
+//////        }
+////    }
+//    
+
     
 }

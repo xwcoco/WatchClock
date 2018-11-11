@@ -10,7 +10,8 @@ import Foundation
 import SpriteKit
 
 class  WatchScene : SKScene,SKSceneDelegate {
-    public func initVars() -> Void {
+    public func initVars(_ watch: WatchInfo?) -> Void {
+        currentWatch = watch
         self.refreshWatch();
         self.delegate = self
     }
@@ -42,7 +43,10 @@ class  WatchScene : SKScene,SKSceneDelegate {
     }
     
     func refreshWatch() -> Void {
-        self.currentWatch = self.LoadWatch()
+        if (currentWatch == nil) {
+            self.currentWatch = self.LoadWatch()
+        }
+        
         if (self.currentWatch == nil) {
             return
         }
@@ -58,6 +62,10 @@ class  WatchScene : SKScene,SKSceneDelegate {
         
         existingDualMaskMarkings?.removeAllChildren()
         existingDualMaskMarkings?.removeFromParent()
+        
+        let logoNode : SKNode? = self.childNode(withName: "logo")
+        logoNode?.removeAllChildren()
+        logoNode?.removeFromParent()
         
         self.setupClock()
         self.setupScene()
@@ -94,7 +102,7 @@ class  WatchScene : SKScene,SKSceneDelegate {
     
      var faceSize : CGSize = CGSize(width: 184, height: 224)
     
-    var numeralStyle : NumeralStyle = NumeralStyle.NumeralStyleNone
+//    var numeralStyle : NumeralStyle = NumeralStyle.NumeralStyleNone
     
     var tickmarkStyle : TickmarkStyle = TickmarkStyle.TickmarkStyleNone
     
@@ -102,8 +110,10 @@ class  WatchScene : SKScene,SKSceneDelegate {
 
     
     func setupClock() -> Void {
-        let backgroundImageName = GFaceNameList[currentWatch?.faceIndex ?? 0]
-        backgroundTexture = SKTexture.init(imageNamed: backgroundImageName)
+//        let backgroundImageName = GFaceNameList[currentWatch?.faceIndex ?? 0]
+//        backgroundTexture = SKTexture.init(imageNamed: backgroundImageName)
+        
+        backgroundTexture = currentWatch?.getFaceTexture()
         
         let hoursImageName = GHourImageList[currentWatch?.hourIndex ?? 0]
         self.hoursHandTexture = SKTexture.init(imageNamed: hoursImageName)
@@ -114,9 +124,9 @@ class  WatchScene : SKScene,SKSceneDelegate {
         minutesAnchorFromBottom = GMinutesAnchorFromBottoms[currentWatch?.minuteIndex ?? 0]
         
         if ((currentWatch?.secondIndex)! > 0) {
-            let secondImageName = GSecondImageList[currentWatch?.secondIndex ?? 0]
+            let secondImageName = GSecondImageList[currentWatch?.secondIndex ?? 1]
             secondsHandTexture = SKTexture.init(imageNamed: secondImageName)
-            secondsAnchorFromBottom = GSecondsAnchorFromBottoms[currentWatch?.secondIndex ?? 0]
+            secondsAnchorFromBottom = GSecondsAnchorFromBottoms[currentWatch?.secondIndex ?? 1]
         } else {
             secondsHandTexture = nil
         }
@@ -184,6 +194,16 @@ class  WatchScene : SKScene,SKSceneDelegate {
         minuteHandInlay?.colorBlendFactor = 1.0
 
         let numbersLayer : SKSpriteNode? =  face?.childNode(withName: "Numbers") as? SKSpriteNode
+        
+        if (currentWatch!.LogoIndex > 0) {
+            
+            let logoTexture : SKTexture = SKTexture.init(imageNamed: GLogoImageList[currentWatch!.LogoIndex])
+            let logoNode : SKSpriteNode = SKSpriteNode.init(texture: logoTexture)
+//            logoNode.texture = logoTexture
+            logoNode.position = CGPoint(x: 0, y: logoTexture.size().height)
+            self.addChild(logoNode)
+            
+        }
 
         if (useProgrammaticLayout) {
             numbersLayer?.alpha = 0;
@@ -247,7 +267,7 @@ class  WatchScene : SKScene,SKSceneDelegate {
             let numberLabel : SKLabelNode  = SKLabelNode(attributedText: labelText)
             numberLabel.position = CGPoint(x: (workingRadius-labelMargin) * -sin(angle), y: (workingRadius-labelMargin) * cos(angle) - 9);
             
-            if (self.numeralStyle == NumeralStyle.NumeralStyleAll || ((self.numeralStyle == NumeralStyle.NumeralStyleCardinal) && (i % 3 == 0))) {
+            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleAll || ((currentWatch!.numeralStyle == NumeralStyle.NumeralStyleCardinal) && (i % 3 == 0))) {
                 faceMarkings.addChild(numberLabel)
             }
         }
@@ -285,7 +305,7 @@ class  WatchScene : SKScene,SKSceneDelegate {
             
             let numberLabel : SKLabelNode = SKLabelNode(attributedText: labelText)
             
-            if (self.numeralStyle == NumeralStyle.NumeralStyleNone) {
+            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleNone) {
                 numeralDelta = 10.0
             }
             
@@ -396,7 +416,7 @@ class  WatchScene : SKScene,SKSceneDelegate {
             
             numberLabel.position = CGPoint(x: 0,y: -9)
             
-            if (self.numeralStyle == NumeralStyle.NumeralStyleAll || ((self.numeralStyle == NumeralStyle.NumeralStyleCardinal) && (i % 3 == 0))) {
+            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleAll || ((currentWatch!.numeralStyle == NumeralStyle.NumeralStyleCardinal) && (i % 3 == 0))) {
                 labelNode.addChild(numberLabel)
             }
         }
@@ -415,7 +435,7 @@ class  WatchScene : SKScene,SKSceneDelegate {
             let numberLabel : SKLabelNode = SKLabelNode(attributedText: labelText)
             var numeralDelta : CGFloat = 0.0
             
-            if (self.numeralStyle == NumeralStyle.NumeralStyleNone) {
+            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleNone) {
                 numeralDelta = 10.0
             }
             

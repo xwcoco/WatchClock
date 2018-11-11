@@ -19,7 +19,7 @@ class InterfaceController: WKInterfaceController,WKCrownDelegate {
         
         let tmpscene : WatchScene = WatchScene.init(fileNamed:"FaceScene")!
         
-        tmpscene.initVars()
+        tmpscene.initVars(nil)
         
         let currentDeviceSize : CGSize = WKInterfaceDevice.current().screenBounds.size
 
