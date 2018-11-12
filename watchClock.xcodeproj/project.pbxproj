@@ -9,7 +9,19 @@
 /* Begin PBXBuildFile section */
 		4F029E6321969CDB00EE7660 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B721219598A20017F683 /* WatchScene.swift */; };
 		4F029E642196A12700EE7660 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCC12193D42900EF4972 /* FaceScene.sks */; };
+		4F02E5382199186700D56CD5 /* FontSelectViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02E5372199186700D56CD5 /* FontSelectViewControl.swift */; };
 		4F464A832197C34500577A93 /* InformationViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A822197C34500577A93 /* InformationViewControl.swift */; };
+		4F464A902197FC8400577A93 /* EFColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A852197FC8300577A93 /* EFColorSelectionViewController.swift */; };
+		4F464A912197FC8400577A93 /* EFRGBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A862197FC8300577A93 /* EFRGBView.swift */; };
+		4F464A922197FC8400577A93 /* EFSliderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A872197FC8300577A93 /* EFSliderView.swift */; };
+		4F464A932197FC8400577A93 /* EFControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A882197FC8300577A93 /* EFControl.swift */; };
+		4F464A942197FC8400577A93 /* EFThumbView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A892197FC8300577A93 /* EFThumbView.swift */; };
+		4F464A952197FC8400577A93 /* EFColorSelectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A8A2197FC8300577A93 /* EFColorSelectionView.swift */; };
+		4F464A962197FC8400577A93 /* EFColorUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A8B2197FC8300577A93 /* EFColorUtils.swift */; };
+		4F464A972197FC8400577A93 /* EFColorWheelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A8C2197FC8300577A93 /* EFColorWheelView.swift */; };
+		4F464A982197FC8400577A93 /* EFColorComponentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A8D2197FC8300577A93 /* EFColorComponentView.swift */; };
+		4F464A992197FC8400577A93 /* EFHSBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A8E2197FC8300577A93 /* EFHSBView.swift */; };
+		4F464A9A2197FC8400577A93 /* EFColorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A8F2197FC8400577A93 /* EFColorView.swift */; };
 		4F48FC882193D28900EF4972 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FC872193D28900EF4972 /* AppDelegate.swift */; };
 		4F48FC8A2193D28900EF4972 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FC892193D28900EF4972 /* ViewController.swift */; };
 		4F48FC8D2193D28900EF4972 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FC8B2193D28900EF4972 /* Main.storyboard */; };
@@ -26,6 +38,8 @@
 		4F48FCC22193D42900EF4972 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCC12193D42900EF4972 /* FaceScene.sks */; };
 		4F48FCC42193D75800EF4972 /* FaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC32193D75800EF4972 /* FaceScene.swift */; };
 		4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */; };
+		4F519BFF219967F200941F47 /* HermesCAPECOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F519BFE219967E700941F47 /* HermesCAPECOD.otf */; };
+		4F519C00219967F300941F47 /* HermesCAPECOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F519BFE219967E700941F47 /* HermesCAPECOD.otf */; };
 		4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCB02193D28B00EF4972 /* Assets.xcassets */; };
 		4FB7B7182195872C0017F683 /* FaceSelctViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */; };
 		4FB7B71A21958B5D0017F683 /* WatchCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71921958B5D0017F683 /* WatchCustom.swift */; };
@@ -80,7 +94,19 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4F02E5372199186700D56CD5 /* FontSelectViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSelectViewControl.swift; sourceTree = "<group>"; };
 		4F464A822197C34500577A93 /* InformationViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewControl.swift; sourceTree = "<group>"; };
+		4F464A852197FC8300577A93 /* EFColorSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFColorSelectionViewController.swift; sourceTree = "<group>"; };
+		4F464A862197FC8300577A93 /* EFRGBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFRGBView.swift; sourceTree = "<group>"; };
+		4F464A872197FC8300577A93 /* EFSliderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFSliderView.swift; sourceTree = "<group>"; };
+		4F464A882197FC8300577A93 /* EFControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFControl.swift; sourceTree = "<group>"; };
+		4F464A892197FC8300577A93 /* EFThumbView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFThumbView.swift; sourceTree = "<group>"; };
+		4F464A8A2197FC8300577A93 /* EFColorSelectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFColorSelectionView.swift; sourceTree = "<group>"; };
+		4F464A8B2197FC8300577A93 /* EFColorUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFColorUtils.swift; sourceTree = "<group>"; };
+		4F464A8C2197FC8300577A93 /* EFColorWheelView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFColorWheelView.swift; sourceTree = "<group>"; };
+		4F464A8D2197FC8300577A93 /* EFColorComponentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFColorComponentView.swift; sourceTree = "<group>"; };
+		4F464A8E2197FC8300577A93 /* EFHSBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFHSBView.swift; sourceTree = "<group>"; };
+		4F464A8F2197FC8400577A93 /* EFColorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFColorView.swift; sourceTree = "<group>"; };
 		4F48FC842193D28900EF4972 /* watchClock.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = watchClock.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4F48FC872193D28900EF4972 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4F48FC892193D28900EF4972 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +130,7 @@
 		4F48FCC52193EB1B00EF4972 /* watchClock WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "watchClock WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUiApplication.m; sourceTree = "<group>"; };
 		4F48FCC82193EC6300EF4972 /* MyUIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUIApplication.h; sourceTree = "<group>"; };
+		4F519BFE219967E700941F47 /* HermesCAPECOD.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HermesCAPECOD.otf; sourceTree = "<group>"; };
 		4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceSelctViewControl.swift; sourceTree = "<group>"; };
 		4FB7B71921958B5D0017F683 /* WatchCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCustom.swift; sourceTree = "<group>"; };
 		4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDesignViewControl.swift; sourceTree = "<group>"; };
@@ -133,6 +160,24 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4F464A842197FC4100577A93 /* EFColorPicker */ = {
+			isa = PBXGroup;
+			children = (
+				4F464A8D2197FC8300577A93 /* EFColorComponentView.swift */,
+				4F464A8A2197FC8300577A93 /* EFColorSelectionView.swift */,
+				4F464A852197FC8300577A93 /* EFColorSelectionViewController.swift */,
+				4F464A8B2197FC8300577A93 /* EFColorUtils.swift */,
+				4F464A8F2197FC8400577A93 /* EFColorView.swift */,
+				4F464A8C2197FC8300577A93 /* EFColorWheelView.swift */,
+				4F464A882197FC8300577A93 /* EFControl.swift */,
+				4F464A8E2197FC8300577A93 /* EFHSBView.swift */,
+				4F464A862197FC8300577A93 /* EFRGBView.swift */,
+				4F464A872197FC8300577A93 /* EFSliderView.swift */,
+				4F464A892197FC8300577A93 /* EFThumbView.swift */,
+			);
+			path = EFColorPicker;
+			sourceTree = "<group>";
+		};
 		4F48FC7B2193D28900EF4972 = {
 			isa = PBXGroup;
 			children = (
@@ -156,6 +201,7 @@
 		4F48FC862193D28900EF4972 /* watchClock */ = {
 			isa = PBXGroup;
 			children = (
+				4F464A842197FC4100577A93 /* EFColorPicker */,
 				4F48FC872193D28900EF4972 /* AppDelegate.swift */,
 				4F48FC892193D28900EF4972 /* ViewController.swift */,
 				4F48FC8B2193D28900EF4972 /* Main.storyboard */,
@@ -167,6 +213,7 @@
 				4FB7B71E219597C60017F683 /* WatchInfo.swift */,
 				4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */,
 				4F464A822197C34500577A93 /* InformationViewControl.swift */,
+				4F02E5372199186700D56CD5 /* FontSelectViewControl.swift */,
 			);
 			path = watchClock;
 			sourceTree = "<group>";
@@ -184,6 +231,7 @@
 		4F48FCA92193D28B00EF4972 /* watchClock WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4F519BFE219967E700941F47 /* HermesCAPECOD.otf */,
 				4F48FCAA2193D28B00EF4972 /* InterfaceController.swift */,
 				4F48FCAC2193D28B00EF4972 /* ExtensionDelegate.swift */,
 				4F48FCC12193D42900EF4972 /* FaceScene.sks */,
@@ -309,6 +357,7 @@
 				4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */,
 				4F48FC8D2193D28900EF4972 /* Main.storyboard in Resources */,
 				4F029E642196A12700EE7660 /* FaceScene.sks in Resources */,
+				4F519C00219967F300941F47 /* HermesCAPECOD.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,6 +376,7 @@
 			files = (
 				4F48FCB12193D28B00EF4972 /* Assets.xcassets in Resources */,
 				4F48FCC22193D42900EF4972 /* FaceScene.sks in Resources */,
+				4F519BFF219967F200941F47 /* HermesCAPECOD.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -337,12 +387,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F464A972197FC8400577A93 /* EFColorWheelView.swift in Sources */,
+				4F464A902197FC8400577A93 /* EFColorSelectionViewController.swift in Sources */,
 				4F029E6321969CDB00EE7660 /* WatchScene.swift in Sources */,
 				4F464A832197C34500577A93 /* InformationViewControl.swift in Sources */,
+				4F464A932197FC8400577A93 /* EFControl.swift in Sources */,
+				4F464A9A2197FC8400577A93 /* EFColorView.swift in Sources */,
 				4FB7B71D2195934D0017F683 /* WatchDesignViewControl.swift in Sources */,
+				4F464A992197FC8400577A93 /* EFHSBView.swift in Sources */,
 				4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */,
 				4F48FC8A2193D28900EF4972 /* ViewController.swift in Sources */,
+				4F02E5382199186700D56CD5 /* FontSelectViewControl.swift in Sources */,
+				4F464A922197FC8400577A93 /* EFSliderView.swift in Sources */,
+				4F464A982197FC8400577A93 /* EFColorComponentView.swift in Sources */,
+				4F464A962197FC8400577A93 /* EFColorUtils.swift in Sources */,
+				4F464A912197FC8400577A93 /* EFRGBView.swift in Sources */,
+				4F464A952197FC8400577A93 /* EFColorSelectionView.swift in Sources */,
 				4FB7B7182195872C0017F683 /* FaceSelctViewControl.swift in Sources */,
+				4F464A942197FC8400577A93 /* EFThumbView.swift in Sources */,
 				4FB7B71A21958B5D0017F683 /* WatchCustom.swift in Sources */,
 				4F48FC882193D28900EF4972 /* AppDelegate.swift in Sources */,
 				4FB7B71F219597C60017F683 /* WatchInfo.swift in Sources */,

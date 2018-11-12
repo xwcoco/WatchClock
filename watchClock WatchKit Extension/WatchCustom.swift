@@ -74,9 +74,17 @@ var GLogoImageList : [String] = ["empty","hermes_logo_white",
                                  "apple_logo_color"]
 
 var GInfoBackgroud : [String] = ["empty",
-                                 "info_back_1",
-                                 "info_back_2"
+                                 "info_back_1_52x46",
+                                 "info_back_2_52x46",
+                                 "info_back_3_36x32",
+                                 "info_back_4_36x32"
 ]
+
+var WeekStyle1 : [String] = ["日","一","二","三","四","五","六"]
+var WeekStyle2 : [String] = ["周日","周一","周二","周三","周四","周五","周六"]
+var WeekStyle3 : [String] = ["星期日","星期一","星期二","星期三","星期四","星期五","星期六"]
+
+var WeekStyle : Int = 0
 
 
 enum NumeralStyle: Int {
@@ -91,6 +99,26 @@ extension UIFont {
     func SmallCaps() -> UIFont {
         let settings =  [UIFontDescriptor.FeatureKey.featureIdentifier: kUpperCaseType,UIFontDescriptor.FeatureKey.typeIdentifier: kUpperCaseSmallCapsSelector]
         return UIFont.init(descriptor: UIFontDescriptor.init(fontAttributes: [UIFontDescriptor.AttributeName.featureSettings: settings,UIFontDescriptor.AttributeName.name: self.fontName]), size: self.pointSize)
+    }
+}
+
+extension UIImage {
+    public class func imageWithColor(color : UIColor,size : CGSize) -> UIImage? {
+
+        UIGraphicsBeginImageContext(size)
+        let context = UIGraphicsGetCurrentContext()
+        
+        context?.setFillColor(UIColor.white.cgColor)
+        context?.fill(CGRect.init(x: 0, y: 0, width: size.width, height: size.height))
+
+        context?.setFillColor(color.cgColor)
+        context?.fill(CGRect.init(x: 1, y: 1, width: size.width-2, height: size.height-2))
+        
+        
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        return image
     }
 }
 

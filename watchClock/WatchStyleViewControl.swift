@@ -82,6 +82,8 @@ class WatchStyleViewControl: UITableViewController {
             cell.accessoryType = UITableViewCell.AccessoryType.checkmark
         }
         
+        cell.selectionStyle = .none
+        
 //        if (indexPath.row == self.imageList!.count - 1) {
 //            cell.accessoryType = UITableViewCell.AccessoryType.disclosureIndicator
 //        }
