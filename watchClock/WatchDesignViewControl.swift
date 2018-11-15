@@ -10,123 +10,140 @@ import Foundation
 import UIKit
 import SpriteKit
 
-class WatchDesignViewControl : UITableViewController {
-    public var watch : WatchInfo = WatchInfo()
+class WatchDesignViewControl: UITableViewController {
     
-    var faceIndex : Int = 0 {
-        didSet {
-//            if (faceIndex == GFaceNameList.count - 1) {
-//                self.setWatchStyleImage(1, watch.faceImage!)
-//            } else {
-                self.loadWatchStyleImage(0,1, GFaceNameList[faceIndex])
-//            }
-            
-        }
-    }
-    var logoIndex : Int = 1 {
-        didSet {
-            self.loadWatchStyleImage(1,1, GLogoImageList[logoIndex])
-        }
-    }
-    var hourIndex : Int = 0 {
-        didSet {
-            self.loadWatchStyleImage(2,1, GHourImageList[hourIndex])
-        }
-    }
-    var minuteIndex : Int  = 0 {
-        didSet {
-            self.loadWatchStyleImage(3,1, GMinuteImageList[minuteIndex])
+    public var editWatchIndex : Int = -1
+    
+    public func setEditWatch(data : String) {
+        if let tmpWatch = WatchInfo.fromJSON(data: data) {
+            self.watch = tmpWatch
         }
     }
     
-    var SecondIndex : Int = 0 {
+    public var watch: WatchInfo = WatchInfo()
+
+    var faceIndex: Int = 0 {
         didSet {
-            self.loadWatchStyleImage(4,1, GSecondImageList[SecondIndex])
+            self.loadWatchStyleImage(1, 1, WatchSettings.GFaceNameList[faceIndex])
+
+        }
+    }
+    var logoIndex: Int = 1 {
+        didSet {
+            self.loadWatchStyleImage(0, 2, WatchSettings.GLogoImageList[logoIndex])
+        }
+    }
+    var hourIndex: Int = 0 {
+        didSet {
+            self.loadWatchStyleImage(2, 1, WatchSettings.GHourImageList[hourIndex])
+        }
+    }
+    var minuteIndex: Int = 0 {
+        didSet {
+            self.loadWatchStyleImage(3, 1, WatchSettings.GMinuteImageList[minuteIndex])
+        }
+    }
+
+    var SecondIndex: Int = 0 {
+        didSet {
+            self.loadWatchStyleImage(4, 1, WatchSettings.GSecondImageList[SecondIndex])
         }
     }
     
-//    func setWatchStyleImage(_ index : Int,_ img : UIImage) -> Void {
-//        if let cell : UITableViewCell = self.tableView.cellForRow(at: IndexPath(row: index, section: 0)) {
-//            cell.imageView?.image = img
-//        }
-//    }
-    
-    func loadWatchStyleImage(_ index : Int,_ section : Int,_ name : String) -> Void {
-        if let cell : UITableViewCell = self.tableView.getCell(at: IndexPath(row: index, section: section)) {
+    private var logoToCenter : CGFloat = 0 {
+        didSet {
+            let cell = self.tableView.getCell(at: IndexPath.init(row: 1, section: 2))
+            let nums = cell?.contentView.subviews.count ?? 0
+            for i in 0...nums - 1 {
+                if let label = cell?.contentView.subviews[i] as? UILabel {
+                    label.text = "Dist To Center " + String.init(format: "%.0f", arguments: [logoToCenter])
+                    return
+                }
+            }
+        }
+    }
+
+
+    func loadWatchStyleImage(_ index: Int, _ section: Int, _ name: String) -> Void {
+        if let cell: UITableViewCell = self.tableView.getCell(at: IndexPath(row: index, section: section)) {
             cell.imageView?.image = UIImage.init(named: name)
         }
     }
-    
-//    func setWatchImage() -> Void {
-//        if let cell : UITableViewCell = self.tableView.cellForRow(at: IndexPath(row: 0, section: 0)) {
-//            print("get cell")
-//            print(cell.subviews.count)
-//            if let img : UIImageView = cell.contentView.subviews[0] as? UIImageView {
-//                img.image = self.watch.buildImage()
-//            }
-//
-//        }
-//    }
-    
+
     func setDemoWatch() -> Void {
-        if let cell : UITableViewCell = self.tableView.getCell(at: IndexPath(row: 0, section: 0)) {
-            if let skview : SKView = cell.contentView.subviews[1] as? SKView {
-                let tmpscene : WatchScene = WatchScene.init(fileNamed:"FaceScene")!
+        if let cell: UITableViewCell = self.tableView.getCell(at: IndexPath(row: 0, section: 0)) {
+            if let skview: SKView = cell.contentView.subviews[1] as? SKView {
                 
-                tmpscene.initVars(self.watch)
+                if (skview.scene == nil) {
+                    let tmpscene: WatchScene = WatchScene.init(fileNamed: "FaceScene")!
+                    
+                    tmpscene.initVars(self.watch)
+                    
+                    tmpscene.camera?.xScale = 1.8 / (184.0 / skview.bounds.width)
+                    tmpscene.camera?.yScale = 1.8 / (184.0 / skview.bounds.height)
+                    
+                    skview.presentScene(tmpscene)
+                } else {
+                    let tmpscene = skview.scene as? WatchScene
+                    tmpscene?.refreshWatch()
+                }
                 
-                
-                tmpscene.camera?.xScale = 1.8 / (184.0/skview.bounds.width)
-                tmpscene.camera?.yScale = 1.8 / (184.0/skview.bounds.height)
-                
-                skview.presentScene(tmpscene)
-                
+
             }
-            
         }
     }
-    
-    
-    
+
+
+
     override func viewDidLoad() {
-        print("view DidLoad")
-//        <#code#>
-//    }
-//    override func viewDidAppear(_ animated: Bool) {
-    
+
         self.setDemoWatch()
         self.faceIndex = watch.faceIndex
         self.logoIndex = watch.LogoIndex
         self.hourIndex = watch.hourIndex
         self.minuteIndex = watch.minuteIndex
         self.SecondIndex = watch.secondIndex
-        
+
         self.showTextImage(indexPath: IndexPath.init(row: 0, section: textSection), wText: watch.bottomText)
         self.showTextImage(indexPath: IndexPath.init(row: 1, section: textSection), wText: watch.rightText)
         self.showTextImage(indexPath: IndexPath.init(row: 2, section: textSection), wText: watch.leftText)
         
-        
+        self.logoToCenter = watch.LogoToCenter
+
     }
     
-    private var textSection : Int = 2
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.section == 2 && indexPath.row == 1) {
+            for i in 0...cell.contentView.subviews.count - 1 {
+                if let slider = cell.contentView.subviews[i] as? UISlider {
+                    slider.value = Float(self.logoToCenter)
+                    return;
+                }
+            }
+        }
+    }
 
-    
-    func showTextImage(indexPath : IndexPath,wText : WatchText) -> Void {
-//        print(self.tableView.numberOfRows(inSection: indexPath.section))
-//        let cell = self.tableView.cellForRow(at: indexPath)
+    private var textSection: Int = 3
+
+
+    func showTextImage(indexPath: IndexPath, wText: WatchText) -> Void {
         let cell = self.tableView.getCell(at: indexPath)
         cell?.imageView?.image = wText.toImage()
     }
-    
-    
-    
+
+
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nv = segue.destination as? WatchStyleViewControl {
-            if let cell : UITableViewCell = sender as? UITableViewCell {
+            if let cell: UITableViewCell = sender as? UITableViewCell {
                 let indexPath = self.tableView.indexPath(for: cell)
-                nv.mode = WatchStyleMode(rawValue: indexPath?.row ?? 0)!
+                var mode : Int = indexPath?.row ?? 1
+                mode = mode - 1
+                if (indexPath?.section == 2) {
+                    mode = WatchStyleMode.WatchStyleLogo.rawValue
+                }
+                nv.mode = WatchStyleMode(rawValue: mode)!
                 switch (nv.mode) {
-                    
                 case .WatchStyleFace:
                     nv.index = self.faceIndex
                     break
@@ -147,13 +164,13 @@ class WatchDesignViewControl : UITableViewController {
                 }
             }
         }
-        
-        if let iv = segue.destination as? InformationViewControl {
-            if let cell : UITableViewCell = sender as? UITableViewCell {
+
+        else if let iv = segue.destination as? InformationViewControl {
+            if let cell: UITableViewCell = sender as? UITableViewCell {
                 let indexPath = self.tableView.indexPath(for: cell)
                 iv.watchTextIndex = indexPath!.row
                 switch (indexPath?.row) {
-                    
+
                 case 0:
                     iv.watchText = watch.bottomText
                     break
@@ -166,24 +183,24 @@ class WatchDesignViewControl : UITableViewController {
                     break
                 }
             }
-            
+
         }
-        
+
+        else if let fv = segue.destination as? FaceCustomViewControl {
+            fv.watch = self.watch
+        }
+
     }
-    
+
     @IBAction func unwindToDesign(_ unwindSegue: UIStoryboardSegue) {
         print("back to Design")
         let sourceViewController = unwindSegue.source
         if let vc = sourceViewController as? WatchStyleViewControl {
             switch (vc.mode) {
-                
+
             case .WatchStyleFace:
                 watch.faceIndex = vc.index
-//                if (watch.isCustomFace()) {
-//                    watch.faceImage = vc.customImage
-//                }
                 self.faceIndex = vc.index
-                
                 break
             case .WatchStyleLogo:
                 self.logoIndex = vc.index
@@ -203,10 +220,10 @@ class WatchDesignViewControl : UITableViewController {
             default:
                 break
             }
-            
+
         }
-        
-        if let fv = sourceViewController as? InformationViewControl {
+
+        else if let fv = sourceViewController as? InformationViewControl {
             switch (fv.watchTextIndex) {
             case 0:
                 self.showTextImage(indexPath: IndexPath.init(row: 0, section: textSection), wText: watch.bottomText)
@@ -222,17 +239,29 @@ class WatchDesignViewControl : UITableViewController {
                 break
 
             }
-            
+
         }
-        
+
         self.setDemoWatch()
     }
+    
+    @IBOutlet weak var logoDistToCenterSlider: UISlider!
+    @IBAction func LogoDistToCenterValueChanged(_ sender: Any) {
+        self.logoToCenter = CGFloat(self.logoDistToCenterSlider.value)
+        self.watch.LogoToCenter = self.logoToCenter
+        self.setDemoWatch()
+    }
+    
+    @IBAction func DoneButtonClick(_ sender: Any) {
+        self.performSegue(withIdentifier: "unwindToWatchManager", sender: self)
+    }
+    
     
 }
 
 
 extension UITableView {
-    func getCell(at : IndexPath) -> UITableViewCell? {
+    func getCell(at: IndexPath) -> UITableViewCell? {
         //当列表太多时，一行未显示，cellforRow 会返回 nil
         var cell = self.cellForRow(at: at)
         if (cell == nil) {

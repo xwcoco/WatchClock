@@ -9,12 +9,29 @@
 import Foundation
 import SpriteKit
 
-class WatchScene: SKScene, SKSceneDelegate {
+class WatchScene: SKScene, SKSceneDelegate, CnWeatherProtocol,WatchInfoUpdate {
+    func UpdateWatchInfo() {
+        self.needUpdate = true
+    }
+    
+    
+    
+    func showWeather(_ data: CnWeatherData) {
+        self.currentWatch?.setWeatherData(data: data)
+    }
+    
+    private var needUpdate  : Bool = false
+
     public func initVars(_ watch: WatchInfo?) -> Void {
+        cnWeather.delegate = self
+        cnWeather.beginTimer()
         currentWatch = watch
+        currentWatch?.delegate = self
         self.refreshWatch();
         self.delegate = self
     }
+
+    var cnWeather: CnWeather = CnWeather()
 
     var currentWatch: WatchInfo?
 
@@ -42,6 +59,12 @@ class WatchScene: SKScene, SKSceneDelegate {
         return watch
     }
 
+    func removeNode(nodeName: String) -> Void {
+        let node = self.childNode(withName: nodeName)
+        node?.removeAllChildren()
+        node?.removeFromParent()
+    }
+
     func refreshWatch() -> Void {
         if (currentWatch == nil) {
             self.currentWatch = self.LoadWatch()
@@ -51,25 +74,22 @@ class WatchScene: SKScene, SKSceneDelegate {
             return
         }
 
-        let existingMarkings: SKNode?
+        self.removeNode(nodeName: "Markings")
+        self.removeNode(nodeName: "Markings Alternate")
+        self.removeNode(nodeName: "logo")
+        self.removeNode(nodeName: "watchcustombackground")
+        self.removeNode(nodeName: "bottomtext")
+        self.removeNode(nodeName: "righttext")
+        self.removeNode(nodeName: "lefttext")
 
-        existingMarkings = self.childNode(withName: "Markings")
-
-        let existingDualMaskMarkings: SKNode? = self.childNode(withName: "Markings Alternate")
-
-        existingMarkings?.removeAllChildren()
-        existingMarkings?.removeFromParent()
-
-        existingDualMaskMarkings?.removeAllChildren()
-        existingDualMaskMarkings?.removeFromParent()
-
-        let logoNode: SKNode? = self.childNode(withName: "logo")
-        logoNode?.removeAllChildren()
-        logoNode?.removeFromParent()
 
         self.setupClock()
         self.setupScene()
         self.setupTexts()
+
+        if self.currentWatch!.useCustomFace && currentWatch!.customFace_showColorRegion {
+            self.setupMasking()
+        }
 //
 //        if (self.useMasking) {
 //            self.setupMasking()
@@ -82,7 +102,7 @@ class WatchScene: SKScene, SKSceneDelegate {
     var minutesHandTexture: SKTexture?
     var secondsHandTexture: SKTexture?
 
-    var colorRegionColor: SKColor = SKColor.black
+//    var colorRegionColor: SKColor = SKColor.black
     var faceBackgroundColor: SKColor = SKColor.black
     var majorMarkColor: SKColor = SKColor.init(white: 1, alpha: 0.8)
     var minorMarkColor: SKColor = SKColor.black.withAlphaComponent(1)
@@ -91,48 +111,45 @@ class WatchScene: SKScene, SKSceneDelegate {
     var textColor: SKColor = SKColor.white.withAlphaComponent(1)
     var secondHandColor: SKColor = SKColor.init(white: 0.9, alpha: 1)
 
-    var alternateMajorMarkColor: SKColor = SKColor.white.withAlphaComponent(1)
-    var alternateMinorMarkColor: SKColor = SKColor.black.withAlphaComponent(0.5)
-    var alternateTextColor: SKColor = SKColor.init(white: 1, alpha: 0.8)
+//    var alternateMajorMarkColor: SKColor = SKColor.white.withAlphaComponent(1)
+//    var alternateMinorMarkColor: SKColor = SKColor.green.withAlphaComponent(0.5)
+//    var alternateTextColor: SKColor = SKColor.init(white: 1, alpha: 0.8)
 
     var hoursAnchorFromBottom: CGFloat = 18
     var minutesAnchorFromBottom: CGFloat = 0
     var secondsAnchorFromBottom: CGFloat = 0
 
-    var useProgrammaticLayout: Bool = false
 
     var faceSize: CGSize = CGSize(width: 184, height: 224)
-
-//    var numeralStyle : NumeralStyle = NumeralStyle.NumeralStyleNone
-
-    var tickmarkStyle: TickmarkStyle = TickmarkStyle.TickmarkStyleNone
 
     var showDate: Bool = true
 
 
     func setupClock() -> Void {
-        let backgroundImageName = GFaceNameList[currentWatch?.faceIndex ?? 0]
-        backgroundTexture = SKTexture.init(imageNamed: backgroundImageName)
+        if (currentWatch!.faceIndex > 0) {
+            let backgroundImageName = WatchSettings.GFaceNameList[currentWatch?.faceIndex ?? 0]
+            backgroundTexture = SKTexture.init(imageNamed: backgroundImageName)
+        } else {
+            backgroundTexture = nil
+        }
 
 //        backgroundTexture = currentWatch?.getFaceTexture()
 
-        let hoursImageName = GHourImageList[currentWatch?.hourIndex ?? 0]
+        let hoursImageName = WatchSettings.GHourImageList[currentWatch?.hourIndex ?? 0]
         self.hoursHandTexture = SKTexture.init(imageNamed: hoursImageName)
 
-        let minuteImageName = GMinuteImageList[currentWatch?.minuteIndex ?? 0]
+        let minuteImageName = WatchSettings.GMinuteImageList[currentWatch?.minuteIndex ?? 0]
         minutesHandTexture = SKTexture.init(imageNamed: minuteImageName)
 
-        minutesAnchorFromBottom = GMinutesAnchorFromBottoms[currentWatch?.minuteIndex ?? 0]
+        minutesAnchorFromBottom = WatchSettings.GMinutesAnchorFromBottoms[currentWatch?.minuteIndex ?? 0]
 
         if ((currentWatch?.secondIndex)! > 0) {
-            let secondImageName = GSecondImageList[currentWatch?.secondIndex ?? 1]
+            let secondImageName = WatchSettings.GSecondImageList[currentWatch?.secondIndex ?? 1]
             secondsHandTexture = SKTexture.init(imageNamed: secondImageName)
-            secondsAnchorFromBottom = GSecondsAnchorFromBottoms[currentWatch?.secondIndex ?? 1]
+            secondsAnchorFromBottom = WatchSettings.GSecondsAnchorFromBottoms[currentWatch?.secondIndex ?? 1]
         } else {
             secondsHandTexture = nil
         }
-
-
 
     }
 
@@ -173,17 +190,34 @@ class WatchScene: SKScene, SKSceneDelegate {
         secondHand?.texture = self.secondsHandTexture
         secondHand?.size = secondHand?.texture?.size() ?? CGSize(width: 0, height: 0)
         secondHand!.anchorPoint = CGPoint(x: 0.5, y: secondsAnchorFromBottom / secondHand!.size.height)
-//
-        self.backgroundColor = self.faceBackgroundColor
-//
-        colorRegion?.color = self.colorRegionColor
+
+
+//        self.backgroundColor = self.faceBackgroundColor
+
+        if (self.currentWatch!.useCustomFace) {
+            if (currentWatch!.customFace_draw_back) {
+                self.backgroundColor = currentWatch!.customFace_back_color
+            }
+
+            if (currentWatch!.customFace_showColorRegion) {
+                self.backgroundColor = currentWatch!.customFace_ColorRegion_Color2
+                colorRegion?.color = currentWatch!.customFace_ColorRegion_Color1
+            } else {
+                colorRegion?.alpha = 0
+            }
+        } else {
+            colorRegion?.alpha = 0
+        }
+
         colorRegion?.colorBlendFactor = 1.0
+
+        numbers?.color = self.currentWatch!.numbers_color
 //
-        numbers?.color = self.textColor
+//        numbers?.color = self.textColor
 //
         numbers?.colorBlendFactor = 1.0
         numbers?.texture = self.backgroundTexture
-        numbers?.size = numbers!.texture!.size()
+        numbers?.size = numbers?.texture?.size() ?? CGSize.zero
 
         hourHandInlay?.color = self.inlayColor
         minuteHandInlay?.color = self.inlayColor
@@ -196,20 +230,45 @@ class WatchScene: SKScene, SKSceneDelegate {
 
         let numbersLayer: SKSpriteNode? = face?.childNode(withName: "Numbers") as? SKSpriteNode
 
+//        if (currentWatch!.useCustomFace) {
+//            if (currentWatch!.customFace_draw_back) {
+//                let backgroundTexture = SKTexture.init(image: UIImage.imageWithPureColor(color: currentWatch!.customFace_back_color, size: self.faceSize)!)
+//                let backgroundNode = SKSpriteNode.init(texture: backgroundTexture)
+//                backgroundNode.name = "watchcustombackground"
+//                self.addChild(backgroundNode)
+//            }
+//        }
+
+
         if (currentWatch!.LogoIndex > 0) {
 
-            let logoTexture: SKTexture = SKTexture.init(imageNamed: GLogoImageList[currentWatch!.LogoIndex])
+            let logoTexture: SKTexture = SKTexture.init(imageNamed: WatchSettings.GLogoImageList[currentWatch!.LogoIndex])
             let logoNode: SKSpriteNode = SKSpriteNode.init(texture: logoTexture)
-//            logoNode.texture = logoTexture
-            logoNode.position = CGPoint(x: 0, y: logoTexture.size().height)
+            logoNode.name = "logo"
+//            var tmpy : CGFloat = (self.faceSize.height / 2 - logoTexture.size().height) / 2
+//
+//            if (currentWatch!.useCustomFace && currentWatch!.numeralStyle != .NumeralStyleNone) {
+//                tmpy = tmpy - 20
+//            }
+//
+//
+//            tmpy = tmpy + logoTexture.size().height / 2
+            logoNode.position = CGPoint(x: 0, y: currentWatch!.LogoToCenter)
+//            logoNode.position = CGPoint(x: 0, y: logoTexture.size().height)
             self.addChild(logoNode)
 
         }
 
-        if (useProgrammaticLayout) {
-            numbersLayer?.alpha = 0;
+        if (currentWatch!.useCustomFace) {
 
-            if ((currentWatch?.useRoundFace)!) {
+            textColor = currentWatch!.numbers_color
+            majorMarkColor = currentWatch!.tick_majorColor
+            minorMarkColor = currentWatch!.tick_minorColor
+
+
+            numbersLayer?.alpha = 1;
+
+            if (currentWatch!.faceStyle == .WatchFaceStyleRound) {
                 self.setupTickmarksForRoundFaceWithLayerName("Markings")
             } else {
                 setupTickmarksForRectangularFaceWithLayerName("Markings")
@@ -223,38 +282,38 @@ class WatchScene: SKScene, SKSceneDelegate {
     }
 
     func setupTexts() {
+
+        self.removeNode(nodeName: "bottomtext")
+        self.removeNode(nodeName: "righttext")
+        self.removeNode(nodeName: "lefttext")
+
         if (currentWatch!.bottomText.enabled) {
             let bottomTexture: SKTexture = SKTexture.init(image: currentWatch!.bottomText.toImage()!)
             let bottomNode: SKSpriteNode = SKSpriteNode.init(texture: bottomTexture)
             bottomNode.name = "bottomtext"
-            print(bottomTexture.size())
-            bottomNode.position = CGPoint(x: 0, y: -((self.faceSize.height / 2 - bottomTexture.size().height) / 2 + bottomTexture.size().height / 2))
+//            print(bottomTexture.size())
+//            let tmpy =  -((self.faceSize.height / 2 - bottomTexture.size().height) / 2 + bottomTexture.size().height / 2)
+//            print(tmpy)
+            bottomNode.position = CGPoint(x: 0, y: -currentWatch!.bottomText.distToCenter)
             self.addChild(bottomNode)
-        } else {
-            let bottomNode = self.childNode(withName: "bottomtext")
-            bottomNode?.removeFromParent()
         }
 
         if (currentWatch!.rightText.enabled) {
             let rightTexture: SKTexture = SKTexture.init(image: currentWatch!.rightText.toImage()!)
             let rightNode: SKSpriteNode = SKSpriteNode.init(texture: rightTexture)
             rightNode.name = "righttext"
-            rightNode.position = CGPoint(x: (self.faceSize.width / 2 - rightTexture.size().width) / 2 + rightTexture.size().width / 2, y: 0)
+            rightNode.position = CGPoint(x: self.currentWatch!.rightText.distToCenter, y: 0)
+//            rightNode.position = CGPoint(x: (self.faceSize.width / 2 - rightTexture.size().width) / 2 + rightTexture.size().width / 2, y: 0)
             self.addChild(rightNode)
-        } else {
-            let rightNode = self.childNode(withName: "righttext")
-            rightNode?.removeFromParent()
         }
 
         if (currentWatch!.leftText.enabled) {
             let leftTexture = SKTexture.init(image: currentWatch!.leftText.toImage()!)
             let leftNode = SKSpriteNode.init(texture: leftTexture)
             leftNode.name = "lefttext"
-            leftNode.position = CGPoint(x: -((self.faceSize.width / 2 - leftTexture.size().width) / 2 + leftTexture.size().width / 2), y: 0)
+            leftNode.position = CGPoint(x: -currentWatch!.leftText.distToCenter, y: 0)
+//            leftNode.position = CGPoint(x: -((self.faceSize.width / 2 - leftTexture.size().width) / 2 + leftTexture.size().width / 2), y: 0)
             self.addChild(leftNode)
-        } else {
-            let leftNode = self.childNode(withName: "lefttext")
-            leftNode?.removeFromParent()
         }
 
     }
@@ -262,35 +321,31 @@ class WatchScene: SKScene, SKSceneDelegate {
 
 
     func setupTickmarksForRoundFaceWithLayerName(_ layerName: String) -> Void {
-        let margin: CGFloat = 4.0;
-        let labelMargin: CGFloat = 26.0;
+        let margin: CGFloat = 1.0;
+        let labelMargin: CGFloat = 20;
 
         let faceMarkings: SKCropNode = SKCropNode()
-
-        //        self.addChild(faceMarkings)
 
         faceMarkings.name = layerName;
 
         /* Hardcoded for 44mm Apple Watch */
 
         for i in 0...12 {
-
-            //        for var i : Int = 0; i < 12; i++ {
             let angle: CGFloat = -(2 * CGFloat.pi) / 12.0 * CGFloat(i)
             let workingRadius: CGFloat = self.faceSize.width / 2
             let longTickHeight: CGFloat = workingRadius / 15
 
-            let tick: SKSpriteNode = SKSpriteNode(color: majorMarkColor, size: CGSize(width: 2, height: longTickHeight))
+            let tick: SKSpriteNode = SKSpriteNode(color: self.majorMarkColor, size: CGSize(width: 2, height: longTickHeight))
 
             tick.position = CGPoint(x: 0, y: 0)
             tick.anchorPoint = CGPoint(x: 0.5, y: (workingRadius - margin) / longTickHeight)
             tick.zRotation = angle
 
-            if (self.tickmarkStyle == TickmarkStyle.TickmarkStyleAll || self.tickmarkStyle == TickmarkStyle.TickmarkStyleMajor) {
+            if (currentWatch!.tickmarkStyle == .TickmarkStyleAll || currentWatch!.tickmarkStyle == .TickmarkStyleMajor) {
                 faceMarkings.addChild(tick)
             }
 
-            let h: CGFloat = 25
+//            let h: CGFloat = 25
 
             var tmpStr: String = ""
 
@@ -300,14 +355,18 @@ class WatchScene: SKScene, SKSceneDelegate {
                 tmpStr = String(format: "%i", arguments: [i])
             }
 
+            var numFont: UIFont = UIFont.systemFont(ofSize: currentWatch!.numbers_fontSize, weight: UIFont.Weight.medium)
 
+            if (currentWatch!.numbers_fontName != "") {
+                numFont = UIFont.init(name: currentWatch!.numbers_fontName, size: currentWatch!.numbers_fontSize) ?? UIFont.systemFont(ofSize: currentWatch!.numbers_fontSize, weight: UIFont.Weight.medium)
+            }
 
-            let labelText: NSAttributedString = NSAttributedString(string: tmpStr, attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: h, weight: UIFont.Weight.medium), NSAttributedString.Key.foregroundColor: self.textColor])
+            let labelText: NSAttributedString = NSAttributedString(string: tmpStr, attributes: [NSAttributedString.Key.font: numFont, NSAttributedString.Key.foregroundColor: self.textColor])
 
             let numberLabel: SKLabelNode = SKLabelNode(attributedText: labelText)
             numberLabel.position = CGPoint(x: (workingRadius - labelMargin) * -sin(angle), y: (workingRadius - labelMargin) * cos(angle) - 9);
 
-            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleAll || ((currentWatch!.numeralStyle == NumeralStyle.NumeralStyleCardinal) && (i % 3 == 0))) {
+            if (currentWatch!.numeralStyle == .NumeralStyleAll || ((currentWatch!.numeralStyle == .NumeralStyleCardinal) && (i % 3 == 0))) {
                 faceMarkings.addChild(numberLabel)
             }
         }
@@ -323,36 +382,12 @@ class WatchScene: SKScene, SKSceneDelegate {
             tick.anchorPoint = CGPoint(x: 0.5, y: (workingRadius - margin) / shortTickHeight);
             tick.zRotation = angle;
 
-            if (self.tickmarkStyle == TickmarkStyle.TickmarkStyleAll || self.tickmarkStyle == TickmarkStyle.TickmarkStyleMinor)
+            if (currentWatch!.tickmarkStyle == .TickmarkStyleAll || currentWatch!.tickmarkStyle == .TickmarkStyleMinor)
             {
                 if (i % 5 != 0) {
                     faceMarkings.addChild(tick)
                 }
             }
-        }
-
-        if (self.showDate) {
-            let calendar = NSCalendar.current
-            let currentDate = Date()
-            let day: Int = calendar.component(.day, from: currentDate)
-
-
-            let h: CGFloat = 24
-            var numeralDelta: CGFloat = 0.0
-
-            let labelText: NSAttributedString = NSAttributedString(string: String(day), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: h, weight: UIFont.Weight.light).SmallCaps(), NSAttributedString.Key.foregroundColor: alternateMajorMarkColor])
-
-
-            let numberLabel: SKLabelNode = SKLabelNode(attributedText: labelText)
-
-            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleNone) {
-                numeralDelta = 10.0
-            }
-
-
-            numberLabel.position = CGPoint(x: -10 + numeralDelta, y: -64);
-
-            faceMarkings.addChild(numberLabel)
         }
 
         self.addChild(faceMarkings)
@@ -361,9 +396,9 @@ class WatchScene: SKScene, SKSceneDelegate {
 
 
     func setupTickmarksForRectangularFaceWithLayerName(_ layerName: String) -> Void {
-        let margin: CGFloat = 5.0
-        let labelYMargin: CGFloat = 30.0
-        let labelXMargin: CGFloat = 24.0
+        let margin: CGFloat = 1.0
+        let labelYMargin: CGFloat = 25
+        let labelXMargin: CGFloat = 18
 
         let faceMarkings: SKCropNode = SKCropNode()
         faceMarkings.name = layerName
@@ -382,7 +417,7 @@ class WatchScene: SKScene, SKSceneDelegate {
 
             tick.zPosition = 0;
 
-            if (self.tickmarkStyle == TickmarkStyle.TickmarkStyleAll || self.tickmarkStyle == TickmarkStyle.TickmarkStyleMajor) {
+            if (currentWatch!.tickmarkStyle == .TickmarkStyleAll || currentWatch!.tickmarkStyle == .TickmarkStyleMajor) {
                 faceMarkings.addChild(tick)
             }
         }
@@ -406,7 +441,7 @@ class WatchScene: SKScene, SKSceneDelegate {
 
             tick.zPosition = 0
 
-            if (self.tickmarkStyle == TickmarkStyle.TickmarkStyleAll || self.tickmarkStyle == TickmarkStyle.TickmarkStyleMinor)
+            if (currentWatch!.tickmarkStyle == .TickmarkStyleAll || currentWatch!.tickmarkStyle == .TickmarkStyleMinor)
             {
                 if (i % 5 != 0)
                 {
@@ -450,40 +485,22 @@ class WatchScene: SKScene, SKSceneDelegate {
 
             let tmpStr: String = String(i)
 
-            let labelText: NSAttributedString = NSAttributedString(string: tmpStr, attributes: [NSAttributedString.Key.font: UIFont.init(name: "Futura-Medium", size: fontSize / 2) ?? UIFont.systemFont(ofSize: fontSize / 2), NSAttributedString.Key.foregroundColor: self.textColor])
+            var numFont = UIFont.systemFont(ofSize: currentWatch!.numbers_fontSize, weight: UIFont.Weight.medium)
+            if (currentWatch!.numbers_fontName != "") {
+                numFont = UIFont.init(name: currentWatch!.numbers_fontName, size: currentWatch!.numbers_fontSize) ?? numFont
+            }
+
+            let labelText: NSAttributedString = NSAttributedString(string: tmpStr, attributes: [NSAttributedString.Key.font: numFont, NSAttributedString.Key.foregroundColor: self.textColor])
 
             let numberLabel: SKLabelNode = SKLabelNode(attributedText: labelText)
 
             numberLabel.position = CGPoint(x: 0, y: -9)
 
-            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleAll || ((currentWatch!.numeralStyle == NumeralStyle.NumeralStyleCardinal) && (i % 3 == 0))) {
+            if (currentWatch!.numeralStyle == .NumeralStyleAll || ((currentWatch!.numeralStyle == .NumeralStyleCardinal) && (i % 3 == 0))) {
                 labelNode.addChild(numberLabel)
             }
         }
 
-        if (self.showDate)
-        {
-
-            let calendar = NSCalendar.current
-            let currentDate = Date()
-            let day: Int = calendar.component(.day, from: currentDate)
-
-            let h: CGFloat = 30
-
-            let labelText: NSAttributedString = NSAttributedString(string: String(day), attributes: [NSAttributedString.Key.font: UIFont.systemFont(ofSize: h, weight: UIFont.Weight.medium).SmallCaps(), NSAttributedString.Key.foregroundColor: textColor])
-
-            let numberLabel: SKLabelNode = SKLabelNode(attributedText: labelText)
-            var numeralDelta: CGFloat = 0.0
-
-            if (currentWatch!.numeralStyle == NumeralStyle.NumeralStyleNone) {
-                numeralDelta = 10.0
-            }
-
-
-            numberLabel.position = CGPoint(x: 32 + numeralDelta, y: -4)
-
-            faceMarkings.addChild(numberLabel)
-        }
         self.addChild(faceMarkings)
 
     }
@@ -538,12 +555,12 @@ class WatchScene: SKScene, SKSceneDelegate {
 
         faceMarkings?.maskNode = colorRegion;
 
-        self.textColor = self.alternateTextColor
-        self.minorMarkColor = self.alternateMinorMarkColor
-        self.majorMarkColor = self.alternateMajorMarkColor
+        self.textColor = self.currentWatch!.customFace_ColorRegion_AlternateTextColor
+        self.minorMarkColor = self.currentWatch!.customFace_ColorRegion_AlternateMajorColor
+        self.majorMarkColor = self.currentWatch!.customFace_ColorRegion_AlternateMinorColor
 
 
-        if (currentWatch!.useRoundFace)
+        if (currentWatch!.faceStyle == .WatchFaceStyleRound)
         {
             self.setupTickmarksForRoundFaceWithLayerName("Markings Alternate")
         }
@@ -560,6 +577,16 @@ class WatchScene: SKScene, SKSceneDelegate {
 
     public func update(_ currentTime: TimeInterval, for scene: SKScene) {
         self.updateHands()
+        
+        if (self.needUpdate) {
+            self.setupTexts()
+            self.needUpdate = false
+        }
+//        if (currentWatch != nil) {
+//            if (currentWatch!.bottomText.needUpdate() || currentWatch!.leftText.needUpdate() || currentWatch!.rightText.needUpdate()) {
+//                self.setupTexts()
+//            }
+//        }
     }
 
     func updateHands() -> Void {

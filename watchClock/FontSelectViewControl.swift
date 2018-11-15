@@ -15,6 +15,8 @@ class FontSelectViewControl: UITableViewController {
     
     private var fontNameList : [String] = []
     
+    public var backToSegueName : String = "unwindToInfo"
+    
     override func viewDidLoad() {
         fontNameList = UIFont.familyNames
         fontNameList.sort()
@@ -53,6 +55,6 @@ class FontSelectViewControl: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.selectedFontName = self.fontNameList[indexPath.row]
 //        self.selectedFontName = UIFont.familyNames[indexPath.row]
-        self.performSegue(withIdentifier: "unwindToInfo", sender: self)
+        self.performSegue(withIdentifier: self.backToSegueName, sender: self)
     }
 }

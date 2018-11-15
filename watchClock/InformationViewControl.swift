@@ -15,9 +15,23 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
     @IBOutlet weak var fontSizeLabel: UILabel!
     public var backIndex : Int = 1 {
         didSet {
-            self.loadStyleImage(0, 1, GInfoBackgroud[backIndex])
+            self.loadStyleImage(0, 1, WatchSettings.GInfoBackgroud[backIndex])
         }
     }
+    
+    private var distToCenter : CGFloat = 0 {
+        didSet {
+            let cell = self.tableView.getCell(at: IndexPath.init(row: 1, section: 1))
+            let num = cell?.contentView.subviews.count ?? 0
+            for i in 0...num - 1 {
+                if let label = cell?.contentView.subviews[i] as? UILabel {
+                    label.text = "Distance To Center " + String.init(format: "%.0f", arguments: [distToCenter])
+                    return;
+                }
+            }
+        }
+    }
+
     
     public var textContentIndex : Int = 0 {
         didSet {
@@ -27,7 +41,7 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
     
     public var textColor : UIColor = UIColor.white {
         didSet {
-            let cell = self.tableView.cellForRow(at: IndexPath.init(row: 0, section: textColorSection))
+            let cell = self.tableView.getCell(at: IndexPath.init(row: 0, section: textColorSection))
             cell?.imageView?.image = UIImage.imageWithColor(color: textColor, size: CGSize(width: 40, height: 40))
         }
     }
@@ -62,6 +76,7 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
         }
     }
     
+    
     @IBOutlet weak var customSwitch: UISwitch!
     @IBAction func switchValueChanged(_ sender: Any) {
         for i in 1...self.tableView.numberOfSections - 1 {
@@ -89,19 +104,24 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
         if (watchText != nil) {
             self.customSwitch.isOn = watchText!.enabled
             self.backIndex = watchText!.backImageIndex
-            self.textContentIndex = watchText!.textContentIndex
+            self.textContentIndex = watchText!.textContentIndex.rawValue
             self.textColor = watchText!.textColor
             
             self.fontName = watchText!.fontName
             self.setFontSize(setSlider: true, newSize: watchText!.fontSize)
             
+            self.distToCenter = watchText!.distToCenter
+            
+            self.WeatherTextIndex = watchText!.weatherTextStyle.rawValue
+            
 //            self.switchValueChanged(self.customSwitch)
         }
     }
     
-    override func viewDidAppear(_ animated: Bool) {
+    override func viewDidLayoutSubviews() {
         self.switchValueChanged(self.customSwitch)
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let nv = segue.destination as? WatchStyleViewControl {
@@ -144,6 +164,26 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
         }
     }
     
+    private var WeatherIndexSection : Int = 5
+    
+    private var WeatherTextIndex : Int = 0 {
+        didSet {
+            self.setWeatherTextCheck()
+        }
+    }
+    
+    func setWeatherTextCheck() -> Void {
+        for i in 1...self.tableView.numberOfRows(inSection: WeatherIndexSection) - 1 {
+            let cell = self.tableView.getCell(at: IndexPath(row: i, section: WeatherIndexSection))
+            if (i == self.WeatherTextIndex + 1) {
+                cell?.accessoryType = UITableViewCell.AccessoryType.checkmark
+            } else {
+                cell?.accessoryType = .none
+            }
+        }
+    }
+
+    
     private var textIndexSection : Int = 2
     private var textColorSection : Int = 3
     
@@ -154,7 +194,28 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
         if (indexPath.section == textColorSection) {
             self.showColorPicker(indexPath: indexPath)
         }
+        if (indexPath.section == WeatherIndexSection) {
+            self.WeatherTextIndex = indexPath.row - 1
+        }
     }
+    
+    override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if (indexPath.section == 1 && indexPath.row == 1) {
+            for i in 0...cell.contentView.subviews.count - 1 {
+                if let slider = cell.contentView.subviews[i] as? UISlider {
+                    slider.value = Float(self.distToCenter)
+                }
+            }
+        } else if (indexPath.section == WeatherIndexSection && indexPath.row == 0) {
+            for i in 0...cell.contentView.subviews.count - 1 {
+                if let sw = cell.contentView.subviews[i] as? UISwitch {
+                    sw.isOn = watchText!.showWeatchIcon
+                }
+            }
+        }
+        
+    }
+
     
     func showColorPicker(indexPath : IndexPath) -> Void {
 //        let cell = self.tableView.cellForRow(at: indexPath)
@@ -217,11 +278,38 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
     @IBAction func DoneButtonClick(_ sender: Any) {
         watchText?.enabled = self.customSwitch.isOn
         watchText?.backImageIndex = self.backIndex
-        watchText?.textContentIndex = self.textContentIndex
+        watchText?.textContentIndex = WatchTextContent(rawValue: self.textContentIndex) ?? .WatchTextDate
         watchText?.textColor = self.textColor
         watchText?.fontName = self.fontName
         watchText?.fontSize = self.fontSize
         
+        watchText?.distToCenter = self.distToCenter
+        
+        watchText?.weatherTextStyle = WeatherTextStyle(rawValue: self.WeatherTextIndex)!
+        watchText?.showWeatchIcon = self.getSwitchState(at: IndexPath.init(row: 0, section: WeatherIndexSection), defaultValue: watchText?.showWeatchIcon ?? false)
+        
         self.performSegue(withIdentifier: "unwindToDesign", sender: self)
     }
+    
+    @IBOutlet weak var textToCenterSlider: UISlider!
+    @IBAction func textToCenterSliderValueChanged(_ sender: Any) {
+        self.distToCenter = CGFloat(self.textToCenterSlider.value)
+    }
+    
+    func getSwitchState(at: IndexPath,defaultValue : Bool) -> Bool {
+        let cell = self.tableView.cellForRow(at: at)
+        var num = cell?.contentView.subviews.count ?? 0
+        num = num - 1
+        if (num < 0) {
+            return defaultValue
+        }
+        
+        for i in 0...num {
+            if let sw = cell?.contentView.subviews[i] as? UISwitch {
+                return sw.isOn
+            }
+        }
+        return defaultValue
+    }
+    
 }

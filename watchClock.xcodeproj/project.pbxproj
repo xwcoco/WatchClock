@@ -10,6 +10,7 @@
 		4F029E6321969CDB00EE7660 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B721219598A20017F683 /* WatchScene.swift */; };
 		4F029E642196A12700EE7660 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCC12193D42900EF4972 /* FaceScene.sks */; };
 		4F02E5382199186700D56CD5 /* FontSelectViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F02E5372199186700D56CD5 /* FontSelectViewControl.swift */; };
+		4F2C0073219D1BFF00EEEC89 /* WatchManagerViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F2C0072219D1BFF00EEEC89 /* WatchManagerViewControl.swift */; };
 		4F464A832197C34500577A93 /* InformationViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A822197C34500577A93 /* InformationViewControl.swift */; };
 		4F464A902197FC8400577A93 /* EFColorSelectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A852197FC8300577A93 /* EFColorSelectionViewController.swift */; };
 		4F464A912197FC8400577A93 /* EFRGBView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F464A862197FC8300577A93 /* EFRGBView.swift */; };
@@ -40,14 +41,20 @@
 		4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */; };
 		4F519BFF219967F200941F47 /* HermesCAPECOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F519BFE219967E700941F47 /* HermesCAPECOD.otf */; };
 		4F519C00219967F300941F47 /* HermesCAPECOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F519BFE219967E700941F47 /* HermesCAPECOD.otf */; };
+		4F519C02219A6F4D00941F47 /* FaceCustomViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F519C01219A6F4D00941F47 /* FaceCustomViewControl.swift */; };
+		4FA317A9219D5C8400D12BDB /* SetupViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317A8219D5C8400D12BDB /* SetupViewControl.swift */; };
+		4FA317AB219D623300D12BDB /* WeatherLocationViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */; };
+		4FA317AD219D62CA00D12BDB /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */; };
 		4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCB02193D28B00EF4972 /* Assets.xcassets */; };
-		4FB7B7182195872C0017F683 /* FaceSelctViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */; };
 		4FB7B71A21958B5D0017F683 /* WatchCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71921958B5D0017F683 /* WatchCustom.swift */; };
 		4FB7B71B21958B5D0017F683 /* WatchCustom.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71921958B5D0017F683 /* WatchCustom.swift */; };
 		4FB7B71D2195934D0017F683 /* WatchDesignViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */; };
 		4FB7B71F219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
 		4FB7B720219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
 		4FB7B722219598A20017F683 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B721219598A20017F683 /* WatchScene.swift */; };
+		4FD33351219D83C100B6E9E2 /* AboutViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD33350219D83C100B6E9E2 /* AboutViewControl.swift */; };
+		4FD4BC9A219BE8B7003AD84C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BC99219BE8B7003AD84C /* Weather.swift */; };
+		4FD4BC9B219BE8B7003AD84C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BC99219BE8B7003AD84C /* Weather.swift */; };
 		4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +102,7 @@
 
 /* Begin PBXFileReference section */
 		4F02E5372199186700D56CD5 /* FontSelectViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FontSelectViewControl.swift; sourceTree = "<group>"; };
+		4F2C0072219D1BFF00EEEC89 /* WatchManagerViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchManagerViewControl.swift; sourceTree = "<group>"; };
 		4F464A822197C34500577A93 /* InformationViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InformationViewControl.swift; sourceTree = "<group>"; };
 		4F464A852197FC8300577A93 /* EFColorSelectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFColorSelectionViewController.swift; sourceTree = "<group>"; };
 		4F464A862197FC8300577A93 /* EFRGBView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EFRGBView.swift; sourceTree = "<group>"; };
@@ -131,12 +139,16 @@
 		4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUiApplication.m; sourceTree = "<group>"; };
 		4F48FCC82193EC6300EF4972 /* MyUIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUIApplication.h; sourceTree = "<group>"; };
 		4F519BFE219967E700941F47 /* HermesCAPECOD.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HermesCAPECOD.otf; sourceTree = "<group>"; };
-		4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceSelctViewControl.swift; sourceTree = "<group>"; };
+		4F519C01219A6F4D00941F47 /* FaceCustomViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCustomViewControl.swift; sourceTree = "<group>"; };
+		4FA317A8219D5C8400D12BDB /* SetupViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewControl.swift; sourceTree = "<group>"; };
+		4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationViewControl.swift; sourceTree = "<group>"; };
+		4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
 		4FB7B71921958B5D0017F683 /* WatchCustom.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchCustom.swift; sourceTree = "<group>"; };
 		4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDesignViewControl.swift; sourceTree = "<group>"; };
 		4FB7B71E219597C60017F683 /* WatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfo.swift; sourceTree = "<group>"; };
 		4FB7B721219598A20017F683 /* WatchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
-		4FF1DDFB2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4FD33350219D83C100B6E9E2 /* AboutViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewControl.swift; sourceTree = "<group>"; };
+		4FD4BC99219BE8B7003AD84C /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		4FF1DDFC2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		4FF1DDFD2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Interface.strings"; sourceTree = "<group>"; };
 		4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchStyleViewControl.swift; sourceTree = "<group>"; };
@@ -208,12 +220,18 @@
 				4F48FC8E2193D28A00EF4972 /* Assets.xcassets */,
 				4F48FC902193D28A00EF4972 /* LaunchScreen.storyboard */,
 				4F48FC932193D28A00EF4972 /* Info.plist */,
-				4FB7B7172195872C0017F683 /* FaceSelctViewControl.swift */,
 				4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */,
 				4FB7B71E219597C60017F683 /* WatchInfo.swift */,
 				4FF1DE002195E0CE009D49DE /* WatchStyleViewControl.swift */,
 				4F464A822197C34500577A93 /* InformationViewControl.swift */,
 				4F02E5372199186700D56CD5 /* FontSelectViewControl.swift */,
+				4F519C01219A6F4D00941F47 /* FaceCustomViewControl.swift */,
+				4FD4BC99219BE8B7003AD84C /* Weather.swift */,
+				4F2C0072219D1BFF00EEEC89 /* WatchManagerViewControl.swift */,
+				4FA317A8219D5C8400D12BDB /* SetupViewControl.swift */,
+				4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */,
+				4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */,
+				4FD33350219D83C100B6E9E2 /* AboutViewControl.swift */,
 			);
 			path = watchClock;
 			sourceTree = "<group>";
@@ -260,6 +278,7 @@
 				4F48FC812193D28900EF4972 /* Frameworks */,
 				4F48FC822193D28900EF4972 /* Resources */,
 				4F48FCBD2193D28B00EF4972 /* Embed Watch Content */,
+				4FD33352219D876100B6E9E2 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -382,17 +401,40 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		4FD33352219D876100B6E9E2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "##! Auto Increment Version Script\n#! 在Info.plist文件中自定义 CFBundleBuildDate 和 CFBundleBuildNumber\n#! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		4F48FC802193D28900EF4972 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F519C02219A6F4D00941F47 /* FaceCustomViewControl.swift in Sources */,
 				4F464A972197FC8400577A93 /* EFColorWheelView.swift in Sources */,
 				4F464A902197FC8400577A93 /* EFColorSelectionViewController.swift in Sources */,
 				4F029E6321969CDB00EE7660 /* WatchScene.swift in Sources */,
+				4FD33351219D83C100B6E9E2 /* AboutViewControl.swift in Sources */,
 				4F464A832197C34500577A93 /* InformationViewControl.swift in Sources */,
 				4F464A932197FC8400577A93 /* EFControl.swift in Sources */,
 				4F464A9A2197FC8400577A93 /* EFColorView.swift in Sources */,
+				4FA317AB219D623300D12BDB /* WeatherLocationViewControl.swift in Sources */,
 				4FB7B71D2195934D0017F683 /* WatchDesignViewControl.swift in Sources */,
 				4F464A992197FC8400577A93 /* EFHSBView.swift in Sources */,
 				4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */,
@@ -400,13 +442,16 @@
 				4F02E5382199186700D56CD5 /* FontSelectViewControl.swift in Sources */,
 				4F464A922197FC8400577A93 /* EFSliderView.swift in Sources */,
 				4F464A982197FC8400577A93 /* EFColorComponentView.swift in Sources */,
+				4FD4BC9A219BE8B7003AD84C /* Weather.swift in Sources */,
 				4F464A962197FC8400577A93 /* EFColorUtils.swift in Sources */,
 				4F464A912197FC8400577A93 /* EFRGBView.swift in Sources */,
 				4F464A952197FC8400577A93 /* EFColorSelectionView.swift in Sources */,
-				4FB7B7182195872C0017F683 /* FaceSelctViewControl.swift in Sources */,
 				4F464A942197FC8400577A93 /* EFThumbView.swift in Sources */,
 				4FB7B71A21958B5D0017F683 /* WatchCustom.swift in Sources */,
+				4F2C0073219D1BFF00EEEC89 /* WatchManagerViewControl.swift in Sources */,
 				4F48FC882193D28900EF4972 /* AppDelegate.swift in Sources */,
+				4FA317AD219D62CA00D12BDB /* WeatherLocation.swift in Sources */,
+				4FA317A9219D5C8400D12BDB /* SetupViewControl.swift in Sources */,
 				4FB7B71F219597C60017F683 /* WatchInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -419,6 +464,7 @@
 				4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */,
 				4F48FCAF2193D28B00EF4972 /* NotificationController.swift in Sources */,
 				4F48FCAD2193D28B00EF4972 /* ExtensionDelegate.swift in Sources */,
+				4FD4BC9B219BE8B7003AD84C /* Weather.swift in Sources */,
 				4F48FCAB2193D28B00EF4972 /* InterfaceController.swift in Sources */,
 				4FB7B720219597C60017F683 /* WatchInfo.swift in Sources */,
 				4FB7B71B21958B5D0017F683 /* WatchCustom.swift in Sources */,
@@ -446,7 +492,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F48FC8C2193D28900EF4972 /* Base */,
-				4FF1DDFB2195CDF8009D49DE /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";

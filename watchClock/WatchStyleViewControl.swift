@@ -12,7 +12,7 @@ import Photos
 import MobileCoreServices
 
 enum WatchStyleMode : Int {
-    case WatchStyleFace,WatchStyleLogo,WatchStyleHour,WatchStyleMinute,WatchStyleSecond,InfoStyleBack
+    case WatchStyleFace,WatchStyleHour,WatchStyleMinute,WatchStyleSecond,WatchStyleLogo,InfoStyleBack
 }
 
 class WatchStyleViewControl: UITableViewController {
@@ -30,32 +30,32 @@ class WatchStyleViewControl: UITableViewController {
         self.customChoose = false
         switch self.mode {
         case .WatchStyleFace:
-            imageList = GFaceNameList
+            imageList = WatchSettings.GFaceNameList
             title = "Face Style"
             itemHeight = 100
 //            customChoose = true
             break
         case .WatchStyleMinute:
-            imageList = GMinuteImageList
+            imageList = WatchSettings.GMinuteImageList
             title = "Minute Style"
             itemHeight = 80
             break
         case .WatchStyleLogo:
-            imageList = GLogoImageList
+            imageList = WatchSettings.GLogoImageList
             title = "Logo Style"
             itemHeight = 50
             break
         case .WatchStyleHour:
-            imageList = GHourImageList
+            imageList = WatchSettings.GHourImageList
             title = "Hour Style"
             itemHeight = 80
             break
         case .WatchStyleSecond:
-            imageList = GSecondImageList
+            imageList = WatchSettings.GSecondImageList
             title = "Second Style"
             itemHeight = 80
         case .InfoStyleBack:
-            imageList = GInfoBackgroud
+            imageList = WatchSettings.GInfoBackgroud
             title = "Gackgroud"
             itemHeight = 60
         }
