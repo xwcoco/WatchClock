@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class WatchSettings {
+class WatchSettings : NSObject,CnWeatherProtocol {
     static var GFaceNameList: [String] = ["empty",
                                           "Hermes_watch_face_original",
                                           "Hermes_watch_face_original_orange",
@@ -86,15 +86,24 @@ class WatchSettings {
     ]
 
 
-    private init() {
-        self._weekStyle = UserDefaults.standard.integer(forKey: "WeekStyle")
-        self._WeatherDrawColorAQI = UserDefaults.standard.bool(forKey: "DrawColorAQI")
-        self._weather_location = UserDefaults.standard.string(forKey: "WeatherLocation") ?? ""
-        self._weather_city = UserDefaults.standard.string(forKey: "WeatherCity") ?? ""
-        self._weatherIconSize = CGFloat(UserDefaults.standard.float(forKey: "WeatherIconSize"))
-        if (self._weatherIconSize == 0) {
-            self._weatherIconSize = 20
-        }
+    private var cnWeather : CnWeather?
+    
+    var weatherData : CnWeatherData?
+    
+    private override init() {
+        super.init()
+        self.loadSettings()
+//        cnWeather = CnWeather()
+//        cnWeather?.delegate = self
+//        cnWeather?.beginTimer()
+//        self._weekStyle = UserDefaults.standard.integer(forKey: "WeekStyle")
+//        self._WeatherDrawColorAQI = UserDefaults.standard.bool(forKey: "DrawColorAQI")
+//        self._weather_location = UserDefaults.standard.string(forKey: "WeatherLocation") ?? ""
+//        self._weather_city = UserDefaults.standard.string(forKey: "WeatherCity") ?? ""
+//        self._weatherIconSize = CGFloat(UserDefaults.standard.float(forKey: "WeatherIconSize"))
+//        if (self._weatherIconSize == 0) {
+//            self._weatherIconSize = 20
+//        }
     }
 
     static let sharedInstance = WatchSettings()
@@ -160,7 +169,50 @@ class WatchSettings {
         set {
             sharedInstance._weather_location = newValue
             UserDefaults.standard.set(newValue, forKey: "WeatherLocation")
+            sharedInstance.cnWeather?.beginTimer()
         }
+    }
+    
+    
+    private func loadSettings() {
+        self._weekStyle = UserDefaults.standard.integer(forKey: "WeekStyle")
+        self._WeatherDrawColorAQI = UserDefaults.standard.bool(forKey: "DrawColorAQI")
+        self._weather_location = UserDefaults.standard.string(forKey: "WeatherLocation") ?? ""
+        self._weather_city = UserDefaults.standard.string(forKey: "WeatherCity") ?? ""
+        self._weatherIconSize = CGFloat(UserDefaults.standard.float(forKey: "WeatherIconSize"))
+        if (self._weatherIconSize == 0) {
+            self._weatherIconSize = 20
+        }
+    }
+    
+    static var WeatherData : CnWeatherData? {
+        get {
+            return sharedInstance.weatherData
+        }
+    }
+    
+    static func reloadSettings() {
+        sharedInstance.loadSettings()
+    }
+    
+    func showWeather(_ data: CnWeatherData) {
+        self.weatherData = data
+        NotificationCenter.default.post(name: Notification.Name("WeatherDataUpdate"), object: self)
+//        NotificationCenter.default.post(Notification.init(name: Notification.Name("WeatherDataUpdate")))
+//        self.currentWatch?.setWeatherData(data: data)
+    }
+    
+    
+    private func _loadWeatherData() {
+        if (self.cnWeather == nil) {
+            self.cnWeather = CnWeather()
+            cnWeather?.delegate = self
+            cnWeather?.beginTimer()
+        }
+    }
+    
+    static func LoadWeatherData() {
+        sharedInstance._loadWeatherData()
     }
 
 }

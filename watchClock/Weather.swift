@@ -21,6 +21,13 @@ class CnWeather {
 
 
     func beginTimer() {
+        
+        let tmpStr = WatchSettings.WeatherLocation
+        if (tmpStr == self.location && self.weatherData != nil)  {
+            self.delegate?.showWeather(self.weatherData!)
+            return
+        }
+        
         timer = Timer.scheduledTimer(timeInterval: 1800,
                                      target: self,
                                      selector: #selector(getWeatherInfo),
@@ -64,10 +71,12 @@ class CnWeather {
         print(response ?? "response error")
     }
 
+    private var weatherData : CnWeatherData?
     func setWeatherData(_ data: Data) {
 //        print("get weather data")
         let wd = CnWeatherData.init(xml: data)
         print("weather update")
+        self.weatherData = wd
 //        print(wd)
         self.delegate?.showWeather(wd)
 

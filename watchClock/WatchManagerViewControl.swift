@@ -21,7 +21,7 @@ class WatchManagerViewControl: UITableViewController {
                         nv.editWatchIndex = index.row
                         nv.setEditWatch(data: self.WatchList[index.row])
                     }
-                    
+
                 }
             }
         }
@@ -41,21 +41,22 @@ class WatchManagerViewControl: UITableViewController {
                 self.updateWatch(index: nv.editWatchIndex)
             }
         }
-        
-        if let nv = sourceViewController as? SetupViewControl {
+
+        if sourceViewController is SetupViewControl {
             let num = self.tableView.numberOfRows(inSection: 0)
             if (num == 0) {
                 return
             }
-            
-            for i in 000...num - 1 {
+
+            for i in 0..<num {
                 self.updateWatch(index: i)
             }
+            self.SyncWithWatch()
         }
 
     }
-    
-    private func updateWatch(index : Int) {
+
+    private func updateWatch(index: Int) {
         if let cell = self.tableView.getCell(at: IndexPath.init(row: index, section: 0)) {
             if let skview: SKView = cell.contentView.subviews[1] as? SKView {
                 if let tmpscene = skview.scene as? WatchScene {
@@ -63,18 +64,21 @@ class WatchManagerViewControl: UITableViewController {
                         tmpscene.initVars(watch)
 //                        tmpscene?.refreshWatch()
                     }
-                    
+
                 }
-                
+
             }
         }
-        
+
     }
 
 //    private var WatchNum: Int = 0
     private var WatchList: [String] = []
 
     override func viewDidLoad() {
+        IWatchSessionUtil.SessionManager.delegate = self
+        IWatchSessionUtil.SessionManager.StartSession()
+        self.needSyncWithWatch = true
         self.loadWatchFromFiles()
     }
 
@@ -100,6 +104,8 @@ class WatchManagerViewControl: UITableViewController {
                 UserDefaults.standard.set(WatchList[i], forKey: "WatchData" + String(i))
             }
         }
+        
+        self.SyncWithWatch()
     }
 
     func addWatch(watchData: String) -> Void {
@@ -108,6 +114,7 @@ class WatchManagerViewControl: UITableViewController {
         UserDefaults.standard.setValue(watchData, forKey: "WatchData" + String(watchNum))
         UserDefaults.standard.setValue(self.WatchList.count, forKey: "WatchNum")
         self.tableView.insertRows(at: [IndexPath.init(row: watchNum, section: 0)], with: .automatic)
+        self.saveWatchToFile()
     }
 
     func deleteWatch(index: Int) {
@@ -217,7 +224,7 @@ class WatchManagerViewControl: UITableViewController {
         }
         return true
     }
-    
+
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if (indexPath.section == 1) {
             if (indexPath.row == 0) {
@@ -228,5 +235,84 @@ class WatchManagerViewControl: UITableViewController {
             }
         }
     }
+
+    private var watchIsConneted: Bool = false
+    private var needSyncWithWatch: Bool = false
+}
+
+extension WatchManagerViewControl: WatchSessionDelegate {
+    func onWatchMessage(message: [String : Any]) {
+        
+    }
+    
+    func onWatchReplay(dict: Dictionary<String, Any>) {
+        for (_,value) in dict {
+            self.showMessage(msg: value as! String)
+        }
+    }
+
+    func onWatchError(error: Error) {
+        self.showMessage(msg: error.localizedDescription)
+    }
+
+
+    func showMessage(msg: String) -> Void {
+        DispatchQueue.main.async {
+            self.navigationController?.view.makeToast(msg)
+        }
+    }
+
+    func SyncWithWatch() -> Void {
+        if (!self.watchIsConneted) {
+            self.showMessage(msg: "Please Connect Watch First!")
+            self.needSyncWithWatch = true
+            return
+        }
+        
+//        let dict : Dictionary<String,Any> = Dictionary.init()
+//        dict.
+        
+        var dict : [String: Any] = [:]
+        dict["WatchNum"] = self.WatchList.count
+        for i in 0..<self.WatchList.count {
+            dict["WatchData"+String(i)] = self.WatchList[i]
+        }
+        dict["WeekStyle"] = WatchSettings.WeekStyle
+        dict["WeatherIconSize"] = WatchSettings.WeatherIconSize
+        dict["DrawColorAQI"] = WatchSettings.WeatherDrawColorAQI
+        dict["WeatherLocation"] = WatchSettings.WeatherLocation
+        
+        IWatchSessionUtil.SessionManager.SendMessageToWatch(msgDict: dict)
+        
+        
+
+//        IWatchSessionUtil.SessionManager.SendMessageToWatch(key: "WatchNum", value: self.WatchList.count)
+//        for i in 0..<self.WatchList.count {
+//            IWatchSessionUtil.SessionManager.SendMessageToWatch(key: "WatchData"+String(i), value: self.WatchList[i])
+//        }
+        
+//        IWatchSessionUtil.SessionManager.SendMessageToWatch(key: "WeekStyle", value: WatchSettings.WeekStyle)
+//        IWatchSessionUtil.SessionManager.SendMessageToWatch(key: "WeatherIconSize", value: WatchSettings.WeatherIconSize)
+//        IWatchSessionUtil.SessionManager.SendMessageToWatch(key: "DrawColorAQI", value: WatchSettings.WeatherDrawColorAQI)
+//        IWatchSessionUtil.SessionManager.SendMessageToWatch(key: "WeatherLocation", value: WatchSettings.WeatherLocation)
+    }
+
+
+
+    func onWatchConneted() {
+        self.showMessage(msg: "Watch is Conneted")
+        self.watchIsConneted = true
+        if self.needSyncWithWatch {
+            self.SyncWithWatch()
+            self.needSyncWithWatch = false
+        }
+
+    }
+
+    func OnWatchDisConneted() {
+        self.watchIsConneted = false
+        self.showMessage(msg: "Watch is DisConneted")
+    }
+
 
 }

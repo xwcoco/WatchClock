@@ -37,7 +37,8 @@ class SetupViewControl: UITableViewController {
     private var weatherIconSize: CGFloat = 0 {
         didSet {
             let cell = self.tableView.getCell(at: IndexPath.init(row: 0, section: 1))
-            cell?.textLabel?.text = String.init(format: "%.0f", arguments: [weatherIconSize])
+            let label = cell?.contentView.subviews[0] as? UILabel
+            label?.text = String.init(format: "%.0f", arguments: [weatherIconSize])
         }
     }
 

@@ -9,29 +9,23 @@
 import Foundation
 import SpriteKit
 
-class WatchScene: SKScene, SKSceneDelegate, CnWeatherProtocol,WatchInfoUpdate {
+class WatchScene: SKScene, SKSceneDelegate, WatchInfoUpdate {
     func UpdateWatchInfo() {
         self.needUpdate = true
-    }
-    
-    
-    
-    func showWeather(_ data: CnWeatherData) {
-        self.currentWatch?.setWeatherData(data: data)
     }
     
     private var needUpdate  : Bool = false
 
     public func initVars(_ watch: WatchInfo?) -> Void {
-        cnWeather.delegate = self
-        cnWeather.beginTimer()
         currentWatch = watch
+        
+        WatchSettings.LoadWeatherData()
+//        cnWeather.delegate = self
+//        cnWeather.beginTimer()
         currentWatch?.delegate = self
         self.refreshWatch();
         self.delegate = self
     }
-
-    var cnWeather: CnWeather = CnWeather()
 
     var currentWatch: WatchInfo?
 
@@ -90,11 +84,6 @@ class WatchScene: SKScene, SKSceneDelegate, CnWeatherProtocol,WatchInfoUpdate {
         if self.currentWatch!.useCustomFace && currentWatch!.customFace_showColorRegion {
             self.setupMasking()
         }
-//
-//        if (self.useMasking) {
-//            self.setupMasking()
-//        }
-
     }
 
     var backgroundTexture: SKTexture?
@@ -102,7 +91,6 @@ class WatchScene: SKScene, SKSceneDelegate, CnWeatherProtocol,WatchInfoUpdate {
     var minutesHandTexture: SKTexture?
     var secondsHandTexture: SKTexture?
 
-//    var colorRegionColor: SKColor = SKColor.black
     var faceBackgroundColor: SKColor = SKColor.black
     var majorMarkColor: SKColor = SKColor.init(white: 1, alpha: 0.8)
     var minorMarkColor: SKColor = SKColor.black.withAlphaComponent(1)
@@ -110,10 +98,6 @@ class WatchScene: SKScene, SKSceneDelegate, CnWeatherProtocol,WatchInfoUpdate {
     var handColor: SKColor = SKColor.white
     var textColor: SKColor = SKColor.white.withAlphaComponent(1)
     var secondHandColor: SKColor = SKColor.init(white: 0.9, alpha: 1)
-
-//    var alternateMajorMarkColor: SKColor = SKColor.white.withAlphaComponent(1)
-//    var alternateMinorMarkColor: SKColor = SKColor.green.withAlphaComponent(0.5)
-//    var alternateTextColor: SKColor = SKColor.init(white: 1, alpha: 0.8)
 
     var hoursAnchorFromBottom: CGFloat = 18
     var minutesAnchorFromBottom: CGFloat = 0
@@ -200,6 +184,7 @@ class WatchScene: SKScene, SKSceneDelegate, CnWeatherProtocol,WatchInfoUpdate {
             }
 
             if (currentWatch!.customFace_showColorRegion) {
+                colorRegion?.alpha = 1
                 self.backgroundColor = currentWatch!.customFace_ColorRegion_Color2
                 colorRegion?.color = currentWatch!.customFace_ColorRegion_Color1
             } else {
@@ -574,8 +559,22 @@ class WatchScene: SKScene, SKSceneDelegate, CnWeatherProtocol,WatchInfoUpdate {
         alternateFaceMarkings?.maskNode = colorRegionReflection
 
     }
+    
+    private var isUpdateSetting : Bool = false
+    func beginUpdate() -> Void {
+        self.isUpdateSetting = true
+    }
+    
+    func endUpdate() ->Void {
+        self.isUpdateSetting = false
+    }
 
     public func update(_ currentTime: TimeInterval, for scene: SKScene) {
+        
+        if self.isUpdateSetting {
+            return
+        }
+        
         self.updateHands()
         
         if (self.needUpdate) {

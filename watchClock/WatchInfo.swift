@@ -45,7 +45,7 @@ class WatchText : Codable {
     public var showWeatchIcon : Bool = false
     public var weatherTextStyle : WeatherTextStyle = .WeatherTextTemp
     
-    public var weatherData : CnWeatherData?
+    public var weatherData : CnWeatherData? = WatchSettings.WeatherData
     
     private var backupText : String = ""
     
@@ -127,7 +127,7 @@ class WatchText : Codable {
                     
                 }
             }
-            return "15"
+            return ""
         }
     }
     
@@ -182,7 +182,7 @@ class WatchText : Codable {
         
         var tmpTextColor = textColor
         
-        if (self.textContentIndex == .WatchTextWeather && (weatherData != nil)) {
+        if (self.textContentIndex == .WatchTextWeather && (weatherData != nil) && WatchSettings.WeatherDrawColorAQI) {
             switch self.weatherTextStyle {
             case .WeatherTextAQI:
                 tmpTextColor = self.getAQIColor(NumberFormatter().number(from: weatherData!.aqi)?.floatValue ?? 0)
@@ -283,7 +283,12 @@ class WatchInfo: Codable {
     public init() {
         leftText.enabled = false
         rightText.enabled = false
-        
+    
+        self.initAfterFromJSON()
+    }
+    
+    private func initAfterFromJSON() {
+        NotificationCenter.default.addObserver(forName: Notification.Name("WeatherDataUpdate"), object: nil, queue: nil, using: setWeatherData)
         timer = Timer.scheduledTimer(timeInterval: 5,
                                      target: self,
                                      selector: #selector(CheckUpdate),
@@ -291,10 +296,11 @@ class WatchInfo: Codable {
                                      repeats: true)
     }
     
-    public func setWeatherData(data : CnWeatherData) {
-        self.bottomText.weatherData = data
-        self.leftText.weatherData = data
-        self.rightText.weatherData = data
+    @objc public func setWeatherData(notification:Notification) {
+        self.bottomText.weatherData = WatchSettings.WeatherData
+        self.leftText.weatherData = WatchSettings.WeatherData
+        self.rightText.weatherData = WatchSettings.WeatherData
+        
         self.delegate?.UpdateWatchInfo()
     }
     
@@ -442,47 +448,6 @@ class WatchInfo: Codable {
         case rightText
     }
     
-    
-//    public func encode(to encoder: Encoder) throws {
-//        var container = encoder.container(keyedBy: CodingKeys.self)
-//        try container.encode(faceIndex, forKey: .faceIndex)
-//        try container.encode(LogoIndex, forKey: .LogoIndex)
-//        try container.encode(LogoToCenter, forKey: .LogoToCenter)
-//        try container.encode(hourIndex, forKey: .hourIndex)
-//        try container.encode(minuteIndex, forKey: .minuteIndex)
-//        try container.encode(secondIndex, forKey: .secondIndex)
-//        try container.encode(useCustomFace, forKey: .useCustomFace)
-//        try container.encode(customFace_draw_back, forKey: .customFace_draw_back)
-//        try container.encode(MyColor.UIColorToMyColor(self.customFace_back_color), forKey: .customFace_back_color)
-//        try container.encode(customFace_showColorRegion, forKey: .customFace_showColorRegion)
-//        try container.encode(MyColor.UIColorToMyColor(customFace_ColorRegion_Color1), forKey: .customFace_ColorRegion_Color1)
-//        try container.encode(MyColor.UIColorToMyColor(customFace_ColorRegion_Color2), forKey: .customFace_ColorRegion_Color2)
-//        try container.encode(MyColor.UIColorToMyColor(customFace_ColorRegion_AlternateTextColor), forKey: .customFace_ColorRegion_AlternateTextColor)
-//        try container.encode(MyColor.UIColorToMyColor(customFace_ColorRegion_AlternateMajorColor), forKey: .customFace_ColorRegion_AlternateMajorColor)
-//        try container.encode(MyColor.UIColorToMyColor(customFace_ColorRegion_AlternateMinorColor), forKey: .customFace_ColorRegion_AlternateMinorColor)
-//
-//        try container.encode(self.numeralStyle.rawValue, forKey: .numeralStyle)
-//        try container.encode(tickmarkStyle.rawValue, forKey: .tickmarkStyle)
-//        try container.encode(faceStyle.rawValue, forKey: .faceStyle)
-//
-//        try container.encode(numbers_fontName, forKey: .numbers_fontName)
-//        try container.encode(numbers_fontSize, forKey: .numbers_fontSize)
-//        try container.encode(MyColor.UIColorToMyColor(numbers_color), forKey: .numbers_color)
-//        try container.encode(MyColor.UIColorToMyColor(tick_majorColor), forKey: .tick_majorColor)
-//        try container.encode(MyColor.UIColorToMyColor(tick_minorColor), forKey: .tick_minorColor)
-//
-//        try container.encode(bottomText, forKey: .bottomText)
-//        try container.encode(leftText, forKey: .leftText)
-//        try container.encode(rightText, forKey: .rightText)
-//
-//
-//    }
-//
-//    required public convenience init(from decoder: Decoder) {
-//        self.init()
-//
-//    }
-//
 
     public func toJSON() -> String {
         let jsonEncoder = JSONEncoder()
@@ -502,6 +467,7 @@ class WatchInfo: Codable {
         if let jsonData : Data = data.data(using: .utf8) {
             do {
                 let watch = try jsonDecoder.decode(WatchInfo.self, from: jsonData)
+                watch.initAfterFromJSON()
                 return watch
             }
             catch {
@@ -510,42 +476,10 @@ class WatchInfo: Codable {
         }
         return nil
     }
-    
-
-
-
-
-//    public func isCustomFace() -> Bool {
-//        if (faceIndex == GFaceNameList.count - 1) {
-//            return true
-//        }
-//        return false
-//    }
-//    public var faceImage : UIImage?
-//
-//    public func getFaceTexture() -> SKTexture {
-//        if (isCustomFace()) {
-//            if (faceImage != nil) {
-//                return  SKTexture.init(image: faceImage!)
-//            }
-//            return SKTexture.init(imageNamed: GFaceNameList[0])
-//
-//        }
-//        return SKTexture.init(imageNamed: GFaceNameList[faceIndex])
-//    }
-
 
 }
 
-//struct MyColor : Codable {
-//    let red, green, blue, alpha : CGFloat
-//
-//    static func UIColorToMyColor(_ color : UIColor) -> MyColor {
-//        var red1 : CGFloat = 0.0, green1: CGFloat = 0.0, blue1: CGFloat = 0.0, alpha1: CGFloat = 0.0
-//        color.getRed(&red1, green: &green1, blue: &blue1, alpha: &alpha1)
-//        return MyColor(red: red1, green: green1, blue: blue1, alpha: alpha1)
-//    }
-//}
+
 
 
 

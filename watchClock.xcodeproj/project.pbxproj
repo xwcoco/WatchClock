@@ -37,11 +37,13 @@
 		4F48FCAF2193D28B00EF4972 /* NotificationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCAE2193D28B00EF4972 /* NotificationController.swift */; };
 		4F48FCB12193D28B00EF4972 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCB02193D28B00EF4972 /* Assets.xcassets */; };
 		4F48FCC22193D42900EF4972 /* FaceScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 4F48FCC12193D42900EF4972 /* FaceScene.sks */; };
-		4F48FCC42193D75800EF4972 /* FaceScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC32193D75800EF4972 /* FaceScene.swift */; };
 		4F48FCC72193EB1B00EF4972 /* MyUiApplication.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */; };
 		4F519BFF219967F200941F47 /* HermesCAPECOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F519BFE219967E700941F47 /* HermesCAPECOD.otf */; };
 		4F519C00219967F300941F47 /* HermesCAPECOD.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4F519BFE219967E700941F47 /* HermesCAPECOD.otf */; };
 		4F519C02219A6F4D00941F47 /* FaceCustomViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F519C01219A6F4D00941F47 /* FaceCustomViewControl.swift */; };
+		4F9AA3D7219E5A86001363F4 /* IWatchSessionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA3D6219E5A86001363F4 /* IWatchSessionUtil.swift */; };
+		4F9AA3DA219E5C73001363F4 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA3D9219E5C73001363F4 /* Toast.swift */; };
+		4F9AA3DD219E74D8001363F4 /* IPhoneSessionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA3DC219E74D8001363F4 /* IPhoneSessionUtil.swift */; };
 		4FA317A9219D5C8400D12BDB /* SetupViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317A8219D5C8400D12BDB /* SetupViewControl.swift */; };
 		4FA317AB219D623300D12BDB /* WeatherLocationViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */; };
 		4FA317AD219D62CA00D12BDB /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */; };
@@ -134,12 +136,14 @@
 		4F48FCB22193D28B00EF4972 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4F48FCB32193D28B00EF4972 /* PushNotificationPayload.apns */ = {isa = PBXFileReference; lastKnownFileType = text; path = PushNotificationPayload.apns; sourceTree = "<group>"; };
 		4F48FCC12193D42900EF4972 /* FaceScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = FaceScene.sks; sourceTree = "<group>"; };
-		4F48FCC32193D75800EF4972 /* FaceScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceScene.swift; sourceTree = "<group>"; };
 		4F48FCC52193EB1B00EF4972 /* watchClock WatchKit Extension-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "watchClock WatchKit Extension-Bridging-Header.h"; sourceTree = "<group>"; };
 		4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MyUiApplication.m; sourceTree = "<group>"; };
 		4F48FCC82193EC6300EF4972 /* MyUIApplication.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyUIApplication.h; sourceTree = "<group>"; };
 		4F519BFE219967E700941F47 /* HermesCAPECOD.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HermesCAPECOD.otf; sourceTree = "<group>"; };
 		4F519C01219A6F4D00941F47 /* FaceCustomViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceCustomViewControl.swift; sourceTree = "<group>"; };
+		4F9AA3D6219E5A86001363F4 /* IWatchSessionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWatchSessionUtil.swift; sourceTree = "<group>"; };
+		4F9AA3D9219E5C73001363F4 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
+		4F9AA3DC219E74D8001363F4 /* IPhoneSessionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPhoneSessionUtil.swift; sourceTree = "<group>"; };
 		4FA317A8219D5C8400D12BDB /* SetupViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewControl.swift; sourceTree = "<group>"; };
 		4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationViewControl.swift; sourceTree = "<group>"; };
 		4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
@@ -213,6 +217,7 @@
 		4F48FC862193D28900EF4972 /* watchClock */ = {
 			isa = PBXGroup;
 			children = (
+				4F9AA3D8219E5C62001363F4 /* Toast */,
 				4F464A842197FC4100577A93 /* EFColorPicker */,
 				4F48FC872193D28900EF4972 /* AppDelegate.swift */,
 				4F48FC892193D28900EF4972 /* ViewController.swift */,
@@ -232,6 +237,7 @@
 				4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */,
 				4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */,
 				4FD33350219D83C100B6E9E2 /* AboutViewControl.swift */,
+				4F9AA3D6219E5A86001363F4 /* IWatchSessionUtil.swift */,
 			);
 			path = watchClock;
 			sourceTree = "<group>";
@@ -257,14 +263,22 @@
 				4F48FCB02193D28B00EF4972 /* Assets.xcassets */,
 				4F48FCB22193D28B00EF4972 /* Info.plist */,
 				4F48FCB32193D28B00EF4972 /* PushNotificationPayload.apns */,
-				4F48FCC32193D75800EF4972 /* FaceScene.swift */,
 				4F48FCC62193EB1B00EF4972 /* MyUiApplication.m */,
 				4F48FCC82193EC6300EF4972 /* MyUIApplication.h */,
 				4F48FCC52193EB1B00EF4972 /* watchClock WatchKit Extension-Bridging-Header.h */,
 				4FB7B71921958B5D0017F683 /* WatchCustom.swift */,
 				4FB7B721219598A20017F683 /* WatchScene.swift */,
+				4F9AA3DC219E74D8001363F4 /* IPhoneSessionUtil.swift */,
 			);
 			path = "watchClock WatchKit Extension";
+			sourceTree = "<group>";
+		};
+		4F9AA3D8219E5C62001363F4 /* Toast */ = {
+			isa = PBXGroup;
+			children = (
+				4F9AA3D9219E5C73001363F4 /* Toast.swift */,
+			);
+			path = Toast;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -438,6 +452,7 @@
 				4FB7B71D2195934D0017F683 /* WatchDesignViewControl.swift in Sources */,
 				4F464A992197FC8400577A93 /* EFHSBView.swift in Sources */,
 				4FF1DE012195E0CE009D49DE /* WatchStyleViewControl.swift in Sources */,
+				4F9AA3D7219E5A86001363F4 /* IWatchSessionUtil.swift in Sources */,
 				4F48FC8A2193D28900EF4972 /* ViewController.swift in Sources */,
 				4F02E5382199186700D56CD5 /* FontSelectViewControl.swift in Sources */,
 				4F464A922197FC8400577A93 /* EFSliderView.swift in Sources */,
@@ -447,6 +462,7 @@
 				4F464A912197FC8400577A93 /* EFRGBView.swift in Sources */,
 				4F464A952197FC8400577A93 /* EFColorSelectionView.swift in Sources */,
 				4F464A942197FC8400577A93 /* EFThumbView.swift in Sources */,
+				4F9AA3DA219E5C73001363F4 /* Toast.swift in Sources */,
 				4FB7B71A21958B5D0017F683 /* WatchCustom.swift in Sources */,
 				4F2C0073219D1BFF00EEEC89 /* WatchManagerViewControl.swift in Sources */,
 				4F48FC882193D28900EF4972 /* AppDelegate.swift in Sources */,
@@ -467,8 +483,8 @@
 				4FD4BC9B219BE8B7003AD84C /* Weather.swift in Sources */,
 				4F48FCAB2193D28B00EF4972 /* InterfaceController.swift in Sources */,
 				4FB7B720219597C60017F683 /* WatchInfo.swift in Sources */,
+				4F9AA3DD219E74D8001363F4 /* IPhoneSessionUtil.swift in Sources */,
 				4FB7B71B21958B5D0017F683 /* WatchCustom.swift in Sources */,
-				4F48FCC42193D75800EF4972 /* FaceScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
