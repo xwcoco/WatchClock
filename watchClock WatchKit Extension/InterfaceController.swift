@@ -2,8 +2,8 @@
 //  InterfaceController.swift
 //  watchClock WatchKit Extension
 //
-//  Created by 徐卫 on 2018/11/8.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/8.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import WatchKit
@@ -89,6 +89,18 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         }
     }
     
+    func NextWatch() -> Void {
+        if (self.WatchList.count > 1) {
+            self.curWeatchIndex = self.curWeatchIndex + 1
+            if (curWeatchIndex >= self.WatchList.count) {
+                self.curWeatchIndex = 0
+            }
+            UserDefaults.standard.set(self.curWeatchIndex, forKey: "CurWatchIndex")
+            let watch = self.loadCurWatch()
+            self.loadDefaultScene(watch: watch)
+        }
+    }
+    
     private func refreshWatchSettings() {
         self.loadWatchFromFiles()
         WatchSettings.reloadSettings()
@@ -103,27 +115,12 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     private var totalRotation: Double = 0
 
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
-//        var direction : Int = 1
-//        totalRotation += fabs(rotationalDelta);
-//
-//        if (rotationalDelta < 0) {
-//            direction = -1;
-//        }
-//
-//        if (totalRotation > (Double.pi / 4 / 2)) {
-//            let tmpScene : FaceScene  = self.scene.scene as! FaceScene;
-//
-//            if ((tmpScene.theme.rawValue+direction > 0) && (tmpScene.theme.rawValue+direction < Theme.ThemeMAX.rawValue)) {
-//                tmpScene.theme = Theme(rawValue: tmpScene.theme.rawValue + direction)!
-//            }
-//            else {
-//                tmpScene.theme = Theme(rawValue: 0)!;
-//            }
-//
-//            tmpScene.refreshTheme()
-//
-//            totalRotation = 0;
-//        }
+        totalRotation += fabs(rotationalDelta);
+
+        if (totalRotation > (Double.pi / 4 / 2)) {
+            self.NextWatch()
+            totalRotation = 0;
+        }
 
     }
 

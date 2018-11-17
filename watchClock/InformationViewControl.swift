@@ -2,8 +2,8 @@
 //  InformationViewControl.swift
 //  watchClock
 //
-//  Created by 徐卫 on 2018/11/11.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/11.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import Foundation
@@ -25,7 +25,7 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
             let num = cell?.contentView.subviews.count ?? 0
             for i in 0...num - 1 {
                 if let label = cell?.contentView.subviews[i] as? UILabel {
-                    label.text = "Distance To Center " + String.init(format: "%.0f", arguments: [distToCenter])
+                    label.text = NSLocalizedString("Dist To Center ", comment: "") + String.init(format: "%.0f", arguments: [distToCenter])
                     return;
                 }
             }
@@ -51,7 +51,7 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
     public var fontName : String = "" {
         didSet {
             let cell = self.tableView.getCell(at: IndexPath(row: 0, section: 4))
-            cell?.textLabel?.text = "Name : " + fontName
+            cell?.textLabel?.text = NSLocalizedString("Font Name", comment: "") + " : " + fontName
         }
     }
     
@@ -61,13 +61,13 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
         didSet {
             switch watchTextIndex {
             case 0:
-                self.navigationItem.title = "Bottom Text"
+                self.navigationItem.title = NSLocalizedString("Bottom Text", comment: "") 
                 break
             case 1:
-                self.navigationItem.title = "Right Text"
+                self.navigationItem.title = NSLocalizedString("Right Text", comment: "")
                 break
             case 2:
-                self.navigationItem.title = "Left Text"
+                self.navigationItem.title = NSLocalizedString("Left Text", comment: "")
                 break
             default:
                 break
@@ -267,7 +267,7 @@ class InformationViewControl: UITableViewController,EFColorSelectionViewControll
     
     func setFontSize(setSlider : Bool,newSize : CGFloat) -> Void {
         self.fontSize = newSize
-        self.fontSizeLabel.text = "Size : " + String.init(format: "%.0f", arguments: [newSize])
+        self.fontSizeLabel.text = NSLocalizedString("Size", comment: "") + String.init(format: " %.0f", arguments: [newSize])
         if (setSlider) {
             self.fontSizeSlider.value = Float(newSize)
         }

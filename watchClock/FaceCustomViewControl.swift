@@ -2,8 +2,8 @@
 //  FaceCustomViewControl.swift
 //  watchClock
 //
-//  Created by 徐卫 on 2018/11/13.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/13.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import Foundation
@@ -51,7 +51,7 @@ class FaceCustomViewControl: UITableViewController,EFColorSelectionViewControlle
         didSet {
             let cell = self.tableView.getCell(at: IndexPath.init(row: 0, section: section_numberStyle))
             if (numbers_fontName == "") {
-                cell?.detailTextLabel?.text = "System Font"
+                cell?.detailTextLabel?.text = NSLocalizedString("System Font", comment: "")
             } else {
                 cell?.detailTextLabel?.text = numbers_fontName
             }
@@ -71,7 +71,7 @@ class FaceCustomViewControl: UITableViewController,EFColorSelectionViewControlle
         didSet {
             let cell = self.tableView.getCell(at: IndexPath.init(row: 2, section: self.section_numberStyle))
             let label = cell?.contentView.subviews[0] as? UILabel
-            label?.text = "Size" + String.init(format: "%.0f", arguments: [numbers_fontSize])
+            label?.text = NSLocalizedString("Size", comment: "") + String.init(format: " %.0f", arguments: [numbers_fontSize])
             
         }
     }

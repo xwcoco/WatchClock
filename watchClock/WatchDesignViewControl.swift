@@ -2,8 +2,8 @@
 //  WatchDesignViewControl.swift
 //  watchClock
 //
-//  Created by 徐卫 on 2018/11/9.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/9.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import Foundation
@@ -56,7 +56,7 @@ class WatchDesignViewControl: UITableViewController {
             let nums = cell?.contentView.subviews.count ?? 0
             for i in 0...nums - 1 {
                 if let label = cell?.contentView.subviews[i] as? UILabel {
-                    label.text = "Dist To Center " + String.init(format: "%.0f", arguments: [logoToCenter])
+                    label.text = NSLocalizedString("Dist To Center ",comment:"") + String.init(format: "%.0f", arguments: [logoToCenter])
                     return
                 }
             }

@@ -1,102 +1,300 @@
 
-/* Class = "UILabel"; text = "Nike Grey"; ObjectID = "3MH-rV-qF5"; */
-"3MH-rV-qF5.text" = "Nike Grey";
+/* Class = "UINavigationItem"; title = "Weather Location"; ObjectID = "00J-gO-ctZ"; */
+"00J-gO-ctZ.title" = "天气预报城市";
 
-/* Class = "UILabel"; text = "Watch Face"; ObjectID = "3OL-JU-W7O"; */
-"3OL-JU-W7O.text" = "表盘样式";
+/* Class = "UILabel"; text = "Color 1"; ObjectID = "0fq-0n-2sx"; */
+"0fq-0n-2sx.text" = "第一种颜色";
 
-/* Class = "UILabel"; text = "Apple Logo"; ObjectID = "6hs-Aw-8AM"; */
-"6hs-Aw-8AM.text" = "Apple Logo";
+/* Class = "UILabel"; text = "Alternate Text Color"; ObjectID = "27P-56-3vt"; */
+"27P-56-3vt.text" = "撞色下的文本颜色";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "2L5-ET-EGl"; */
+"2L5-ET-EGl.text" = "详细";
+
+/* Class = "UITableViewSection"; headerTitle = "Background"; ObjectID = "2Rh-NX-VMI"; */
+"2Rh-NX-VMI.headerTitle" = "背景";
+
+/* Class = "UILabel"; text = "Version 1.0"; ObjectID = "2yd-Ph-kog"; */
+"2yd-Ph-kog.text" = "Version 1.0";
+
+/* Class = "UILabel"; text = "Weather"; ObjectID = "35P-VM-aQk"; */
+"35P-VM-aQk.text" = "天气";
+
+/* Class = "UILabel"; text = "Watch Background"; ObjectID = "3OL-JU-W7O"; */
+"3OL-JU-W7O.text" = "表盘背景";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "3mp-ZO-CMD"; */
+"3mp-ZO-CMD.text" = "无";
+
+/* Class = "UITableViewSection"; headerTitle = "Text"; ObjectID = "5nh-xV-zGs"; */
+"5nh-xV-zGs.headerTitle" = "文本";
+
+/* Class = "UILabel"; text = "Weather Type"; ObjectID = "5sR-fF-Xua"; */
+"5sR-fF-Xua.text" = "天气类型";
+
+/* Class = "UIBarButtonItem"; title = "Edit"; ObjectID = "6aI-DY-ewA"; */
+"6aI-DY-ewA.title" = "编辑";
+
+/* Class = "UILabel"; text = "Font Name"; ObjectID = "7C9-59-oHs"; */
+"7C9-59-oHs.text" = "字体名称";
+
+/* Class = "UILabel"; text = "Minute Style"; ObjectID = "7Eg-E3-pnr"; */
+"7Eg-E3-pnr.text" = "分钟样式";
+
+/* Class = "UINavigationItem"; title = "Font"; ObjectID = "7Mg-iv-eyO"; */
+"7Mg-iv-eyO.title" = "字体";
 
 /* Class = "UINavigationItem"; title = "Watch Custom"; ObjectID = "8J1-Fm-YVF"; */
-"8J1-Fm-YVF.title" = "表盘定制";
+"8J1-Fm-YVF.title" = "定制手表";
 
-/* Class = "UILabel"; text = "Nike GreenBlue"; ObjectID = "8Wd-c9-Gsr"; */
-"8Wd-c9-Gsr.text" = "Nike GreenBlue";
+/* Class = "UILabel"; text = "Weather PM25"; ObjectID = "8Vm-J3-ola"; */
+"8Vm-J3-ola.text" = "PM2.5 指数";
 
-/* Class = "UILabel"; text = "Hermas original"; ObjectID = "EVh-zj-ANU"; */
-"EVh-zj-ANU.text" = "Hermas original";
+/* Class = "UILabel"; text = "Rectangle Face"; ObjectID = "98U-Si-Ff4"; */
+"98U-Si-Ff4.text" = "方形表盘";
 
-/* Class = "UILabel"; text = "Nike Night"; ObjectID = "EpN-8P-Iyw"; */
-"EpN-8P-Iyw.text" = "Nike Night";
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "9Dn-1z-0i5"; */
+"9Dn-1z-0i5.title" = "完成";
 
-/* Class = "UILabel"; text = "Nike Pink"; ObjectID = "Kwk-Dd-mHp"; */
-"Kwk-Dd-mHp.text" = "Nike Pink";
+/* Class = "UILabel"; text = "Style2"; ObjectID = "9fz-S4-ha4"; */
+"9fz-S4-ha4.text" = "样式2";
 
-/* Class = "UILabel"; text = "Rolex White"; ObjectID = "Kxx-9d-DlA"; */
-"Kxx-9d-DlA.text" = "Rolex White";
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "C8d-RT-4BX"; */
+"C8d-RT-4BX.title" = "完成";
 
-/* Class = "UILabel"; text = "Rolex Green"; ObjectID = "M6E-rm-nPr"; */
-"M6E-rm-nPr.text" = "Rolex Green";
+/* Class = "UILabel"; text = "Round Face"; ObjectID = "Dsf-cp-qyQ"; */
+"Dsf-cp-qyQ.text" = "圆形表盘";
+
+/* Class = "UILabel"; text = "Weather AQI"; ObjectID = "EIG-lP-ZPr"; */
+"EIG-lP-ZPr.text" = "AQI 指数";
+
+/* Class = "UILabel"; text = "Weather Temp"; ObjectID = "EWH-l8-NbH"; */
+"EWH-l8-NbH.text" = "当前温度";
+
+/* Class = "UILabel"; text = "Custom"; ObjectID = "FtI-zd-bFM"; */
+"FtI-zd-bFM.text" = "显示";
+
+/* Class = "UILabel"; text = "Bottom"; ObjectID = "G01-Lq-bDI"; */
+"G01-Lq-bDI.text" = "底部居中";
+
+/* Class = "UILabel"; text = "code : xwcoco@msn.com"; ObjectID = "G8m-gP-Pte"; */
+"G8m-gP-Pte.text" = "code : xwcoco@msn.com";
+
+/* Class = "UILabel"; text = "Minor Color"; ObjectID = "GCb-DQ-kGK"; */
+"GCb-DQ-kGK.text" = "次刻度颜色";
+
+/* Class = "UINavigationItem"; title = "About"; ObjectID = "GZf-zM-ecq"; */
+"GZf-zM-ecq.title" = "关于";
+
+/* Class = "UINavigationItem"; title = "Info"; ObjectID = "GtU-yA-onY"; */
+"GtU-yA-onY.title" = "信息";
+
+/* Class = "UILabel"; text = "Cardinal"; ObjectID = "H5a-Vd-ddz"; */
+"H5a-Vd-ddz.text" = "主要数字 12 3 6 9";
+
+/* Class = "UILabel"; text = "Date"; ObjectID = "HVC-NX-EwM"; */
+"HVC-NX-EwM.text" = "日期";
+
+/* Class = "UILabel"; text = "Color"; ObjectID = "Hb9-gI-jed"; */
+"Hb9-gI-jed.text" = "颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "Color AQI"; ObjectID = "Hpl-pY-MaU"; */
+"Hpl-pY-MaU.headerTitle" = "根据 AQI 显示不同的颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "WeekDay Display Style"; ObjectID = "I3s-3K-nao"; */
+"I3s-3K-nao.headerTitle" = "周显示样式";
+
+/* Class = "UILabel"; text = "Color"; ObjectID = "Iso-PR-3Ju"; */
+"Iso-PR-3Ju.text" = "颜色";
+
+/* Class = "UILabel"; text = "Left"; ObjectID = "K8F-Ei-Zep"; */
+"K8F-Ei-Zep.text" = "左居中";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "L6G-aq-U64"; */
+"L6G-aq-U64.text" = "详细";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "Me9-2M-fAI"; */
+"Me9-2M-fAI.title" = "完成";
+
+/* Class = "UILabel"; text = "Show Color AQI"; ObjectID = "NDm-tr-otF"; */
+"NDm-tr-otF.text" = "AQI 不同颜色显示";
 
 /* Class = "UILabel"; text = "Logo"; ObjectID = "NQ7-6r-i2E"; */
-"NQ7-6r-i2E.text" = "Logo样式";
+"NQ7-6r-i2E.text" = "标志";
 
-/* Class = "UILabel"; text = "Hermas roma orange"; ObjectID = "SdJ-3D-GXl"; */
-"SdJ-3D-GXl.text" = "Hermas roma orange";
+/* Class = "UILabel"; text = "Distance To Center 56"; ObjectID = "Oun-NG-0hC"; */
+"Oun-NG-0hC.text" = "距中心距离";
 
-/* Class = "UILabel"; text = "None"; ObjectID = "TcH-kH-nBo"; */
-"TcH-kH-nBo.text" = "无";
+/* Class = "UILabel"; text = "Use Custom Face"; ObjectID = "QaQ-dA-QUc"; */
+"QaQ-dA-QUc.text" = "自定义表盘";
 
-/* Class = "UILabel"; text = "Hermas original  orange"; ObjectID = "TnX-40-xxe"; */
-"TnX-40-xxe.text" = "Hermas original  orange";
+/* Class = "UILabel"; text = "Style1"; ObjectID = "RL8-Bq-sie"; */
+"RL8-Bq-sie.text" = "样式1";
 
-/* Class = "UINavigationItem"; title = "Faces"; ObjectID = "Wf5-wn-15z"; */
-"Wf5-wn-15z.title" = "表盘";
+/* Class = "UITableViewSection"; headerTitle = "Numbers Text"; ObjectID = "TVt-aL-UvV"; */
+"TVt-aL-UvV.headerTitle" = "数字文本";
 
-/* Class = "UILabel"; text = "Hermas classic"; ObjectID = "XER-HO-yzK"; */
-"XER-HO-yzK.text" = "Hermas classic";
+/* Class = "UITableViewSection"; headerTitle = "Text Color"; ObjectID = "Tcb-cC-Pha"; */
+"Tcb-cC-Pha.headerTitle" = "文本颜色";
 
-/* Class = "UILabel"; text = "Hermas roma"; ObjectID = "XK0-gp-XDU"; */
-"XK0-gp-XDU.text" = "Hermas roma";
+/* Class = "UILabel"; text = "Major Color"; ObjectID = "Tqe-b4-xeS"; */
+"Tqe-b4-xeS.text" = "主刻度颜色";
 
-/* Class = "UILabel"; text = "Nike Black"; ObjectID = "XLl-N6-VQY"; */
-"XLl-N6-VQY.text" = "Nike Black";
+/* Class = "UITableViewSection"; headerTitle = "Weather Style"; ObjectID = "W5n-NZ-fo3"; */
+"W5n-NZ-fo3.headerTitle" = "天气显示样式";
 
-/* Class = "UILabel"; text = "S4 Numbers"; ObjectID = "XWI-fX-gXG"; */
-"XWI-fX-gXG.text" = "S4 Numbers";
+/* Class = "UITableViewSection"; headerTitle = "Face Style"; ObjectID = "W6Z-c8-D9b"; */
+"W6Z-c8-D9b.headerTitle" = "Face Style";
+
+/* Class = "UILabel"; text = "None"; ObjectID = "WyI-GI-Hax"; */
+"WyI-GI-Hax.text" = "无";
+
+/* Class = "UILabel"; text = "Backgroup Color"; ObjectID = "XgL-MV-DYj"; */
+"XgL-MV-DYj.text" = "背景颜色";
 
 /* Class = "UILabel"; text = "Hour "; ObjectID = "YOR-eD-hgp"; */
-"YOR-eD-hgp.text" = "时钟样式 ";
+"YOR-eD-hgp.text" = "时针样式 ";
 
-/* Class = "UILabel"; text = "Nike Green"; ObjectID = "gU4-sF-QoJ"; */
-"gU4-sF-QoJ.text" = "Nike Green";
+/* Class = "UITableViewSection"; headerTitle = "Color Region"; ObjectID = "Zp0-fL-b06"; */
+"Zp0-fL-b06.headerTitle" = "颜色对撞";
 
-/* Class = "UILabel"; text = "Rolex Black"; ObjectID = "hZN-Ay-UJA"; */
-"hZN-Ay-UJA.text" = "Rolex Black";
+/* Class = "UILabel"; text = "日 一 二"; ObjectID = "a1B-Oh-fkq"; */
+"a1B-Oh-fkq.text" = "日 一 二";
 
-/* Class = "UILabel"; text = "Rolex Gold"; ObjectID = "hix-HK-rvj"; */
-"hix-HK-rvj.text" = "Rolex Gold";
+/* Class = "UITableViewSection"; headerTitle = "Logo"; ObjectID = "a50-2h-ApK"; */
+"a50-2h-ApK.headerTitle" = "标志";
 
-/* Class = "UILabel"; text = "Rolex Luminous"; ObjectID = "j9t-k3-bvi"; */
-"j9t-k3-bvi.text" = "Rolex Luminous";
+/* Class = "UILabel"; text = "All"; ObjectID = "awa-vo-xdW"; */
+"awa-vo-xdW.text" = "全部";
 
-/* Class = "UILabel"; text = "Hermas standard"; ObjectID = "jJu-cc-nvw"; */
-"jJu-cc-nvw.text" = "Hermas standard";
+/* Class = "UILabel"; text = "星期日 星期一 星期二"; ObjectID = "cV1-hn-b8f"; */
+"cV1-hn-b8f.text" = "星期日 星期一 星期二";
 
-/* Class = "UILabel"; text = "Rolex White"; ObjectID = "jND-lh-cMB"; */
-"jND-lh-cMB.text" = "Rolex White";
+/* Class = "UITableViewSection"; headerTitle = "Weather Location"; ObjectID = "d6t-Gj-tic"; */
+"d6t-Gj-tic.headerTitle" = "天气预报城市";
 
-/* Class = "UILabel"; text = "Hermas classic  orange"; ObjectID = "jsp-j9-rZn"; */
-"jsp-j9-rZn.text" = "Hermas classic  orange";
+/* Class = "UITableViewSection"; headerTitle = "Tick Mark"; ObjectID = "dlG-9m-Tas"; */
+"dlG-9m-Tas.headerTitle" = "表盘刻度";
 
-/* Class = "UILabel"; text = "Rolex Gold"; ObjectID = "kwc-Do-woH"; */
-"kwc-Do-woH.text" = "Rolex Gold";
+/* Class = "UITableViewSection"; headerTitle = "Custom Face Switch"; ObjectID = "epC-k6-RCm"; */
+"epC-k6-RCm.headerTitle" = "自定义表盘开关";
 
-/* Class = "UILabel"; text = "Hermes White"; ObjectID = "qFx-Kg-IWi"; */
-"qFx-Kg-IWi.text" = "Hermes White";
+/* Class = "UILabel"; text = "Minor"; ObjectID = "fiZ-JA-KMY"; */
+"fiZ-JA-KMY.text" = "次要的刻度";
 
-/* Class = "UILabel"; text = "Nike Blue"; ObjectID = "qjZ-Oz-6qo"; */
-"qjZ-Oz-6qo.text" = "Nike Blue";
+/* Class = "UITableViewSection"; headerTitle = "Text Content"; ObjectID = "gZ3-B2-qBr"; */
+"gZ3-B2-qBr.headerTitle" = "文本内容";
 
-/* Class = "UILabel"; text = "Hermas standard orange"; ObjectID = "vMW-ym-g1i"; */
-"vMW-ym-g1i.text" = "Hermas standard orange";
+/* Class = "UILabel"; text = "Title"; ObjectID = "h2e-7t-b10"; */
+"h2e-7t-b10.text" = "标题";
 
-/* Class = "UINavigationItem"; title = "Logo"; ObjectID = "vWg-wu-arK"; */
-"vWg-wu-arK.title" = "Logo样式";
+/* Class = "UITableViewSection"; headerTitle = "Tick Mark Color"; ObjectID = "hJ6-ue-0BZ"; */
+"hJ6-ue-0BZ.headerTitle" = "刻度颜色";
+
+/* Class = "UILabel"; text = "WatchClock"; ObjectID = "hd4-2t-EMO"; */
+"hd4-2t-EMO.text" = "WatchClock";
+
+/* Class = "UILabel"; text = "Use Background Color"; ObjectID = "hd4-9n-fZf"; */
+"hd4-9n-fZf.text" = "使用背景颜色";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "hgU-GA-gVq"; */
+"hgU-GA-gVq.text" = "标题";
+
+/* Class = "UILabel"; text = "Alternate Minor Color"; ObjectID = "hzZ-DV-k5Y"; */
+"hzZ-DV-k5Y.text" = "撞色下的次刻度颜色";
+
+/* Class = "UIBarButtonItem"; title = "Done"; ObjectID = "j58-UW-fgy"; */
+"j58-UW-fgy.title" = "完成";
+
+/* Class = "UINavigationItem"; title = "Setup"; ObjectID = "jFO-lE-aRV"; */
+"jFO-lE-aRV.title" = "设置";
+
+/* Class = "UINavigationItem"; title = "Clock Style"; ObjectID = "jHb-Q8-lRp"; */
+"jHb-Q8-lRp.title" = "Clock Style";
+
+/* Class = "UILabel"; text = "Show Weather Icon"; ObjectID = "jMJ-n9-h3v"; */
+"jMJ-n9-h3v.text" = "显示天气图标";
+
+/* Class = "UILabel"; text = "Distance To Center"; ObjectID = "kNe-fT-vfb"; */
+"kNe-fT-vfb.text" = "距中心位置距离";
+
+/* Class = "UITableViewSection"; headerTitle = "Text Font"; ObjectID = "kex-xq-zPo"; */
+"kex-xq-zPo.headerTitle" = "文本字体";
+
+/* Class = "UILabel"; text = "Weekday"; ObjectID = "lNW-9U-oKA"; */
+"lNW-9U-oKA.text" = "星期";
+
+/* Class = "UILabel"; text = "Size"; ObjectID = "lrc-Ay-xb2"; */
+"lrc-Ay-xb2.text" = "大小 ";
+
+/* Class = "UILabel"; text = "Title"; ObjectID = "m5w-g2-b9f"; */
+"m5w-g2-b9f.text" = "标题 ";
+
+/* Class = "UILabel"; text = "Weather PM10"; ObjectID = "mHX-IK-LA6"; */
+"mHX-IK-LA6.text" = "PM10 指数";
+
+/* Class = "UILabel"; text = "Second Style"; ObjectID = "mYf-ma-YZE"; */
+"mYf-ma-YZE.text" = "秒针样式";
+
+/* Class = "UILabel"; text = "Right"; ObjectID = "nX1-sH-t3n"; */
+"nX1-sH-t3n.text" = "右边居中";
+
+/* Class = "UILabel"; text = "周日 周一 周二"; ObjectID = "pXP-Be-Gle"; */
+"pXP-Be-Gle.text" = "周日 周一 周二";
+
+/* Class = "UILabel"; text = "Color 2"; ObjectID = "qK4-Po-ssP"; */
+"qK4-Po-ssP.text" = "第二种颜色";
+
+/* Class = "UITableViewSection"; headerTitle = "Watch Demo"; ObjectID = "rLm-Jc-m2X"; */
+"rLm-Jc-m2X.headerTitle" = "表盘展示";
+
+/* Class = "UITableViewSection"; headerTitle = "Backgroup Image"; ObjectID = "srQ-LE-ijv"; */
+"srQ-LE-ijv.headerTitle" = "背景图片";
+
+/* Class = "UILabel"; text = "Major"; ObjectID = "tEX-ud-svV"; */
+"tEX-ud-svV.text" = "主要的刻度";
+
+/* Class = "UITableViewSection"; headerTitle = "Numbers"; ObjectID = "uDF-nk-ce5"; */
+"uDF-nk-ce5.headerTitle" = "数字";
+
+/* Class = "UILabel"; text = "Font Size"; ObjectID = "vYU-0o-OIY"; */
+"vYU-0o-OIY.text" = "字体大小";
+
+/* Class = "UILabel"; text = "Backgroud"; ObjectID = "voC-qY-rrr"; */
+"voC-qY-rrr.text" = "背景";
+
+/* Class = "UILabel"; text = "All"; ObjectID = "w8f-Dc-job"; */
+"w8f-Dc-job.text" = "所有";
+
+/* Class = "UILabel"; text = "Style3"; ObjectID = "wTh-Fj-2nz"; */
+"wTh-Fj-2nz.text" = "样式3";
 
 /* Class = "UINavigationItem"; title = "My Watch"; ObjectID = "wpz-S0-H0L"; */
-"wpz-S0-H0L.title" = "我定义的表盘";
+"wpz-S0-H0L.title" = "我的手表";
 
-/* Class = "UILabel"; text = "Nike Red"; ObjectID = "xKT-dF-KYo"; */
-"xKT-dF-KYo.text" = "Nike Red";
+/* Class = "UILabel"; text = "20"; ObjectID = "wqo-jB-LSk"; */
+"wqo-jB-LSk.text" = "20";
+
+/* Class = "UILabel"; text = "Custom Face"; ObjectID = "xKq-wt-czS"; */
+"xKq-wt-czS.text" = "定制表盘";
+
+/* Class = "UILabel"; text = "Alternate Major Color"; ObjectID = "xek-E9-vqb"; */
+"xek-E9-vqb.text" = "撞色下的主要刻度颜色";
+
+/* Class = "UILabel"; text = "Show Color Region"; ObjectID = "xu4-nH-g73"; */
+"xu4-nH-g73.text" = "显示撞色";
+
+/* Class = "UISwitch"; accessibilityLabel = "Custom Info"; ObjectID = "y4o-bP-xa9"; */
+"y4o-bP-xa9.accessibilityLabel" = "Custom Info";
+
+/* Class = "UINavigationItem"; title = "Custom Watch Face"; ObjectID = "yDz-05-j1u"; */
+"yDz-05-j1u.title" = "Custom Watch Face";
+
+/* Class = "UITableViewSection"; headerTitle = "Watch Style"; ObjectID = "ygG-kf-LC6"; */
+"ygG-kf-LC6.headerTitle" = "表盘样式";
+
+/* Class = "UILabel"; text = "Font"; ObjectID = "zH2-0y-akq"; */
+"zH2-0y-akq.text" = "字体 ";
+
+/* Class = "UITableViewSection"; headerTitle = "Weather Icon Size"; ObjectID = "zoH-xQ-dNy"; */
+"zoH-xQ-dNy.headerTitle" = "天气图标大小";

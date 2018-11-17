@@ -2,8 +2,8 @@
 //  WatchScene.swift
 //  watchClock WatchKit Extension
 //
-//  Created by 徐卫 on 2018/11/9.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/9.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import Foundation
@@ -215,31 +215,12 @@ class WatchScene: SKScene, SKSceneDelegate, WatchInfoUpdate {
 
         let numbersLayer: SKSpriteNode? = face?.childNode(withName: "Numbers") as? SKSpriteNode
 
-//        if (currentWatch!.useCustomFace) {
-//            if (currentWatch!.customFace_draw_back) {
-//                let backgroundTexture = SKTexture.init(image: UIImage.imageWithPureColor(color: currentWatch!.customFace_back_color, size: self.faceSize)!)
-//                let backgroundNode = SKSpriteNode.init(texture: backgroundTexture)
-//                backgroundNode.name = "watchcustombackground"
-//                self.addChild(backgroundNode)
-//            }
-//        }
-
-
         if (currentWatch!.LogoIndex > 0) {
 
             let logoTexture: SKTexture = SKTexture.init(imageNamed: WatchSettings.GLogoImageList[currentWatch!.LogoIndex])
             let logoNode: SKSpriteNode = SKSpriteNode.init(texture: logoTexture)
             logoNode.name = "logo"
-//            var tmpy : CGFloat = (self.faceSize.height / 2 - logoTexture.size().height) / 2
-//
-//            if (currentWatch!.useCustomFace && currentWatch!.numeralStyle != .NumeralStyleNone) {
-//                tmpy = tmpy - 20
-//            }
-//
-//
-//            tmpy = tmpy + logoTexture.size().height / 2
             logoNode.position = CGPoint(x: 0, y: currentWatch!.LogoToCenter)
-//            logoNode.position = CGPoint(x: 0, y: logoTexture.size().height)
             self.addChild(logoNode)
 
         }

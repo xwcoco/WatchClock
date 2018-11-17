@@ -2,8 +2,8 @@
 //  AppDelegate.swift
 //  watchClock
 //
-//  Created by 徐卫 on 2018/11/8.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/8.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import UIKit

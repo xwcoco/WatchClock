@@ -44,6 +44,7 @@
 		4F9AA3D7219E5A86001363F4 /* IWatchSessionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA3D6219E5A86001363F4 /* IWatchSessionUtil.swift */; };
 		4F9AA3DA219E5C73001363F4 /* Toast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA3D9219E5C73001363F4 /* Toast.swift */; };
 		4F9AA3DD219E74D8001363F4 /* IPhoneSessionUtil.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4F9AA3DC219E74D8001363F4 /* IPhoneSessionUtil.swift */; };
+		4F9AA3E2219ED532001363F4 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4F9AA3E4219ED532001363F4 /* Localizable.strings */; };
 		4FA317A9219D5C8400D12BDB /* SetupViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317A8219D5C8400D12BDB /* SetupViewControl.swift */; };
 		4FA317AB219D623300D12BDB /* WeatherLocationViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */; };
 		4FA317AD219D62CA00D12BDB /* WeatherLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */; };
@@ -144,6 +145,8 @@
 		4F9AA3D6219E5A86001363F4 /* IWatchSessionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IWatchSessionUtil.swift; sourceTree = "<group>"; };
 		4F9AA3D9219E5C73001363F4 /* Toast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Toast.swift; sourceTree = "<group>"; };
 		4F9AA3DC219E74D8001363F4 /* IPhoneSessionUtil.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IPhoneSessionUtil.swift; sourceTree = "<group>"; };
+		4F9AA3DF219ECCC9001363F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		4F9AA3E3219ED532001363F4 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		4FA317A8219D5C8400D12BDB /* SetupViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetupViewControl.swift; sourceTree = "<group>"; };
 		4FA317AA219D623300D12BDB /* WeatherLocationViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocationViewControl.swift; sourceTree = "<group>"; };
 		4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherLocation.swift; sourceTree = "<group>"; };
@@ -238,6 +241,7 @@
 				4FA317AC219D62CA00D12BDB /* WeatherLocation.swift */,
 				4FD33350219D83C100B6E9E2 /* AboutViewControl.swift */,
 				4F9AA3D6219E5A86001363F4 /* IWatchSessionUtil.swift */,
+				4F9AA3E4219ED532001363F4 /* Localizable.strings */,
 			);
 			path = watchClock;
 			sourceTree = "<group>";
@@ -292,7 +296,7 @@
 				4F48FC812193D28900EF4972 /* Frameworks */,
 				4F48FC822193D28900EF4972 /* Resources */,
 				4F48FCBD2193D28B00EF4972 /* Embed Watch Content */,
-				4FD33352219D876100B6E9E2 /* ShellScript */,
+				4FABD44A21A0108000C9D9F7 /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -367,6 +371,7 @@
 			knownRegions = (
 				en,
 				Base,
+				"zh-Hans",
 			);
 			mainGroup = 4F48FC7B2193D28900EF4972;
 			productRefGroup = 4F48FC852193D28900EF4972 /* Products */;
@@ -388,6 +393,7 @@
 				4F48FC922193D28A00EF4972 /* LaunchScreen.storyboard in Resources */,
 				4F48FC8F2193D28A00EF4972 /* Assets.xcassets in Resources */,
 				4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */,
+				4F9AA3E2219ED532001363F4 /* Localizable.strings in Resources */,
 				4F48FC8D2193D28900EF4972 /* Main.storyboard in Resources */,
 				4F029E642196A12700EE7660 /* FaceScene.sks in Resources */,
 				4F519C00219967F300941F47 /* HermesCAPECOD.otf in Resources */,
@@ -416,7 +422,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		4FD33352219D876100B6E9E2 /* ShellScript */ = {
+		4FABD44A21A0108000C9D9F7 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -431,7 +437,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "##! Auto Increment Version Script\n#! 在Info.plist文件中自定义 CFBundleBuildDate 和 CFBundleBuildNumber\n#! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n";
+			shellScript = "# #! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n\nxcrun agvtool new-version -all ${buildNumber}\n\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -508,6 +514,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				4F48FC8C2193D28900EF4972 /* Base */,
+				4F9AA3DF219ECCC9001363F4 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -528,6 +535,14 @@
 				4FF1DDFD2195CDF8009D49DE /* zh-Hans */,
 			);
 			name = Interface.storyboard;
+			sourceTree = "<group>";
+		};
+		4F9AA3E4219ED532001363F4 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4F9AA3E3219ED532001363F4 /* zh-Hans */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */

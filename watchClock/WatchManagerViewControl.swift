@@ -2,8 +2,8 @@
 //  WatchManagerViewControl.swift
 //  watchClock
 //
-//  Created by 徐卫 on 2018/11/15.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/15.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import Foundation
@@ -170,9 +170,9 @@ class WatchManagerViewControl: UITableViewController {
         if (indexPath.section == 1) {
             let cell = tableView.dequeueReusableCell(withIdentifier: "setupCell")
             if (indexPath.row == 0) {
-                cell?.textLabel?.text = "Setup"
+                cell?.textLabel?.text = NSLocalizedString("Setup",comment:"")
             } else {
-                cell?.textLabel?.text = "About"
+                cell?.textLabel?.text = NSLocalizedString("About",comment:"")
             }
             return cell!
         }
@@ -181,9 +181,9 @@ class WatchManagerViewControl: UITableViewController {
 
     override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
         if (section == 0) {
-            return "Watch List"
+            return  NSLocalizedString("Watch List",comment:"")
         }
-        return "Settings"
+        return NSLocalizedString("Settings",comment:"")
     }
     @IBOutlet weak var EditButton: UIBarButtonItem!
 
@@ -191,11 +191,11 @@ class WatchManagerViewControl: UITableViewController {
     @IBAction func EditButtonClick(_ sender: Any) {
         if self.tableView.isEditing {
             self.tableView.setEditing(false, animated: true)
-            self.EditButton.title = "Edit"
+            self.EditButton.title = NSLocalizedString("Edit", comment: "")
             self.AddButton.isEnabled = true
         } else {
             self.tableView.setEditing(true, animated: true)
-            self.EditButton.title = "Done"
+            self.EditButton.title = NSLocalizedString("Done", comment: "")
             self.AddButton.isEnabled = false
         }
 

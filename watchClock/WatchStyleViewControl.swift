@@ -2,8 +2,8 @@
 //  WatchStyleViewControl.swift
 //  watchClock
 //
-//  Created by 徐卫 on 2018/11/9.
-//  Copyright © 2018 徐卫. All rights reserved.
+//  Created by xwcoco@msn.com on 2018/11/9.
+//  Copyright © 2018 xwcoco@msn.com. All rights reserved.
 //
 
 import Foundation
@@ -23,6 +23,7 @@ class WatchStyleViewControl: UITableViewController {
     
     private var imageList : [String]?
     private var itemHeight : CGFloat = 0
+    private var itemWidth : CGFloat = 0
     public var customImage : UIImage?
     
     override func viewDidLoad() {
@@ -31,33 +32,39 @@ class WatchStyleViewControl: UITableViewController {
         switch self.mode {
         case .WatchStyleFace:
             imageList = WatchSettings.GFaceNameList
-            title = "Face Style"
+            title = NSLocalizedString("Face Style", comment: "")
             itemHeight = 100
+            itemWidth = 82
 //            customChoose = true
             break
         case .WatchStyleMinute:
             imageList = WatchSettings.GMinuteImageList
-            title = "Minute Style"
+            title = NSLocalizedString("Minute Style", comment: "") 
             itemHeight = 80
+            itemWidth = 30
             break
         case .WatchStyleLogo:
             imageList = WatchSettings.GLogoImageList
-            title = "Logo Style"
-            itemHeight = 50
+            title = NSLocalizedString("Logo Style", comment: "") 
+            itemHeight = 80
+            itemWidth = 80
             break
         case .WatchStyleHour:
             imageList = WatchSettings.GHourImageList
-            title = "Hour Style"
+            title = NSLocalizedString("Hour Style", comment: "") 
             itemHeight = 80
+            itemWidth = 30
             break
         case .WatchStyleSecond:
             imageList = WatchSettings.GSecondImageList
-            title = "Second Style"
+            title = NSLocalizedString("Second Style", comment: "") 
             itemHeight = 80
+            itemWidth = 30
         case .InfoStyleBack:
             imageList = WatchSettings.GInfoBackgroud
-            title = "Gackgroud"
+            title = NSLocalizedString("Backgroud", comment: "") 
             itemHeight = 60
+            itemWidth = 60
         }
         self.navigationItem.title = title
     }
@@ -68,10 +75,32 @@ class WatchStyleViewControl: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell.init(style: UITableViewCell.CellStyle.default, reuseIdentifier: "")
-        cell.imageView?.image = UIImage.init(named: imageList![indexPath.row])
+        
+        let img = UIImage.init(named: imageList![indexPath.row])
+        
+        let imgSize = CGSize.init(width: self.itemWidth, height: self.itemHeight)
+        
+        UIGraphicsBeginImageContext(imgSize)
+        
+        if (img!.size.width > imgSize.width || img!.size.height > imgSize.height) {
+          img?.draw(in: CGRect.init(x: 0, y: 0, width: imgSize.width, height: imgSize.height))
+        } else {
+            img?.draw(at: CGPoint(x: (imgSize.width - img!.size.width) / 2, y: (imgSize.height - img!.size.height) / 2))
+        }
+        
+
+        
+        cell.imageView?.image = UIGraphicsGetImageFromCurrentImageContext()
+        
+        UIGraphicsEndImageContext()
+        
+//        cell.imageView?.contentMode = .scaleAspectFit
+
         cell.backgroundColor = UIColor.black
         
         var tmpStr : String = imageList![indexPath.row]
+        
+        tmpStr = NSLocalizedString(tmpStr, comment: "")
         
         tmpStr = tmpStr.replacingOccurrences(of: "_", with: " ")
         
