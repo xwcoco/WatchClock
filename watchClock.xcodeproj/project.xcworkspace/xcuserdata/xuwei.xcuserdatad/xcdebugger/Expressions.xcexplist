@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "static WatchSettings.WeatherLocation.setter:WatchCustom.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "WeatherLocation">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FaceCustomViewControl.numbers_fontSize.didset:FaceCustomViewControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell?.contentView.subviews[0]">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InformationViewControl.watchText.didset:InformationViewControl.swift">
+      </ContextState>
+      <ContextState
+         contextName = "CnWeather.beginTimer():Weather.swift">
+      </ContextState>
+      <ContextState
+         contextName = "WatchDesignViewControl.showTextImage(indexPath:wText:):WatchDesignViewControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.tableView">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FaceCustomViewControl.viewDidLoad():FaceCustomViewControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "watch!.tickmarkStyle.rawValue">
+            </PersistentString>
+            <PersistentString
+               value = "watch!.customFace_showColorRegion">
+            </PersistentString>
+            <PersistentString
+               value = "self.watch">
+            </PersistentString>
+            <PersistentString
+               value = "watch!.numeralStyle.rawValue">
+            </PersistentString>
+            <PersistentString
+               value = "watch!.faceStyle.rawValue">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WatchScene.initVars(_:):WatchScene.swift">
+      </ContextState>
+      <ContextState
+         contextName = "WatchDesignViewControl.prepare(for:sender:):WatchDesignViewControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "indexPath.row">
+            </PersistentString>
+            <PersistentString
+               value = "indexPath?.row">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InformationViewControl.DoneButtonClick(_:):InformationViewControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "watchText?.distToCenter">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "SetupViewControl.unwindToSetup(_:):SetupViewControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "WatchSettings.WeatherCity">
+            </PersistentString>
+            <PersistentString
+               value = "nv.CityName">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "WatchText.toImage():WatchInfo.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "WatchSettings.WeatherIconSize">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "InterfaceController.didAppear():InterfaceController.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "(UIApplication.type)obj">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "FaceCustomViewControl.numbers_fontName.didset:FaceCustomViewControl.swift">
+         <PersistentStrings>
+            <PersistentString
+               value = "cell?.detailTextLabel?.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>
