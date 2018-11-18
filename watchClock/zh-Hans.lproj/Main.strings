@@ -39,7 +39,7 @@
 "7C9-59-oHs.text" = "字体名称";
 
 /* Class = "UILabel"; text = "Minute Style"; ObjectID = "7Eg-E3-pnr"; */
-"7Eg-E3-pnr.text" = "分钟样式";
+"7Eg-E3-pnr.text" = "分针样式";
 
 /* Class = "UINavigationItem"; title = "Font"; ObjectID = "7Mg-iv-eyO"; */
 "7Mg-iv-eyO.title" = "字体";

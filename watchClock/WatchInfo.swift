@@ -24,8 +24,8 @@ enum WeatherTextStyle : Int,Codable {
 class WatchText : Codable {
     
     public var enabled: Bool = true
-    public var backImageIndex: Int = 1
-    public var textContentIndex: WatchTextContent = .WatchTextWeather
+    public var backImageIndex: Int = 3
+    public var textContentIndex: WatchTextContent = .WatchTextDate
     
     private var textColorHex : String = UIColor.white.toHex()
     
@@ -257,14 +257,14 @@ protocol WatchInfoUpdate {
 }
 
 class WatchInfo: Codable {
-    public var faceIndex: Int = 0
+    public var faceIndex: Int = 1
 
-    public var LogoIndex: Int = 1
+    public var LogoIndex: Int = 8
     public var LogoToCenter: CGFloat = 32
 
     public var hourIndex: Int = 0
     public var minuteIndex: Int = 0
-    public var secondIndex: Int = 2
+    public var secondIndex: Int = 1
 
     public var bottomText: WatchText = WatchText()
     public var leftText: WatchText = WatchText()
@@ -310,7 +310,7 @@ class WatchInfo: Codable {
         }
     }
     
-    public var useCustomFace: Bool = true
+    public var useCustomFace: Bool = false
     
     public var customFace_draw_back: Bool = false
     

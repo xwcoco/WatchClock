@@ -22,6 +22,6 @@ class AboutViewControl: UIViewController {
         versionLabel.text = "Version : " + boundVersion!
 
         let buildDate = Bundle.main.infoDictionary!["CFBundleBuildDate"] as? String
-        infoLabel.text = "Build date : " + buildDate! + "\n" + "Code by xwcoco@msn.com\n\n" + "Thank JacobSyndeo \n" + "Thank steventroughtonsmith \n" + "Thank JosephShenton\n" + "Thank wusaul "
+        infoLabel.text = "Build date : " + buildDate! + "\n" + "Code by xwcoco@msn.com\n\n" + "Thank you guys:  \n" + "JacobSyndeo\n"+"steventroughtonsmith \n" + "JosephShenton\n" + " wusaul \n" + "jin9000"
     }
 }

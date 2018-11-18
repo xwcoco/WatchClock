@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleBuildDate</key>
-	<string>2018.11.17.22:50:30</string>
+	<string>2018.11.18.11:24:57</string>
 	<key>CFBundleBuildNumber</key>
-	<string>736</string>
+	<string>755</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -25,7 +25,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.736</string>
+	<string>1.0.755</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>
@@ -38,6 +38,9 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>HermesCAPECOD.otf</string>
+		<string>HermesESPACE.otf</string>
+		<string>HermesCARRICK.otf</string>
+		<string>HermesCAPECODOutline.otf</string>
 	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>

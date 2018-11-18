@@ -89,11 +89,14 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
         }
     }
     
-    func NextWatch() -> Void {
+    func NextWatch(_ dire : Int) -> Void {
         if (self.WatchList.count > 1) {
-            self.curWeatchIndex = self.curWeatchIndex + 1
+            self.curWeatchIndex = self.curWeatchIndex + dire
             if (curWeatchIndex >= self.WatchList.count) {
                 self.curWeatchIndex = 0
+            }
+            if (curWeatchIndex < 0) {
+                curWeatchIndex = self.WatchList.count - 1
             }
             UserDefaults.standard.set(self.curWeatchIndex, forKey: "CurWatchIndex")
             let watch = self.loadCurWatch()
@@ -115,10 +118,18 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
     private var totalRotation: Double = 0
 
     func crownDidRotate(_ crownSequencer: WKCrownSequencer?, rotationalDelta: Double) {
+        
+        var direction : Int = 1;
+        
         totalRotation += fabs(rotationalDelta);
+        
+        if (rotationalDelta < 0) {
+            direction = -1;
+        }
+        
 
         if (totalRotation > (Double.pi / 4 / 2)) {
-            self.NextWatch()
+            self.NextWatch(direction)
             totalRotation = 0;
         }
 

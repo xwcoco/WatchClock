@@ -9,7 +9,7 @@
 import Foundation
 import SpriteKit
 
-class WatchSettings : NSObject,CnWeatherProtocol {
+class WatchSettings: NSObject, CnWeatherProtocol {
     static var GFaceNameList: [String] = ["empty",
                                           "Hermes_watch_face_original",
                                           "Hermes_watch_face_original_orange",
@@ -69,7 +69,7 @@ class WatchSettings : NSObject,CnWeatherProtocol {
 
     static var GSecondsAnchorFromBottoms: [CGFloat] = [0, 27, 27, 26, 26, 67, 67, 67]
 
-    static var GLogoImageList: [String] = ["empty", "hermes_logo_white",
+    static var GLogoImageList: [String] = ["empty",                       "hermes_logo_white",
                                            "hermes_logo_2",
                                            "gucci_log",
                                            "constantin_logo",
@@ -86,10 +86,10 @@ class WatchSettings : NSObject,CnWeatherProtocol {
     ]
 
 
-    private var cnWeather : CnWeather?
-    
-    var weatherData : CnWeatherData?
-    
+    private var cnWeather: CnWeather?
+
+    var weatherData: CnWeatherData?
+
     private override init() {
         super.init()
         self.loadSettings()
@@ -123,23 +123,23 @@ class WatchSettings : NSObject,CnWeatherProtocol {
             UserDefaults.standard.set(newValue, forKey: "WeekStyle")
         }
     }
-    
-    private var _weatherIconSize : CGFloat = 20
-    
-    static var WeatherIconSize : CGFloat {
+
+    private var _weatherIconSize: CGFloat = 20
+
+    static var WeatherIconSize: CGFloat {
         get {
             return sharedInstance._weatherIconSize
         }
-        
+
         set {
             sharedInstance._weatherIconSize = newValue
             UserDefaults.standard.set(newValue, forKey: "WeatherIconSize")
         }
     }
-    
-    private var _WeatherDrawColorAQI : Bool = true
-    
-    static var WeatherDrawColorAQI : Bool {
+
+    private var _WeatherDrawColorAQI: Bool = true
+
+    static var WeatherDrawColorAQI: Bool {
         get {
             return sharedInstance._WeatherDrawColorAQI
         }
@@ -148,9 +148,9 @@ class WatchSettings : NSObject,CnWeatherProtocol {
             UserDefaults.standard.set(newValue, forKey: "DrawColorAQI")
         }
     }
-    
-    private var _weather_city : String = ""
-    static var WeatherCity : String {
+
+    private var _weather_city: String = ""
+    static var WeatherCity: String {
         get {
             return sharedInstance._weather_city
         }
@@ -159,21 +159,21 @@ class WatchSettings : NSObject,CnWeatherProtocol {
             UserDefaults.standard.set(newValue, forKey: "WeatherCity")
         }
     }
-    
-    private var _weather_location : String = ""
-    static var WeatherLocation : String {
+
+    private var _weather_location: String = ""
+    static var WeatherLocation: String {
         get {
             return sharedInstance._weather_location
         }
-        
+
         set {
             sharedInstance._weather_location = newValue
             UserDefaults.standard.set(newValue, forKey: "WeatherLocation")
             sharedInstance.cnWeather?.beginTimer()
         }
     }
-    
-    
+
+
     private func loadSettings() {
         self._weekStyle = UserDefaults.standard.integer(forKey: "WeekStyle")
         self._WeatherDrawColorAQI = UserDefaults.standard.bool(forKey: "DrawColorAQI")
@@ -184,25 +184,25 @@ class WatchSettings : NSObject,CnWeatherProtocol {
             self._weatherIconSize = 20
         }
     }
-    
-    static var WeatherData : CnWeatherData? {
+
+    static var WeatherData: CnWeatherData? {
         get {
             return sharedInstance.weatherData
         }
     }
-    
+
     static func reloadSettings() {
         sharedInstance.loadSettings()
     }
-    
+
     func showWeather(_ data: CnWeatherData) {
         self.weatherData = data
         NotificationCenter.default.post(name: Notification.Name("WeatherDataUpdate"), object: self)
 //        NotificationCenter.default.post(Notification.init(name: Notification.Name("WeatherDataUpdate")))
 //        self.currentWatch?.setWeatherData(data: data)
     }
-    
-    
+
+
     private func _loadWeatherData() {
         if (self.cnWeather == nil) {
             self.cnWeather = CnWeather()
@@ -210,7 +210,7 @@ class WatchSettings : NSObject,CnWeatherProtocol {
             cnWeather?.beginTimer()
         }
     }
-    
+
     static func LoadWeatherData() {
         sharedInstance._loadWeatherData()
     }
@@ -218,15 +218,15 @@ class WatchSettings : NSObject,CnWeatherProtocol {
 }
 
 
-enum NumeralStyle: Int,Codable {
+enum NumeralStyle: Int, Codable {
     case NumeralStyleAll, NumeralStyleCardinal, NumeralStyleNone
 }
 
-enum TickmarkStyle: Int,Codable {
+enum TickmarkStyle: Int, Codable {
     case TickmarkStyleAll, TickmarkStyleMajor, TickmarkStyleMinor, TickmarkStyleNone
 }
 
-enum WatchFaceStyle: Int,Codable {
+enum WatchFaceStyle: Int, Codable {
     case WatchFaceStyleRound, WatchFaceStyleRectangle
 }
 

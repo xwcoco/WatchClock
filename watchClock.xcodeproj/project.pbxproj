@@ -55,6 +55,12 @@
 		4FB7B71F219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
 		4FB7B720219597C60017F683 /* WatchInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B71E219597C60017F683 /* WatchInfo.swift */; };
 		4FB7B722219598A20017F683 /* WatchScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FB7B721219598A20017F683 /* WatchScene.swift */; };
+		4FCE342F21A107840042D2E7 /* HermesCARRICK.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4FCE342E21A107840042D2E7 /* HermesCARRICK.otf */; };
+		4FCE343021A107840042D2E7 /* HermesCARRICK.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4FCE342E21A107840042D2E7 /* HermesCARRICK.otf */; };
+		4FCE343221A107970042D2E7 /* HermesESPACE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4FCE343121A107970042D2E7 /* HermesESPACE.otf */; };
+		4FCE343321A107970042D2E7 /* HermesESPACE.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4FCE343121A107970042D2E7 /* HermesESPACE.otf */; };
+		4FCE343421A107A30042D2E7 /* HermesCAPECODOutline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4FCE342D21A107710042D2E7 /* HermesCAPECODOutline.otf */; };
+		4FCE343521A107A40042D2E7 /* HermesCAPECODOutline.otf in Resources */ = {isa = PBXBuildFile; fileRef = 4FCE342D21A107710042D2E7 /* HermesCAPECODOutline.otf */; };
 		4FD33351219D83C100B6E9E2 /* AboutViewControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD33350219D83C100B6E9E2 /* AboutViewControl.swift */; };
 		4FD4BC9A219BE8B7003AD84C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BC99219BE8B7003AD84C /* Weather.swift */; };
 		4FD4BC9B219BE8B7003AD84C /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4FD4BC99219BE8B7003AD84C /* Weather.swift */; };
@@ -154,6 +160,9 @@
 		4FB7B71C2195934D0017F683 /* WatchDesignViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchDesignViewControl.swift; sourceTree = "<group>"; };
 		4FB7B71E219597C60017F683 /* WatchInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchInfo.swift; sourceTree = "<group>"; };
 		4FB7B721219598A20017F683 /* WatchScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WatchScene.swift; sourceTree = "<group>"; };
+		4FCE342D21A107710042D2E7 /* HermesCAPECODOutline.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HermesCAPECODOutline.otf; sourceTree = "<group>"; };
+		4FCE342E21A107840042D2E7 /* HermesCARRICK.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HermesCARRICK.otf; sourceTree = "<group>"; };
+		4FCE343121A107970042D2E7 /* HermesESPACE.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = HermesESPACE.otf; sourceTree = "<group>"; };
 		4FD33350219D83C100B6E9E2 /* AboutViewControl.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewControl.swift; sourceTree = "<group>"; };
 		4FD4BC99219BE8B7003AD84C /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		4FF1DDFC2195CDF8009D49DE /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
@@ -259,6 +268,9 @@
 		4F48FCA92193D28B00EF4972 /* watchClock WatchKit Extension */ = {
 			isa = PBXGroup;
 			children = (
+				4FCE343121A107970042D2E7 /* HermesESPACE.otf */,
+				4FCE342E21A107840042D2E7 /* HermesCARRICK.otf */,
+				4FCE342D21A107710042D2E7 /* HermesCAPECODOutline.otf */,
 				4F519BFE219967E700941F47 /* HermesCAPECOD.otf */,
 				4F48FCAA2193D28B00EF4972 /* InterfaceController.swift */,
 				4F48FCAC2193D28B00EF4972 /* ExtensionDelegate.swift */,
@@ -392,11 +404,14 @@
 			files = (
 				4F48FC922193D28A00EF4972 /* LaunchScreen.storyboard in Resources */,
 				4F48FC8F2193D28A00EF4972 /* Assets.xcassets in Resources */,
+				4FCE343421A107A30042D2E7 /* HermesCAPECODOutline.otf in Resources */,
 				4FB7B71621957CB90017F683 /* Assets.xcassets in Resources */,
+				4FCE342F21A107840042D2E7 /* HermesCARRICK.otf in Resources */,
 				4F9AA3E2219ED532001363F4 /* Localizable.strings in Resources */,
 				4F48FC8D2193D28900EF4972 /* Main.storyboard in Resources */,
 				4F029E642196A12700EE7660 /* FaceScene.sks in Resources */,
 				4F519C00219967F300941F47 /* HermesCAPECOD.otf in Resources */,
+				4FCE343221A107970042D2E7 /* HermesESPACE.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -415,7 +430,10 @@
 			files = (
 				4F48FCB12193D28B00EF4972 /* Assets.xcassets in Resources */,
 				4F48FCC22193D42900EF4972 /* FaceScene.sks in Resources */,
+				4FCE343521A107A40042D2E7 /* HermesCAPECODOutline.otf in Resources */,
+				4FCE343321A107970042D2E7 /* HermesESPACE.otf in Resources */,
 				4F519BFF219967F200941F47 /* HermesCAPECOD.otf in Resources */,
+				4FCE343021A107840042D2E7 /* HermesCARRICK.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -679,7 +697,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -704,7 +722,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -724,7 +742,7 @@
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				IBSC_MODULE = watchClock_WatchKit_Extension;
 				INFOPLIST_FILE = "watchClock WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -743,7 +761,7 @@
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				IBSC_MODULE = watchClock_WatchKit_Extension;
 				INFOPLIST_FILE = "watchClock WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -764,7 +782,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -782,7 +800,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
