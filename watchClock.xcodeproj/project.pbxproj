@@ -455,7 +455,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "# #! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n/usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n\nxcrun agvtool new-version -all ${buildNumber}\n\n";
+			shellScript = "# #! /bin/bash\ninfoPlist=\"${INFOPLIST_FILE}\"\n#! GET CFBundleBuildNumber value\nbuildNumber=$(/usr/libexec/PlistBuddy -c \"Print CFBundleBuildNumber\" ${infoPlist})\n#! CFBundleBuildNumber + 1\nbuildNumber=$((${buildNumber} + 1))\n#! SET CFBundleBuildNumber on Info.plist\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildNumber ${buildNumber}\" ${infoPlist}\n#! GET CFBundleShortVersionString\nshortVersion=$(/usr/libexec/PlistBuddy -c \"Print :CFBundleShortVersionString\" ${infoPlist})\n#! Composes the buildNumber as CFBundleVersion\nbuildNumber=\"${shortVersion}.${buildNumber}\"\n#! SET CFBundleVersion\n#! /usr/libexec/PlistBuddy -c \"Set :CFBundleVersion ${buildNumber}\" ${infoPlist}\n#! GET date string\nbuildDate=\"$(date +%Y.%m.%d.%H:%M:%S)\"\n#! SET CFBundleBuildDate\n/usr/libexec/PlistBuddy -c \"Set :CFBundleBuildDate ${buildDate}\" ${infoPlist}\n\n#! xcrun agvtool new-version -all ${buildNumber}\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -697,7 +697,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -722,7 +722,7 @@
 					"@executable_path/Frameworks",
 					"@executable_path/../../Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp.watchkitextension;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -742,7 +742,7 @@
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				IBSC_MODULE = watchClock_WatchKit_Extension;
 				INFOPLIST_FILE = "watchClock WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -761,7 +761,7 @@
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				IBSC_MODULE = watchClock_WatchKit_Extension;
 				INFOPLIST_FILE = "watchClock WatchKit App/Info.plist";
-				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock.watchkitapp;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
@@ -776,16 +776,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				INFOPLIST_FILE = watchClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -794,16 +796,18 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_TEAM = 4E49FXN2FU;
 				INFOPLIST_FILE = watchClock/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.xwcoco.watchClock;
+				PRODUCT_BUNDLE_IDENTIFIER = com.dfsoft.watchClock;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};

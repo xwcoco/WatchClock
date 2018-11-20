@@ -78,6 +78,7 @@ class InterfaceController: WKInterfaceController, WKCrownDelegate {
 
     func loadWatchFromFiles() -> Void {
         let watchNum = UserDefaults.standard.integer(forKey: "WatchNum")
+//        let watchNum = 0
         print("watch Num is ", watchNum)
         self.WatchList.removeAll()
         for i in 0..<watchNum {

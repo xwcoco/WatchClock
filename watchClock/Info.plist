@@ -3,9 +3,9 @@
 <plist version="1.0">
 <dict>
 	<key>CFBundleBuildDate</key>
-	<string>2018.11.18.11:24:57</string>
+	<string>2018.11.20.11:50:05</string>
 	<key>CFBundleBuildNumber</key>
-	<string>755</string>
+	<string>781</string>
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
@@ -25,7 +25,7 @@
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.755</string>
+	<string>1.0.773</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSAppTransportSecurity</key>

@@ -204,6 +204,10 @@ class WatchText : Codable {
         if (size == nil) {
             size = CGSize(width: rect.width, height: rect.height)
             
+            if (size?.width == 0 || size?.height == 0) {
+                size = CGSize(width: 10, height: 10)
+            }
+            
             if (weatherImg != nil) {
                 size!.width = size!.width + WatchSettings.WeatherIconSize
                 

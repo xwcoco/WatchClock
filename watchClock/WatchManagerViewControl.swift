@@ -84,6 +84,7 @@ class WatchManagerViewControl: UITableViewController {
 
     func loadWatchFromFiles() {
         let watchNum = UserDefaults.standard.integer(forKey: "WatchNum")
+//        let watchNum = 0
         print("watch Num is ", watchNum)
         self.WatchList.removeAll()
         if (watchNum > 0) {
